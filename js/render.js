@@ -169,37 +169,88 @@ export function renderSticker({ art, pose, head, prop, text, size, keepClean, mo
   return draw(img, headX, headTop, pose.kind, text, size, keepClean, motion);
 }
 
-/** How a moving sticker moves: a hop, a shake for shouting, a slow float for thinking. */
+/**
+ * How a moving sticker moves, from the pose (which already reflects the words) and how it was
+ * typed: hops for happy, a heartbeat for love, trembling for tears, shaking for anger, a wave
+ * for hello. Shared with the keyboard app (StickerRenderer.java): keep the two lists the same.
+ */
+const MOTIONS = {
+  WAVE: ['hi', 'royal_dismiss', 'talk_hand', 'khum', 'xm_lights', 'off_no_no'],
+  NOD: ['thumbs_up', 'cool', 'thanks', 'royal_bow', 'off_kowtow', 'off_scroll_bow', 'tet_bow', 'royal_scroll',
+    'off_present', 'cheers', 'gm_trophy', 'eggplant_trophy', 'studying', 'typing', 'coffee', 'ca_phe', 'tra_sua'],
+  JIGGLE: ['laugh', 'xiu_up_down', 'dzay_ha', 'tongue_out', 'karaoke', 'gm_shades_dance', 'party', 'candy_hype',
+    'hw_candy', 'eyebrow_wiggle', 'innocent_toot'],
+  PULSE: ['love', 'shy', 'hug', 'heart_duo', 'boba_hug', 'rose_wink', 'swoon', 'food_love', 'tet_shy', 'shy_peek',
+    'xm_cocoa', 'glow_up', 'mirror_flex', 'gym_selfie'],
+  TREMBLE: ['crying', 'fine_crying', 'teary_eyes', 'rain_cry', 'off_tremble', 'off_tremble_stand', 'off_wail',
+    'off_panic', 'oi_doi_oi', 'u_la_troi', 'het_cuu', 'treadmill_cry', 'lift_struggle', 'hw_bat_scare', 'spicy',
+    'two_buttons'],
+  SHAKE: ['angry', 'deadlift_rage', 'gm_rage_quit', 'kimchi_slap', 'slipper_throw', 'censored_finger', 'off_stern',
+    'dinh_chop'],
+  POP: ['gasp', 'mind_blown', 'royal_crown_pop', 'tet_fireworks', 'qua_da', 'mic_drop', 'rich', 'tet_envelopes_fan',
+    'xm_gift', 'tet_envelope', 'royal_entrance'],
+  SINK: ['facepalm', 'soul_leaving', 'melting', 'buried', 'pancake', 'fainted', 'off_faint', 'mat_flop', 'food_coma',
+    'royal_tired', 'can_loi', 'loading'],
+  DASH: ['running_late', 'dramatic_run', 'scooter'],
+  TILT: ['confused', 'shrug', 'side_eye', 'eye_roll', 'nose_up', 'peek', 'off_whisper', 'off_whisper_sly', 'point',
+    'royal_point', 'popcorn', 'yoga_tangle', 'off_hem_beg', 'royal_beg'],
+  FLOAT: ['sleep', 'gm_keyboard_sleep', 'xm_sleep', 'hw_ghost', 'hammock', 'noodle_bath', 'tet_mai', 'hw_leaves',
+    'xm_snowman'],
+};
+const MOTION_OF = {};
+for (const [m, kinds] of Object.entries(MOTIONS)) for (const k of kinds) MOTION_OF[k] = m;
+
 export function motionFor(text, kind) {
+  let m = MOTION_OF[kind] || 'BOUNCE';
   const t = (text || '').trim();
-  if (!t) return 'BOUNCE';
+  if (!t) return m;
   const st = styleFor(t, kind);
-  return st === 'SHOUT' ? 'SHAKE' : st === 'THINK' ? 'FLOAT' : 'BOUNCE';
+  // shouting shakes calm poses; "..." makes them drift
+  if (st === 'SHOUT' && ['BOUNCE', 'NOD', 'TILT', 'WAVE', 'FLOAT'].includes(m)) m = 'SHAKE';
+  if (st === 'THINK' && ['BOUNCE', 'NOD', 'WAVE', 'JIGGLE'].includes(m)) m = 'FLOAT';
+  return m;
+}
+
+/** One moment of a motion: [dx, dy, scaleX, scaleY, degrees]. t goes 0 to 1 and loops cleanly. */
+export function motionAt(m, t) {
+  const P = Math.PI, sin = Math.sin, abs = Math.abs;
+  switch (m) {
+    case 'SHAKE': return [sin(6 * P * t) * 0.03, 0, 1, 1, sin(6 * P * t + 0.5) * 3];
+    case 'FLOAT': return [0, (Math.cos(2 * P * t) - 1) / 2 * 0.035, 1, 1, sin(2 * P * t) * 2];
+    case 'WAVE': return [0, 0, 1, 1, sin(2 * P * t) * 7];
+    case 'NOD': return [0, -(1 - Math.cos(4 * P * t)) / 2 * 0.025, 1, 1, sin(2 * P * t) * 1.5];
+    case 'JIGGLE': return [0, -abs(sin(3 * P * t)) * 0.035, 1, 1, sin(6 * P * t) * 3];
+    case 'PULSE': {
+      const b = t < 0.5 ? Math.pow(Math.max(0, sin(4 * P * t)), 2) : 0; // two beats, then a rest
+      return [0, 0, 1 + 0.07 * b, 1 + 0.07 * b, 0];
+    }
+    case 'TREMBLE': return [sin(12 * P * t) * 0.012, 0, 1 + 0.01 * abs(sin(6 * P * t)), 1 - 0.02 * abs(sin(6 * P * t)), 0];
+    case 'POP': {
+      const g = 0.1 * Math.pow(sin(P * t), 4);
+      return [0, 0, 1 + g, 1 + g, sin(2 * P * t) * 2];
+    }
+    case 'SINK': {
+      const q = sin(P * t) * 0.06;
+      return [0, 0, 1 + q * 0.6, 1 - q, sin(2 * P * t) * 1.5];
+    }
+    case 'DASH': return [sin(2 * P * t) * 0.04, -abs(sin(4 * P * t)) * 0.015, 1, 1, -Math.cos(2 * P * t) * 4];
+    case 'TILT': return [sin(2 * P * t) * 0.01, 0, 1, 1, sin(2 * P * t) * 9];
+    default: { // BOUNCE: a hop with a squash on landing
+      const h = sin(P * t);
+      const sq = Math.pow(1 - h, 4) * 0.07;
+      return [0, -h * 0.07, 1 + sq, 1 - sq, 0];
+    }
+  }
 }
 
 /**
  * A short looping animation, as canvases: only the character moves; the bubble and words stay
- * still so they stay easy to read. Frame 0 is the plain sticker. Same motion as the keyboard app.
+ * still so they stay easy to read. Same motions as the keyboard app.
  */
 export function renderFrames(opts, count) {
   const mo = motionFor(opts.text, opts.pose.kind);
   const out = [];
-  for (let i = 0; i < count; i++) {
-    const t = i / count;
-    let dx = 0, dy = 0, sx = 1, sy = 1;
-    if (mo === 'SHAKE') {
-      dx = Math.sin(t * Math.PI * 4) * 0.035;
-    } else if (mo === 'FLOAT') {
-      dy = (Math.cos(t * Math.PI * 2) - 1) / 2 * 0.035;
-    } else {
-      const h = Math.sin(t * Math.PI); // 0 on the ground, 1 at the top
-      dy = -h * 0.07;
-      const squash = Math.pow(1 - h, 4) * 0.07;
-      sx = 1 + squash;
-      sy = 1 - squash;
-    }
-    out.push(renderSticker({ ...opts, motion: [dx, dy, sx, sy] }));
-  }
+  for (let i = 0; i < count; i++) out.push(renderSticker({ ...opts, motion: motionAt(mo, i / count) }));
   return out;
 }
 
@@ -208,7 +259,18 @@ function moved(d, mo, s) {
   if (!mo) return d;
   const w = d.width * mo[2], h = d.height * mo[3];
   const cx = d.left + d.width / 2 + mo[0] * s, bottom = d.top + d.height + mo[1] * s;
-  return { left: cx - w / 2, top: bottom - h, width: w, height: h };
+  return { left: cx - w / 2, top: bottom - h, width: w, height: h, deg: mo[4] || 0 };
+}
+
+/** Draws the art, turned around its bottom centre when the motion leans it. */
+function drawArt(c, art, r) {
+  if (!r.deg) { c.drawImage(art, r.left, r.top, r.width, r.height); return; }
+  const px = r.left + r.width / 2, py = r.top + r.height;
+  c.save();
+  c.translate(px, py);
+  c.rotate(r.deg * Math.PI / 180);
+  c.drawImage(art, -r.width / 2, -r.height, r.width, r.height);
+  c.restore();
 }
 
 function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
@@ -220,8 +282,7 @@ function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
   c.imageSmoothingQuality = 'high';
   const raw = (rawText || '').trim();
   if (!raw) {
-    const d = moved(fitBox(art, m, m, s - m, s - m), motion, s);
-    c.drawImage(art, d.left, d.top, d.width, d.height);
+    drawArt(c, art, moved(fitBox(art, m, m, s - m, s - m), motion, s));
     return out;
   }
   const style = styleFor(raw, kind);
@@ -249,8 +310,7 @@ function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
   const shapeW = bw * (1 + 2 * ex), shapeH = bh * (1 + 2 * ey);
 
   const dst = fitBox(art, m, edge + shapeH + tail, s - m, s - m);
-  const mv = moved(dst, motion, s);
-  c.drawImage(art, mv.left, mv.top, mv.width, mv.height);
+  drawArt(c, art, moved(dst, motion, s));
 
   const hx = dst.left + headX * dst.width;
   const hy = dst.top + headTop * dst.height;

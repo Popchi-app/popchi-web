@@ -12,7 +12,7 @@ const $ = (id) => document.getElementById(id);
 const A = 'assets/';
 const STRIP_PX = 240, BIG_PX = 512, TILE_MAX = 8;
 /** Moving stickers: frames, frame time and size (smaller than still ones to keep the file light). */
-const GIF_FRAMES = 12, GIF_MS = 70, GIF_PX = 360;
+const GIF_FRAMES = 16, GIF_MS = 60, GIF_PX = 360;
 const PACK_MIN = 3, PACK_MAX = 30, HOUSE = ['bao', 'mochi', 'linh', 'capy'];
 const EMAIL = 'hello@popchi.app';
 
