@@ -1,0 +1,507 @@
+{
+ "props": [
+  {
+   "id": "crown",
+   "type": "hat",
+   "size": 0.7,
+   "depth": 0.1,
+   "tags": [
+    "king",
+    "queen",
+    "boss",
+    "royal",
+    "vua",
+    "hoang thuong",
+    "bệ hạ",
+    "be ha",
+    "trẫm",
+    "👑"
+   ]
+  },
+  {
+   "id": "party_hat",
+   "type": "hat",
+   "size": 0.55,
+   "depth": 0.06,
+   "tags": [
+    "birthday",
+    "party",
+    "happy birthday",
+    "sinh nhat",
+    "tiec",
+    "🎉",
+    "🥳",
+    "🎂"
+   ]
+  },
+  {
+   "id": "santa_hat",
+   "type": "hat",
+   "size": 1.1,
+   "depth": 0.3,
+   "tags": [
+    "christmas",
+    "xmas",
+    "santa",
+    "giang sinh",
+    "noel",
+    "🎅",
+    "🎄"
+   ]
+  },
+  {
+   "id": "witch_hat",
+   "type": "hat",
+   "size": 1.3,
+   "depth": 0.25,
+   "tags": [
+    "halloween",
+    "witch",
+    "phu thuy",
+    "spooky",
+    "🎃"
+   ]
+  },
+  {
+   "id": "non_la",
+   "type": "hat",
+   "size": 1.5,
+   "depth": 0.22,
+   "tags": [
+    "non la",
+    "vietnam",
+    "viet nam",
+    "que huong",
+    "mien tay",
+    "🇻🇳"
+   ]
+  },
+  {
+   "id": "grad_cap",
+   "type": "hat",
+   "size": 1.2,
+   "depth": 0.25,
+   "tags": [
+    "graduation",
+    "graduate",
+    "graduated",
+    "tot nghiep",
+    "ra truong",
+    "🎓"
+   ]
+  },
+  {
+   "id": "chef_hat",
+   "type": "hat",
+   "size": 0.9,
+   "depth": 0.22,
+   "tags": [
+    "cooking",
+    "cook",
+    "chef",
+    "nau an",
+    "bep",
+    "👨‍🍳"
+   ]
+  },
+  {
+   "id": "hard_hat",
+   "type": "hat",
+   "size": 1.05,
+   "depth": 0.3,
+   "tags": [
+    "construction",
+    "engineer",
+    "under construction",
+    "cong trinh",
+    "ky su",
+    "🚧"
+   ]
+  },
+  {
+   "id": "flower_crown",
+   "type": "hat",
+   "size": 1.05,
+   "depth": 0.18,
+   "tags": [
+    "spring",
+    "festival",
+    "flowers",
+    "pretty",
+    "hoa",
+    "🌸"
+   ]
+  },
+  {
+   "id": "propeller_cap",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.3,
+   "tags": [
+    "silly",
+    "goofy",
+    "kid",
+    "nhi nho",
+    "ngao"
+   ]
+  },
+  {
+   "id": "cowboy_hat",
+   "type": "hat",
+   "size": 1.45,
+   "depth": 0.25,
+   "tags": [
+    "yeehaw",
+    "cowboy",
+    "texas",
+    "howdy",
+    "rodeo",
+    "🤠"
+   ]
+  },
+  {
+   "id": "beanie",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.32,
+   "tags": [
+    "cold",
+    "winter",
+    "freezing",
+    "lạnh",
+    "🥶"
+   ]
+  },
+  {
+   "id": "pixel_crown",
+   "type": "hat",
+   "size": 0.8,
+   "depth": 0.1,
+   "tags": [
+    "gamer king",
+    "winner",
+    "gg"
+   ]
+  },
+  {
+   "id": "snapback",
+   "type": "hat",
+   "size": 1.05,
+   "depth": 0.3,
+   "tags": [
+    "swag",
+    "yo",
+    "street",
+    "chill"
+   ]
+  },
+  {
+   "id": "foil_hat",
+   "type": "hat",
+   "size": 0.85,
+   "depth": 0.22,
+   "tags": [
+    "conspiracy",
+    "aliens",
+    "sus",
+    "they are watching",
+    "👽"
+   ]
+  },
+  {
+   "id": "royal_crown",
+   "type": "hat",
+   "size": 0.8,
+   "depth": 0.12,
+   "tags": [
+    "king",
+    "queen",
+    "majesty",
+    "royal",
+    "vua",
+    "hoang thuong",
+    "trẫm"
+   ]
+  },
+  {
+   "id": "tiara",
+   "type": "hat",
+   "size": 0.85,
+   "depth": 0.14,
+   "tags": [
+    "princess",
+    "cong chua",
+    "pageant",
+    "hoa hau"
+   ]
+  },
+  {
+   "id": "jester_hat",
+   "type": "hat",
+   "size": 1.2,
+   "depth": 0.28,
+   "tags": [
+    "clown",
+    "joke",
+    "joker",
+    "hề",
+    "hề",
+    "🤡"
+   ]
+  },
+  {
+   "id": "hennin",
+   "type": "hat",
+   "size": 0.8,
+   "depth": 0.14,
+   "tags": [
+    "princess",
+    "fairy tale",
+    "cong chua",
+    "medieval"
+   ]
+  },
+  {
+   "id": "feather_beret",
+   "type": "hat",
+   "size": 1.2,
+   "depth": 0.25,
+   "tags": [
+    "artist",
+    "fancy",
+    "bard",
+    "nghe si"
+   ]
+  },
+  {
+   "id": "laurel",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.18,
+   "tags": [
+    "winner",
+    "champion",
+    "victory",
+    "chien thang",
+    "🏆"
+   ]
+  },
+  {
+   "id": "mianguan",
+   "type": "hat",
+   "size": 1.05,
+   "depth": 0.32,
+   "tags": [
+    "hoang thuong",
+    "hoang de",
+    "trẫm",
+    "be ha",
+    "gia lam",
+    "emperor",
+    "thanh thuong",
+    "gia dao",
+    "quỳ"
+   ]
+  },
+  {
+   "id": "warrior_helmet",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.3,
+   "tags": [
+    "tuong quan",
+    "general",
+    "warrior",
+    "chien binh"
+   ]
+  },
+  {
+   "id": "official_wings",
+   "type": "hat",
+   "size": 1.45,
+   "depth": 0.28,
+   "tags": [
+    "=quan",
+    "dai nhan",
+    "khanh",
+    "official",
+    "quan lon",
+    "vi than",
+    "thần",
+    "bẩm",
+    "tâu",
+    "oan uong",
+    "khanh gia"
+   ]
+  },
+  {
+   "id": "phoenix_crown",
+   "type": "hat",
+   "size": 1.15,
+   "depth": 0.3,
+   "tags": [
+    "hoang hau",
+    "nuong nuong",
+    "empress",
+    "queen",
+    "cong chua",
+    "thai hau"
+   ]
+  },
+  {
+   "id": "korean_gat",
+   "type": "hat",
+   "size": 1.55,
+   "depth": 0.2,
+   "tags": [
+    "kdrama",
+    "phim han",
+    "joseon",
+    "seonbi",
+    "gat"
+   ]
+  },
+  {
+   "id": "red_official_hat",
+   "type": "hat",
+   "size": 0.95,
+   "depth": 0.3,
+   "tags": [
+    "thai giam",
+    "cong cong",
+    "eunuch",
+    "no tai",
+    "gia dao"
+   ]
+  },
+  {
+   "id": "black_official_hat",
+   "type": "hat",
+   "size": 0.95,
+   "depth": 0.28,
+   "tags": [
+    "=quan",
+    "nho si",
+    "scholar"
+   ]
+  },
+  {
+   "id": "qing_headdress",
+   "type": "hat",
+   "size": 1.25,
+   "depth": 0.32,
+   "tags": [
+    "nuong nuong",
+    "phi tan",
+    "cung dau",
+    "concubine"
+   ]
+  },
+  {
+   "id": "devil_horns",
+   "type": "band",
+   "size": 1.15,
+   "depth": 0,
+   "tags": [
+    "devil",
+    "evil",
+    "naughty",
+    "quỷ",
+    "ac quy",
+    "😈"
+   ]
+  },
+  {
+   "id": "bunny_ears",
+   "type": "band",
+   "size": 1.15,
+   "depth": 0,
+   "tags": [
+    "bunny",
+    "rabbit",
+    "thỏ",
+    "easter",
+    "🐰"
+   ]
+  },
+  {
+   "id": "cat_ears",
+   "type": "band",
+   "size": 1.15,
+   "depth": 0,
+   "tags": [
+    "meow",
+    "cat",
+    "nya",
+    "mèo",
+    "🐱"
+   ]
+  },
+  {
+   "id": "antlers",
+   "type": "band",
+   "size": 1.25,
+   "depth": 0,
+   "tags": [
+    "reindeer",
+    "christmas",
+    "rudolph",
+    "🦌"
+   ]
+  },
+  {
+   "id": "retro_headband",
+   "type": "forehead",
+   "size": 0.95,
+   "depth": 0,
+   "tags": [
+    "workout",
+    "gym",
+    "80s",
+    "retro",
+    "tap the duc"
+   ]
+  },
+  {
+   "id": "halo",
+   "type": "halo",
+   "size": 0.75,
+   "depth": 0,
+   "tags": [
+    "angel",
+    "innocent",
+    "holy",
+    "thien than",
+    "ngoan",
+    "😇"
+   ]
+  },
+  {
+   "id": "monitor_head",
+   "type": "cover",
+   "size": 1.15,
+   "depth": 0,
+   "tags": [
+    "robot",
+    "computer",
+    "robot",
+    "bot",
+    "may tinh",
+    "🤖"
+   ]
+  },
+  {
+   "id": "knight_helmet",
+   "type": "cover",
+   "size": 1.1,
+   "depth": 0,
+   "tags": [
+    "knight",
+    "defend",
+    "hiep si",
+    "chien dau",
+    "⚔️"
+   ]
+  }
+ ]
+}

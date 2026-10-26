@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Popchi</title>
+<meta name="description" content="Type a message and a chibi pops up saying it. Send it to any chat. English and Vietnamese, and nothing you type leaves your phone.">
+<meta name="theme-color" content="#6B4FA0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Popchi">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="app.css">
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <h1 class="brand">Popchi</h1>
+    <div class="top-actions">
+      <button class="lang" id="lang" type="button" aria-label="Switch language">VI</button>
+      <button class="ghost" id="open-plans" type="button" data-i18n="plans">Plans</button>
+      <button class="ghost" id="open-help" type="button" aria-label="How it works">?</button>
+    </div>
+  </header>
+
+  <section class="compose">
+    <label class="visually-hidden" for="msg" data-i18n="typeLabel">Your message</label>
+    <textarea id="msg" rows="2" maxlength="300" autocomplete="off" autocorrect="on" spellcheck="true"></textarea>
+    <div class="compose-foot">
+      <span class="hint" id="hint" data-i18n="hint">End with !! to shout, ... to think.</span>
+      <span class="count" id="count">0/40</span>
+    </div>
+  </section>
+
+  <nav class="who" id="who" aria-label="Characters"></nav>
+
+  <section class="strip-wrap" aria-label="Stickers for your message">
+    <div class="strip" id="strip"></div>
+    <p class="strip-empty" id="strip-empty" hidden></p>
+  </section>
+
+  <section class="chat" id="chat" aria-label="Preview">
+    <div class="chat-row">
+      <div class="sent" id="sent"><canvas id="big" width="512" height="512" aria-label="Selected sticker"></canvas></div>
+    </div>
+    <div class="send-row">
+      <button class="primary" id="send" type="button" data-i18n="send">Send</button>
+      <button class="secondary" id="copy" type="button" data-i18n="copy">Copy</button>
+      <button class="secondary" id="save" type="button" data-i18n="save">Save</button>
+    </div>
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="extras">
+    <div class="toggles">
+      <label class="switch"><input type="checkbox" id="nowords"><span data-i18n="noWords">No words</span></label>
+      <label class="switch"><input type="checkbox" id="clean" checked><span data-i18n="clean">Keep it clean</span></label>
+      <label class="switch"><input type="checkbox" id="moving"><span data-i18n="moving">Moving</span></label>
+      <button class="chip" id="props-btn" type="button"><span data-i18n="props">Props</span>: <b id="wearing-name">Auto</b></button>
+      <button class="chip" id="packs-btn" type="button" data-i18n="packs">📦 Packs</button>
+    </div>
+    <button class="more" id="more" type="button" data-i18n="more">See every pose</button>
+    <div class="grid" id="grid" hidden></div>
+  </section>
+
+  <footer class="foot">
+    <p class="smart" id="smart"></p>
+    <p data-i18n="privacy">Everything happens on your phone. Popchi never sends what you type anywhere.</p>
+    <p><button class="linkish" id="open-reports" type="button" hidden></button></p>
+    <p class="credits"><a href="credits.html" data-i18n="credits">Credits and licences</a></p>
+  </footer>
+</div>
+
+<dialog id="props-dialog" class="sheet">
+  <h2 data-i18n="propsTitle">Props</h2>
+  <p class="muted" data-i18n="propsHelp">Auto picks a prop from your words ("hoàng thượng" gets a crown). Pick one to wear it on every sticker.</p>
+  <div class="props-grid" id="props-grid"></div>
+  <button class="secondary" id="props-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="plans-dialog" class="sheet">
+  <h2 data-i18n="plansTitle">Free and Pro</h2>
+  <p class="status" id="plan-status"></p>
+  <div class="plan">
+    <h3>Free</h3>
+    <ul>
+      <li data-i18n="free1">Bao, Mochi, Linh and Capy, with all their poses</li>
+      <li data-i18n="free2">Stickers that react to what you type</li>
+      <li data-i18n="free3">English and Vietnamese</li>
+      <li data-i18n="free4">Shout and thought bubbles, mood colors, props</li>
+    </ul>
+  </div>
+  <div class="plan pro">
+    <h3>Pro <span class="price">$1.99 / month</span></h3>
+    <ul>
+      <li data-i18n="pro1">Make your own chibi from a selfie or a description</li>
+      <li data-i18n="pro2">A new pose pack every month</li>
+      <li data-i18n="pro3">Everything in Free</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <h3>My Character <span class="price">$3.99 once</span></h3>
+    <ul><li data-i18n="once1">Make one character of your own and keep it</li></ul>
+  </div>
+  <p class="muted" data-i18n="testNote">Test mode: there are no real payments yet. Making your own character works in the Android app for now and is coming to the web.</p>
+  <label class="switch"><input type="checkbox" id="pro-test"><span data-i18n="proTest">Pretend I'm Pro</span></label>
+  <button class="secondary" id="plans-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="packs-dialog" class="sheet">
+  <h2 data-i18n="packsTitle">Sticker packs</h2>
+  <p class="muted" data-i18n="packsHelp">Make a pack from your favorite poses and share it with friends as a link or QR code.</p>
+  <p class="muted" id="packs-none" data-i18n="noPacks">None yet.</p>
+  <div id="packs-list"></div>
+  <button class="primary" id="make-pack" type="button" data-i18n="makePack">Make a pack</button>
+  <p class="muted" data-i18n="androidPacks">Adding packs to WhatsApp and Telegram works in the Android app.</p>
+  <button class="secondary" id="packs-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="maker-dialog" class="sheet">
+  <h2 data-i18n="makePack">Make a pack</h2>
+  <p class="muted" data-i18n="pickPoses">Pick 3 to 30 poses from any of the crew. Tap again to remove.</p>
+  <label class="visually-hidden" for="pack-name" data-i18n="packName">Pack name</label>
+  <input class="text-input" id="pack-name" maxlength="30" autocomplete="off" data-i18n-placeholder="packName">
+  <p class="status" id="maker-count"></p>
+  <div class="maker-picked" id="maker-picked"></div>
+  <div class="maker-tabs" id="maker-tabs"></div>
+  <div class="grid maker-grid" id="maker-grid"></div>
+  <button class="primary" id="maker-save" type="button" data-i18n="savePack">Save pack</button>
+  <button class="secondary" id="maker-cancel" type="button" data-i18n="cancel">Cancel</button>
+</dialog>
+
+<dialog id="shared-dialog" class="sheet">
+  <h2 id="shared-title">Shared with you</h2>
+  <p class="muted" id="shared-count"></p>
+  <div id="shared-preview"></div>
+  <button class="primary" id="shared-save" type="button" data-i18n="savePackBtn">Save this pack</button>
+  <button class="secondary" id="shared-no" type="button" data-i18n="noThanks">No thanks</button>
+</dialog>
+
+<dialog id="qr-dialog" class="sheet">
+  <h2 id="qr-title">QR code</h2>
+  <canvas class="qr" id="qr-canvas" width="300" height="300" aria-label="QR code for the pack link"></canvas>
+  <p class="muted" data-i18n="qrHelp">Friends scan this with their phone camera.</p>
+  <button class="secondary" id="qr-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="reports-dialog" class="sheet">
+  <h2 data-i18n="reportsTitle">Wrong-sticker reports</h2>
+  <p class="muted" data-i18n="reportsHelp">When none of the stickers fit, tap None fit at the end of the row.</p>
+  <p id="reports-empty" data-i18n="reportsEmpty">Nothing saved yet.</p>
+  <div id="reports-list"></div>
+  <div id="reports-actions">
+    <a class="primary as-button" id="reports-email" href="mailto:hello@popchi.app" data-i18n="emailThem">Email these to Popchi</a>
+    <button class="secondary" id="reports-clear" type="button" data-i18n="clearAll">Clear the list</button>
+  </div>
+  <button class="secondary" id="reports-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="help-dialog" class="sheet welcome">
+  <div class="cards-wrap">
+    <div class="cards" id="cards"></div>
+    <button class="arrow prev" id="card-prev" type="button" aria-label="Previous card">‹</button>
+    <button class="arrow next" id="card-next" type="button" aria-label="Next card">›</button>
+  </div>
+  <div class="dots" id="dots"></div>
+  <button class="primary" id="help-go" type="button" autofocus>Next</button>
+  <button class="skip" id="help-close" type="button" data-i18n="skip">Skip</button>
+</dialog>
+</body>
+</html>

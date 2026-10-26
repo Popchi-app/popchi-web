@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.popchi.keyboard",
+      "sha256_cert_fingerprints": [
+        "DD:27:3D:33:92:0D:D1:D3:9D:DD:84:D5:F9:D1:FB:7D:79:6A:2D:3E:86:E8:46:D0:C1:8A:1E:F7:C3:8F:3A:3E"
+      ]
+    }
+  }
+]

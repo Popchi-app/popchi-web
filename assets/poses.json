@@ -1,0 +1,3270 @@
+{
+ "tags": {
+  "hi": [
+   "hi",
+   "hello",
+   "hey",
+   "yo",
+   "sup",
+   "howdy",
+   "bye",
+   "byebye",
+   "goodbye",
+   "see you",
+   "see ya",
+   "cya",
+   "good morning",
+   "morning",
+   "chao",
+   "xin chao",
+   "👋"
+  ],
+  "thumbs_up": [
+   "ok",
+   "okay",
+   "oke",
+   "sure",
+   "nice",
+   "good",
+   "great",
+   "yes",
+   "yep",
+   "yeah",
+   "yup",
+   "deal",
+   "agree",
+   "sounds good",
+   "got it",
+   "will do",
+   "perfect",
+   "correct",
+   "right",
+   "duoc",
+   "dong y",
+   "👍",
+   "👌",
+   "okela",
+   "duoc do",
+   "chuan",
+   "chuan luon"
+  ],
+  "laugh": [
+   "haha",
+   "hahaha",
+   "lol",
+   "lmao",
+   "funny",
+   "hilarious",
+   "hehe",
+   "hihi",
+   "rofl",
+   "kkk",
+   "buon cuoi",
+   "😂",
+   "🤣",
+   "😆",
+   "vl",
+   "vcl",
+   "cười",
+   "cuoi xiu"
+  ],
+  "thanks": [
+   "thanks",
+   "thank you",
+   "thank u",
+   "thx",
+   "ty",
+   "tysm",
+   "appreciate",
+   "appreciate it",
+   "grateful",
+   "cam on",
+   "cam on nhieu",
+   "🙏"
+  ],
+  "facepalm": [
+   "ugh",
+   "facepalm",
+   "smh",
+   "oh no",
+   "again",
+   "seriously",
+   "chán",
+   "🤦",
+   "het cuu",
+   "can loi",
+   "chiu",
+   "botay",
+   "bo tay"
+  ],
+  "shrug": [
+   "idk",
+   "whatever",
+   "dunno",
+   "who knows",
+   "not sure",
+   "shrug",
+   "tùy",
+   "sao cung duoc",
+   "🤷",
+   "ke di",
+   "ke no"
+  ],
+  "love": [
+   "love",
+   "love you",
+   "miss you",
+   "xoxo",
+   "cute",
+   "aww",
+   "sweet",
+   "heart",
+   "adorable",
+   "yeu",
+   "❤",
+   "❤️",
+   "😍",
+   "🥰",
+   "😘",
+   "iu",
+   "thuong qua",
+   "yeu qua",
+   "iu ghe"
+  ],
+  "confused": [
+   "huh",
+   "confused",
+   "wdym",
+   "what do you mean",
+   "which",
+   "dont understand",
+   "don t understand",
+   "sao",
+   "gi",
+   "la sao",
+   "🤨",
+   "❓",
+   "?",
+   "dzay ha",
+   "vay ha",
+   "sao vay",
+   "gi vay"
+  ],
+  "sleep": [
+   "sleep",
+   "sleepy",
+   "tired",
+   "night",
+   "good night",
+   "goodnight",
+   "gn",
+   "bed",
+   "nap",
+   "zzz",
+   "ngủ",
+   "ngu ngon",
+   "buon ngu",
+   "😴",
+   "💤",
+   "ngu thoi",
+   "di ngu",
+   "ngu ngon nha"
+  ],
+  "side_eye": [
+   "sus",
+   "suspicious",
+   "side eye",
+   "uh huh",
+   "sureee",
+   "really now",
+   "hmm really",
+   "=nghi",
+   "👀",
+   "nghi lam",
+   "ua",
+   "ủa",
+   "ua alo"
+  ],
+  "cool": [
+   "cool",
+   "chill",
+   "relax",
+   "easy",
+   "no problem",
+   "np",
+   "no worries",
+   "nailed it",
+   "smooth",
+   "all good",
+   "got this",
+   "boss",
+   "deal with it",
+   "ngau",
+   "binh tinh",
+   "😎",
+   "qua da",
+   "đã",
+   "chill thoi"
+  ],
+  "mind_blown": [
+   "mind blown",
+   "wow",
+   "whoa",
+   "woah",
+   "no way",
+   "crazy",
+   "insane",
+   "amazing",
+   "omg",
+   "dinh",
+   "🤯",
+   "dinh cua chop",
+   "ghe vay",
+   "khet"
+  ],
+  "fine_crying": [
+   "its fine",
+   "it s fine",
+   "im fine",
+   "i m fine",
+   "fine",
+   "i guess",
+   "its okay",
+   "it s okay",
+   "on ma",
+   "🥲"
+  ],
+  "soul_leaving": [
+   "exhausted",
+   "drained",
+   "dead inside",
+   "soul",
+   "so tired",
+   "tired af",
+   "het hon",
+   "xiu",
+   "👻"
+  ],
+  "popcorn": [
+   "drama",
+   "tea",
+   "spill the tea",
+   "gossip",
+   "go on",
+   "continue",
+   "then what",
+   "popcorn",
+   "hóng",
+   "hong chuyen",
+   "🍿"
+  ],
+  "slow_clap": [
+   "bravo",
+   "slow clap",
+   "genius",
+   "impressive",
+   "great job",
+   "well done",
+   "wow ok",
+   "👏"
+  ],
+  "gasp": [
+   "omg",
+   "oh my god",
+   "no way",
+   "shocked",
+   "really",
+   "whoa",
+   "gasp",
+   "troi",
+   "troi oi",
+   "😱",
+   "😮",
+   "😲",
+   "oi doi oi",
+   "oi doi",
+   "choi oi",
+   "troi dat oi",
+   "u la troi"
+  ],
+  "melting": [
+   "hot",
+   "so hot",
+   "heat",
+   "melting",
+   "summer",
+   "houston",
+   "sweating",
+   "nong",
+   "nong qua",
+   "🥵",
+   "☀️"
+  ],
+  "typing": [
+   "busy",
+   "work",
+   "working",
+   "typing",
+   "deadline",
+   "emails",
+   "swamped",
+   "cant talk",
+   "can t talk",
+   "dang ban",
+   "💻"
+  ],
+  "buried": [
+   "so much work",
+   "homework",
+   "papers",
+   "grading",
+   "drowning",
+   "too much",
+   "exam",
+   "exams",
+   "nhieu viec",
+   "📚"
+  ],
+  "coffee": [
+   "coffee",
+   "need coffee",
+   "caffeine",
+   "cafe",
+   "ca phe",
+   "☕"
+  ],
+  "loading": [
+   "loading",
+   "wait",
+   "one sec",
+   "hold on",
+   "buffering",
+   "processing",
+   "brain",
+   "lag",
+   "doi xiu",
+   "⏳"
+  ],
+  "two_buttons": [
+   "decide",
+   "choose",
+   "decision",
+   "dilemma",
+   "cant decide",
+   "can t decide",
+   "which one",
+   "options",
+   "chọn"
+  ],
+  "studying": [
+   "studying",
+   "study",
+   "homework",
+   "exam",
+   "exams",
+   "class",
+   "library",
+   "hoc",
+   "hoc bai",
+   "📖"
+  ],
+  "rich": [
+   "payday",
+   "money",
+   "rich",
+   "paid",
+   "stonks",
+   "profit",
+   "salary",
+   "bonus",
+   "lương",
+   "💰",
+   "💸",
+   "📈",
+   "tiền"
+  ],
+  "pancake": [
+   "done",
+   "finished",
+   "give up",
+   "flat",
+   "out",
+   "im out",
+   "i m out",
+   "xong",
+   "met qua"
+  ],
+  "running_late": [
+   "late",
+   "running late",
+   "omw",
+   "on my way",
+   "coming",
+   "hurry",
+   "rush",
+   "be right there",
+   "toi lien",
+   "dang toi",
+   "🏃",
+   "gotta go",
+   "got to go",
+   "have to go",
+   "leaving",
+   "heading out",
+   "gtg",
+   "brb",
+   "phai di",
+   "tre"
+  ],
+  "mic_drop": [
+   "boom",
+   "period",
+   "mic drop",
+   "end of story",
+   "nailed it",
+   "done",
+   "xong roi",
+   "🎤"
+  ],
+  "crying": [
+   "sad",
+   "cry",
+   "crying",
+   "upset",
+   "heartbroken",
+   "why me",
+   "nooo",
+   "khoc",
+   "tiec",
+   "😢",
+   "😭",
+   "💔",
+   "huhu",
+   "hic",
+   "hu hu",
+   "buon qua",
+   "buồn",
+   "oan uong",
+   "oan qua"
+  ],
+  "angry": [
+   "angry",
+   "mad",
+   "wtf",
+   "hate",
+   "annoyed",
+   "pissed",
+   "furious",
+   "damn",
+   "dammit",
+   "tuc",
+   "điên",
+   "buc",
+   "😡",
+   "🤬",
+   "😠",
+   "tuc qua",
+   "cay",
+   "quê",
+   "que"
+  ],
+  "shy": [
+   "shy",
+   "embarrassed",
+   "oops",
+   "my bad",
+   "sorry",
+   "please",
+   "pls",
+   "plz",
+   "awkward",
+   "blush",
+   "xin loi",
+   "ngai",
+   "🙈",
+   "😳",
+   "🥺",
+   "khum",
+   "hông",
+   "hok",
+   "ngai qua",
+   "no tai",
+   "than khong dam",
+   "khong dam"
+  ],
+  "peek": [
+   "psst",
+   "anyone",
+   "anyone there",
+   "hello there",
+   "hiding",
+   "lurking",
+   "watching",
+   "im here",
+   "i m here",
+   "🫣"
+  ],
+  "party": [
+   "yay",
+   "congrats",
+   "congratulations",
+   "birthday",
+   "happy birthday",
+   "party",
+   "celebrate",
+   "woohoo",
+   "lets go",
+   "let s go",
+   "finally",
+   "win",
+   "hooray",
+   "chuc mung",
+   "sinh nhat",
+   "🎉",
+   "🥳",
+   "🎂",
+   "quay",
+   "quay len",
+   "zo",
+   "dzo",
+   "mot hai ba dzo"
+  ],
+  "hungry": [
+   "hungry",
+   "food",
+   "eat",
+   "lunch",
+   "dinner",
+   "noodles",
+   "pho",
+   "starving",
+   "yum",
+   "an com",
+   "🍜",
+   "🍔",
+   "doi qua",
+   "doi bung",
+   "an gi"
+  ],
+  "hug": [
+   "hug",
+   "hugs",
+   "come here",
+   "cheer up",
+   "big hug",
+   "ôm",
+   "🤗"
+  ],
+  "fainted": [
+   "dead",
+   "im dead",
+   "i m dead",
+   "rip",
+   "faint",
+   "cant even",
+   "can t even",
+   "dying",
+   "chet",
+   "💀",
+   "😵",
+   "xiu",
+   "xiu up xiu down",
+   "xiu ngang"
+  ],
+  "point": [
+   "you",
+   "hey you",
+   "your turn",
+   "you got this",
+   "this one",
+   "you re right",
+   "👉"
+  ],
+  "thinking": [
+   "hmm",
+   "hmmm",
+   "think",
+   "thinking",
+   "maybe",
+   "let me see",
+   "wonder",
+   "let me check",
+   "perhaps",
+   "suy nghi",
+   "de xem",
+   "🤔"
+  ],
+  "phone": [
+   "call",
+   "call me",
+   "text me",
+   "phone",
+   "otw",
+   "omw",
+   "on my way",
+   "coming",
+   "gotta go",
+   "got to go",
+   "have to go",
+   "leaving",
+   "heading out",
+   "be there",
+   "soon",
+   "goi",
+   "goi minh",
+   "📱",
+   "📞"
+  ],
+  "kimchi_slap": [
+   "drama",
+   "kdrama",
+   "k drama",
+   "slap",
+   "how dare you",
+   "plot twist",
+   "betrayed",
+   "phim han",
+   "tát",
+   "🥬"
+  ],
+  "dramatic_run": [
+   "run",
+   "running",
+   "chase",
+   "wait for me",
+   "coming",
+   "rush",
+   "go go",
+   "chạy",
+   "🏃"
+  ],
+  "rain_cry": [
+   "rain",
+   "rainy",
+   "raining",
+   "lonely",
+   "sad day",
+   "gloomy",
+   "mua",
+   "☔",
+   "🌧️",
+   "buồn"
+  ],
+  "glow_up": [
+   "glow up",
+   "glowing",
+   "shine",
+   "pretty",
+   "handsome",
+   "new me",
+   "beautiful",
+   "xinh",
+   "✨"
+  ],
+  "rose_wink": [
+   "flirt",
+   "rose",
+   "for you",
+   "date",
+   "wink",
+   "crush",
+   "cua",
+   "tán",
+   "🌹",
+   "😉"
+  ],
+  "shy_peek": [
+   "shy",
+   "blush",
+   "peek",
+   "hehe",
+   "embarrassed",
+   "ngai",
+   "mac co",
+   "😳",
+   "🙈"
+  ],
+  "swoon": [
+   "swoon",
+   "faint",
+   "so handsome",
+   "so pretty",
+   "be still my heart",
+   "xiu",
+   "mê",
+   "😍"
+  ],
+  "heart_duo": [
+   "love you",
+   "bff",
+   "besties",
+   "us",
+   "together",
+   "couple",
+   "ban than",
+   "yeu",
+   "💕",
+   "🫶"
+  ],
+  "teary_eyes": [
+   "touched",
+   "so sweet",
+   "aww",
+   "moved",
+   "im crying",
+   "cam dong",
+   "🥹",
+   "🥺"
+  ],
+  "spicy": [
+   "spicy",
+   "hot sauce",
+   "chili",
+   "too spicy",
+   "fire",
+   "cay",
+   "cay qua",
+   "🌶️",
+   "🔥"
+  ],
+  "noodle_bath": [
+   "noodles",
+   "pho",
+   "ramen",
+   "bún",
+   "mì",
+   "soup",
+   "hu tieu",
+   "🍜"
+  ],
+  "fries": [
+   "fries",
+   "fast food",
+   "mcdonalds",
+   "snack",
+   "khoai tay",
+   "🍟"
+  ],
+  "candy_hype": [
+   "sugar rush",
+   "candy",
+   "hyper",
+   "sweet",
+   "excited",
+   "kẹo",
+   "🍬",
+   "🍭"
+  ],
+  "boba_hug": [
+   "boba",
+   "bubble tea",
+   "milk tea",
+   "tra sua",
+   "tea",
+   "🧋"
+  ],
+  "drool_chicken": [
+   "chicken",
+   "fried chicken",
+   "kfc",
+   "yum",
+   "ga ran",
+   "🍗"
+  ],
+  "food_coma": [
+   "full",
+   "so full",
+   "ate too much",
+   "food coma",
+   "stuffed",
+   "no qua",
+   "no cang"
+  ],
+  "food_love": [
+   "delicious",
+   "yummy",
+   "tasty",
+   "so good",
+   "ngon",
+   "ngon qua",
+   "😋"
+  ],
+  "pizza": [
+   "pizza",
+   "pizza time",
+   "cheese",
+   "🍕"
+  ],
+  "lift_struggle": [
+   "gym",
+   "workout",
+   "exercise",
+   "weights",
+   "struggle",
+   "tap gym",
+   "tap",
+   "🏋️"
+  ],
+  "treadmill_cry": [
+   "cardio",
+   "treadmill",
+   "running",
+   "leg day",
+   "so tired",
+   "chay bo"
+  ],
+  "protein_shake": [
+   "protein",
+   "shake",
+   "gains",
+   "post workout",
+   "whey",
+   "💪"
+  ],
+  "mirror_flex": [
+   "flex",
+   "gains",
+   "muscles",
+   "strong",
+   "swole",
+   "co bap",
+   "💪"
+  ],
+  "yoga_tangle": [
+   "yoga",
+   "stretch",
+   "flexible",
+   "tangled",
+   "stuck",
+   "gian co",
+   "🧘"
+  ],
+  "mat_flop": [
+   "done",
+   "dead",
+   "exhausted",
+   "give up",
+   "cant move",
+   "xong",
+   "het hoi",
+   "met lu"
+  ],
+  "deadlift_rage": [
+   "beast mode",
+   "lift",
+   "heavy",
+   "rage",
+   "power",
+   "go hard",
+   "quyet tam"
+  ],
+  "gym_selfie": [
+   "selfie",
+   "gym selfie",
+   "pic",
+   "photo",
+   "check this",
+   "chup hinh",
+   "🤳"
+  ],
+  "donut_cheat": [
+   "cheat day",
+   "donut",
+   "diet",
+   "treat",
+   "oops",
+   "an kieng",
+   "🍩"
+  ],
+  "gm_headset": [
+   "gaming",
+   "game",
+   "gamer",
+   "playing",
+   "lets play",
+   "ranked",
+   "choi game",
+   "🎮"
+  ],
+  "gm_rage_quit": [
+   "rage quit",
+   "lag",
+   "lost",
+   "noob",
+   "throw",
+   "im done",
+   "thua",
+   "cay cu",
+   "🎮"
+  ],
+  "gm_vr": [
+   "vr",
+   "virtual reality",
+   "metaverse",
+   "future",
+   "whoa",
+   "🥽"
+  ],
+  "gm_chair": [
+   "gaming all night",
+   "snacks",
+   "marathon",
+   "weekend gaming",
+   "cay game"
+  ],
+  "gm_keyboard_sleep": [
+   "all nighter",
+   "up all night",
+   "fell asleep",
+   "ngu gat",
+   "thuc khuya"
+  ],
+  "gm_trophy": [
+   "victory",
+   "winner",
+   "won",
+   "gg",
+   "champion",
+   "thang roi",
+   "🏆"
+  ],
+  "gm_fire": [
+   "on fire",
+   "tryhard",
+   "focus",
+   "sweaty",
+   "combo",
+   "quyet tam"
+  ],
+  "gm_shades_dance": [
+   "ez",
+   "easy win",
+   "too easy",
+   "vibing",
+   "dance",
+   "nhay"
+  ],
+  "gm_handheld": [
+   "switch",
+   "handheld",
+   "one more game",
+   "dont bother me",
+   "dang choi"
+  ],
+  "xm_santa": [
+   "merry christmas",
+   "christmas",
+   "xmas",
+   "santa",
+   "giang sinh",
+   "noel",
+   "🎅",
+   "🎄"
+  ],
+  "xm_scarf": [
+   "cold",
+   "freezing",
+   "so cold",
+   "brr",
+   "winter",
+   "lanh",
+   "lanh qua",
+   "🥶"
+  ],
+  "xm_gift": [
+   "gift",
+   "present",
+   "for you",
+   "surprise",
+   "quà",
+   "tang ban",
+   "🎁"
+  ],
+  "xm_cocoa": [
+   "cozy",
+   "hot chocolate",
+   "cocoa",
+   "warm",
+   "am ap",
+   "☕"
+  ],
+  "xm_snowman": [
+   "snow",
+   "snowman",
+   "winter",
+   "tuyet",
+   "⛄"
+  ],
+  "xm_lights": [
+   "tangled",
+   "decorating",
+   "christmas lights",
+   "stuck",
+   "rối"
+  ],
+  "xm_reindeer": [
+   "reindeer",
+   "rudolph",
+   "red nose",
+   "🦌"
+  ],
+  "xm_snowball": [
+   "snowball",
+   "snow fight",
+   "gotcha",
+   "nem tuyet"
+  ],
+  "xm_sleep": [
+   "sleeping in",
+   "holiday sleep",
+   "lazy morning",
+   "ngu nuong"
+  ],
+  "tet_bow": [
+   "chuc mung nam moi",
+   "happy new year",
+   "lunar new year",
+   "new year",
+   "tet",
+   "an khang",
+   "van su nhu y",
+   "🧧",
+   "an khang thinh vuong",
+   "suc khoe doi dao",
+   "nam moi",
+   "phat tai",
+   "tan nien",
+   "🏮",
+   "chuc tet"
+  ],
+  "tet_envelope": [
+   "li xi",
+   "lucky money",
+   "red envelope",
+   "li xi di",
+   "mung tuoi",
+   "🧧",
+   "lì xì",
+   "mừng tuổi",
+   "tien li xi"
+  ],
+  "tet_banh_chung": [
+   "banh chung",
+   "banh tet",
+   "tet food"
+  ],
+  "tet_shy": [
+   "hehe",
+   "shy",
+   "cute",
+   "ngai"
+  ],
+  "tet_mai": [
+   "hoa mai",
+   "spring",
+   "mua xuan",
+   "xuan",
+   "hoa dao",
+   "tet den roi"
+  ],
+  "tet_lion": [
+   "mua lan",
+   "lion dance",
+   "dragon dance"
+  ],
+  "tet_fireworks": [
+   "fireworks",
+   "phao hoa",
+   "countdown",
+   "giao thua",
+   "🎆"
+  ],
+  "tet_seeds": [
+   "hat dua",
+   "snacking",
+   "gossip",
+   "tan gau"
+  ],
+  "tet_envelopes_fan": [
+   "so much li xi",
+   "rich",
+   "giàu",
+   "nhieu li xi",
+   "💰"
+  ],
+  "tet_feast": [
+   "full",
+   "feast",
+   "an tet",
+   "mam co",
+   "no qua",
+   "tat nien",
+   "an tat nien"
+  ],
+  "hw_ghost": [
+   "boo",
+   "ghost",
+   "spooky",
+   "halloween",
+   "=ma",
+   "🎃",
+   "👻"
+  ],
+  "hw_vampire": [
+   "vampire",
+   "bite",
+   "dracula",
+   "ma ca rong",
+   "🧛"
+  ],
+  "hw_witch": [
+   "witch",
+   "magic",
+   "spell",
+   "phu thuy",
+   "🧙"
+  ],
+  "hw_pumpkin": [
+   "pumpkin",
+   "jack o lantern",
+   "happy halloween",
+   "bi ngo",
+   "🎃"
+  ],
+  "hw_bat_scare": [
+   "scared",
+   "spooked",
+   "eek",
+   "so ma",
+   "so qua",
+   "🦇"
+  ],
+  "hw_candy": [
+   "trick or treat",
+   "candy",
+   "treats",
+   "kẹo",
+   "🍬"
+  ],
+  "hw_mummy": [
+   "mummy",
+   "wrapped",
+   "xac uop"
+  ],
+  "hw_cat": [
+   "meow",
+   "costume",
+   "cat costume",
+   "mèo",
+   "🐱"
+  ],
+  "hw_leaves": [
+   "fall",
+   "autumn",
+   "pumpkin spice",
+   "psl",
+   "mua thu",
+   "🍂"
+  ],
+  "pho_slurp": [
+   "pho",
+   "pho bo",
+   "noodle soup",
+   "an pho",
+   "🍜"
+  ],
+  "banh_mi": [
+   "banh mi",
+   "sandwich",
+   "breakfast",
+   "an sang",
+   "🥖"
+  ],
+  "ca_phe": [
+   "ca phe",
+   "cafe",
+   "ca phe sua da",
+   "coffee",
+   "cafe phin",
+   "☕"
+  ],
+  "tra_sua": [
+   "tra sua",
+   "boba",
+   "milk tea",
+   "bubble tea",
+   "🧋"
+  ],
+  "scooter": [
+   "omw",
+   "on my way",
+   "xe may",
+   "chay xe",
+   "di dau",
+   "toi lien",
+   "🛵"
+  ],
+  "plastic_stool": [
+   "chill",
+   "tra da",
+   "ngoi via he",
+   "nhau",
+   "hang out"
+  ],
+  "karaoke": [
+   "karaoke",
+   "sing",
+   "hat",
+   "hat karaoke",
+   "🎤"
+  ],
+  "cheers": [
+   "cheers",
+   "mot hai ba dzo",
+   "dzo",
+   "zo",
+   "nhau",
+   "cung ly",
+   "🍻"
+  ],
+  "hammock": [
+   "relax",
+   "nap",
+   "nghi ngoi",
+   "vong",
+   "lazy",
+   "🌴"
+  ],
+  "oi_doi_oi": [
+   "oi doi oi",
+   "oi doi",
+   "troi oi",
+   "omg",
+   "😱"
+  ],
+  "xiu_up_down": [
+   "xiu up xiu down",
+   "xiu",
+   "xiu ngang",
+   "cant even"
+  ],
+  "can_loi": [
+   "can loi",
+   "speechless",
+   "no words",
+   "het noi"
+  ],
+  "khum": [
+   "khum",
+   "hông",
+   "nope",
+   "no way"
+  ],
+  "u_la_troi": [
+   "u la troi",
+   "troi dat",
+   "ugh"
+  ],
+  "dzay_ha": [
+   "dzay ha",
+   "vay ha",
+   "really",
+   "oh really",
+   "that ha"
+  ],
+  "het_cuu": [
+   "het cuu",
+   "hopeless",
+   "lost cause",
+   "toang",
+   "chiu"
+  ],
+  "qua_da": [
+   "qua da",
+   "satisfied",
+   "perfect",
+   "phe",
+   "da qua"
+  ],
+  "dinh_chop": [
+   "dinh cua chop",
+   "dinh",
+   "goat",
+   "legendary",
+   "qua dinh",
+   "🔥"
+  ],
+  "censored_finger": [
+   "fu",
+   "f you",
+   "screw you",
+   "up yours",
+   "🖕"
+  ],
+  "eggplant_trophy": [
+   "eggplant",
+   "big",
+   "proud",
+   "ca tim",
+   "🍆"
+  ],
+  "slipper_throw": [
+   "nem dep",
+   "flip flop",
+   "slipper",
+   "go away",
+   "danh"
+  ],
+  "talk_hand": [
+   "talk to the hand",
+   "whatever",
+   "bye felicia",
+   "khong nghe"
+  ],
+  "eyebrow_wiggle": [
+   "wink wink",
+   "suggestive",
+   "ayy",
+   "oh ho",
+   "😏"
+  ],
+  "tongue_out": [
+   "bleh",
+   "nyeh",
+   "le le",
+   "😜",
+   "😛"
+  ],
+  "innocent_toot": [
+   "fart",
+   "toot",
+   "oops",
+   "not me",
+   "xi hoi",
+   "💨"
+  ],
+  "nose_up": [
+   "hmph",
+   "snob",
+   "ignore",
+   "😤"
+  ],
+  "eye_roll": [
+   "eye roll",
+   "whatever",
+   "ugh",
+   "seriously",
+   "🙄"
+  ],
+  "royal_entrance": [
+   "hoang thuong gia lam",
+   "hoang thuong",
+   "gia lam",
+   "bệ hạ",
+   "be ha",
+   "tram den",
+   "king",
+   "queen",
+   "👑",
+   "gia dao",
+   "hoang thuong gia dao",
+   "thanh thuong",
+   "thanh thuong gia dao"
+  ],
+  "royal_throne": [
+   "tram",
+   "tram cho phep",
+   "the king",
+   "boss",
+   "ngai vang",
+   "bow down"
+  ],
+  "royal_dismiss": [
+   "bai trieu",
+   "lui ra",
+   "dismissed",
+   "leave",
+   "begone"
+  ],
+  "royal_bow": [
+   "tuan chi",
+   "than xin tuan lenh",
+   "yes your majesty",
+   "khanh",
+   "vang a",
+   "tuan lenh",
+   "quy",
+   "quy xuong",
+   "quy di",
+   "no tai",
+   "than tuan chi",
+   "khau dau",
+   "than khong dam",
+   "khong dam"
+  ],
+  "royal_point": [
+   "loi ra",
+   "loi ra ngoai",
+   "chém",
+   "off with",
+   "guards"
+  ],
+  "royal_beg": [
+   "xin tha",
+   "xin tha mang",
+   "mercy",
+   "please spare",
+   "tha cho",
+   "vi than oan uong",
+   "oan uong",
+   "oan qua",
+   "than oan",
+   "bam hoang thuong",
+   "tau hoang thuong",
+   "no tai dang chet"
+  ],
+  "royal_scroll": [
+   "thanh chi",
+   "announcement",
+   "decree",
+   "phung thien"
+  ],
+  "royal_tired": [
+   "tram met",
+   "tram met roi",
+   "exhausted king",
+   "ruling is hard"
+  ],
+  "royal_crown_pop": [
+   "cai gi",
+   "shocked",
+   "sap ngai"
+  ],
+  "off_wail": [
+   "vi than oan uong",
+   "oan uong",
+   "oan qua",
+   "oan",
+   "than oan",
+   "hoang thuong oan",
+   "troi oi oan",
+   "😭"
+  ],
+  "off_scroll_bow": [
+   "than khong dam",
+   "tuan chi",
+   "than tuan chi",
+   "than xin tuan lenh",
+   "vang a",
+   "da vang"
+  ],
+  "off_no_no": [
+   "khong dam",
+   "khong dam khong dam",
+   "khong khong",
+   "khong phai toi",
+   "not me",
+   "no no"
+  ],
+  "off_panic": [
+   "chet roi",
+   "toang roi",
+   "hoang",
+   "panic",
+   "sao gio"
+  ],
+  "off_stern": [
+   "nghiem tuc",
+   "khong vui",
+   "hmph",
+   "dai nhan"
+  ],
+  "off_kowtow": [
+   "quy",
+   "quy xuong",
+   "khau dau",
+   "lạy",
+   "lay ca",
+   "tham bai"
+  ],
+  "off_hem_beg": [
+   "xin tha mang",
+   "xin tha",
+   "tha cho than",
+   "xin ngai",
+   "please spare",
+   "mercy"
+  ],
+  "off_tremble": [
+   "run quá",
+   "sợ quá",
+   "sợ",
+   "scared",
+   "trembling"
+  ],
+  "off_tremble_stand": [
+   "run so",
+   "sợ hãi",
+   "lo qua"
+  ],
+  "off_faint": [
+   "xiu",
+   "ngat",
+   "thon thuc",
+   "ngat xiu"
+  ],
+  "off_whisper": [
+   "bẩm",
+   "bam hoang thuong",
+   "noi nho",
+   "psst",
+   "to mo",
+   "secret",
+   "bi mat"
+  ],
+  "off_whisper_sly": [
+   "bam nho",
+   "ke cho nghe",
+   "gossip",
+   "hong chuyen"
+  ],
+  "off_present": [
+   "tâu",
+   "tau hoang thuong",
+   "bam bao",
+   "khai bao",
+   "report",
+   "bao cao"
+  ]
+ },
+ "characters": [
+  {
+   "id": "bao",
+   "name": "Bao",
+   "poses": [
+    {
+     "kind": "hi",
+     "file": "poses/bao/hi.webp",
+     "headX": 0.463,
+     "headTop": 0.04
+    },
+    {
+     "kind": "thumbs_up",
+     "file": "poses/bao/thumbs_up.webp",
+     "headX": 0.452,
+     "headTop": 0.044
+    },
+    {
+     "kind": "laugh",
+     "file": "poses/bao/laugh.webp",
+     "headX": 0.593,
+     "headTop": 0.047
+    },
+    {
+     "kind": "thanks",
+     "file": "poses/bao/thanks.webp",
+     "headX": 0.547,
+     "headTop": 0.044
+    },
+    {
+     "kind": "facepalm",
+     "file": "poses/bao/facepalm.webp",
+     "headX": 0.419,
+     "headTop": 0.044
+    },
+    {
+     "kind": "shrug",
+     "file": "poses/bao/shrug.webp",
+     "headX": 0.482,
+     "headTop": 0.046
+    },
+    {
+     "kind": "love",
+     "file": "poses/bao/love.webp",
+     "headX": 0.487,
+     "headTop": 0.046
+    },
+    {
+     "kind": "confused",
+     "file": "poses/bao/confused.webp",
+     "headX": 0.671,
+     "headTop": 0.044
+    },
+    {
+     "kind": "sleep",
+     "file": "poses/bao/sleep.webp",
+     "headX": 0.573,
+     "headTop": 0.044
+    },
+    {
+     "kind": "side_eye",
+     "file": "poses/bao/side_eye.webp",
+     "headX": 0.486,
+     "headTop": 0.04
+    },
+    {
+     "kind": "cool",
+     "file": "poses/bao/cool.webp",
+     "headX": 0.485,
+     "headTop": 0.042
+    },
+    {
+     "kind": "mind_blown",
+     "file": "poses/bao/mind_blown.webp",
+     "headX": 0.503,
+     "headTop": 0.04
+    },
+    {
+     "kind": "fine_crying",
+     "file": "poses/bao/fine_crying.webp",
+     "headX": 0.451,
+     "headTop": 0.043
+    },
+    {
+     "kind": "soul_leaving",
+     "file": "poses/bao/soul_leaving.webp",
+     "headX": 0.672,
+     "headTop": 0.042
+    },
+    {
+     "kind": "popcorn",
+     "file": "poses/bao/popcorn.webp",
+     "headX": 0.486,
+     "headTop": 0.043
+    },
+    {
+     "kind": "slow_clap",
+     "file": "poses/bao/slow_clap.webp",
+     "headX": 0.49,
+     "headTop": 0.042
+    },
+    {
+     "kind": "gasp",
+     "file": "poses/bao/gasp.webp",
+     "headX": 0.568,
+     "headTop": 0.043
+    },
+    {
+     "kind": "melting",
+     "file": "poses/bao/melting.webp",
+     "headX": 0.485,
+     "headTop": 0.051
+    },
+    {
+     "kind": "typing",
+     "file": "poses/bao/typing.webp",
+     "headX": 0.42,
+     "headTop": 0.042
+    },
+    {
+     "kind": "buried",
+     "file": "poses/bao/buried.webp",
+     "headX": 0.397,
+     "headTop": 0.042
+    },
+    {
+     "kind": "coffee",
+     "file": "poses/bao/coffee.webp",
+     "headX": 0.569,
+     "headTop": 0.042
+    },
+    {
+     "kind": "loading",
+     "file": "poses/bao/loading.webp",
+     "headX": 0.461,
+     "headTop": 0.038
+    },
+    {
+     "kind": "two_buttons",
+     "file": "poses/bao/two_buttons.webp",
+     "headX": 0.477,
+     "headTop": 0.039
+    },
+    {
+     "kind": "rich",
+     "file": "poses/bao/rich.webp",
+     "headX": 0.819,
+     "headTop": 0.041
+    },
+    {
+     "kind": "pancake",
+     "file": "poses/bao/pancake.webp",
+     "headX": 0.5,
+     "headTop": 0.057
+    },
+    {
+     "kind": "running_late",
+     "file": "poses/bao/running_late.webp",
+     "headX": 0.542,
+     "headTop": 0.042
+    },
+    {
+     "kind": "mic_drop",
+     "file": "poses/bao/mic_drop.webp",
+     "headX": 0.576,
+     "headTop": 0.043
+    },
+    {
+     "kind": "crying",
+     "file": "poses/bao/crying.webp",
+     "headX": 0.486,
+     "headTop": 0.041
+    },
+    {
+     "kind": "angry",
+     "file": "poses/bao/angry.webp",
+     "headX": 0.494,
+     "headTop": 0.046
+    },
+    {
+     "kind": "shy",
+     "file": "poses/bao/shy.webp",
+     "headX": 0.486,
+     "headTop": 0.041
+    },
+    {
+     "kind": "peek",
+     "file": "poses/bao/peek.webp",
+     "headX": 0.3,
+     "headTop": 0.038
+    },
+    {
+     "kind": "party",
+     "file": "poses/bao/party.webp",
+     "headX": 0.196,
+     "headTop": 0.045
+    },
+    {
+     "kind": "hungry",
+     "file": "poses/bao/hungry.webp",
+     "headX": 0.504,
+     "headTop": 0.041
+    },
+    {
+     "kind": "hug",
+     "file": "poses/bao/hug.webp",
+     "headX": 0.489,
+     "headTop": 0.044
+    },
+    {
+     "kind": "fainted",
+     "file": "poses/bao/fainted.webp",
+     "headX": 0.495,
+     "headTop": 0.043
+    },
+    {
+     "kind": "point",
+     "file": "poses/bao/point.webp",
+     "headX": 0.575,
+     "headTop": 0.044
+    },
+    {
+     "kind": "boba_hug",
+     "file": "poses/bao/boba_hug.webp",
+     "headX": 0.633,
+     "headTop": 0.044
+    },
+    {
+     "kind": "candy_hype",
+     "file": "poses/bao/candy_hype.webp",
+     "headX": 0.54,
+     "headTop": 0.044
+    },
+    {
+     "kind": "dramatic_run",
+     "file": "poses/bao/dramatic_run.webp",
+     "headX": 0.426,
+     "headTop": 0.041
+    },
+    {
+     "kind": "drool_chicken",
+     "file": "poses/bao/drool_chicken.webp",
+     "headX": 0.317,
+     "headTop": 0.041
+    },
+    {
+     "kind": "food_coma",
+     "file": "poses/bao/food_coma.webp",
+     "headX": 0.513,
+     "headTop": 0.049
+    },
+    {
+     "kind": "food_love",
+     "file": "poses/bao/food_love.webp",
+     "headX": 0.577,
+     "headTop": 0.045
+    },
+    {
+     "kind": "fries",
+     "file": "poses/bao/fries.webp",
+     "headX": 0.527,
+     "headTop": 0.047
+    },
+    {
+     "kind": "glow_up",
+     "file": "poses/bao/glow_up.webp",
+     "headX": 0.516,
+     "headTop": 0.02
+    },
+    {
+     "kind": "heart_duo",
+     "file": "poses/bao/heart_duo.webp",
+     "headX": 0.506,
+     "headTop": 0.051
+    },
+    {
+     "kind": "kimchi_slap",
+     "file": "poses/bao/kimchi_slap.webp",
+     "headX": 0.63,
+     "headTop": 0.042
+    },
+    {
+     "kind": "noodle_bath",
+     "file": "poses/bao/noodle_bath.webp",
+     "headX": 0.55,
+     "headTop": 0.041
+    },
+    {
+     "kind": "pizza",
+     "file": "poses/bao/pizza.webp",
+     "headX": 0.402,
+     "headTop": 0.05
+    },
+    {
+     "kind": "rain_cry",
+     "file": "poses/bao/rain_cry.webp",
+     "headX": 0.578,
+     "headTop": 0.02
+    },
+    {
+     "kind": "rose_wink",
+     "file": "poses/bao/rose_wink.webp",
+     "headX": 0.576,
+     "headTop": 0.046
+    },
+    {
+     "kind": "shy_peek",
+     "file": "poses/bao/shy_peek.webp",
+     "headX": 0.676,
+     "headTop": 0.044
+    },
+    {
+     "kind": "spicy",
+     "file": "poses/bao/spicy.webp",
+     "headX": 0.574,
+     "headTop": 0.042
+    },
+    {
+     "kind": "swoon",
+     "file": "poses/bao/swoon.webp",
+     "headX": 0.412,
+     "headTop": 0.05
+    },
+    {
+     "kind": "teary_eyes",
+     "file": "poses/bao/teary_eyes.webp",
+     "headX": 0.517,
+     "headTop": 0.052
+    },
+    {
+     "kind": "banh_mi",
+     "file": "poses/bao/banh_mi.webp",
+     "headX": 0.587,
+     "headTop": 0.041
+    },
+    {
+     "kind": "ca_phe",
+     "file": "poses/bao/ca_phe.webp",
+     "headX": 0.609,
+     "headTop": 0.04
+    },
+    {
+     "kind": "can_loi",
+     "file": "poses/bao/can_loi.webp",
+     "headX": 0.524,
+     "headTop": 0.042
+    },
+    {
+     "kind": "censored_finger",
+     "file": "poses/bao/censored_finger.webp",
+     "headX": 0.46,
+     "headTop": 0.04
+    },
+    {
+     "kind": "cheers",
+     "file": "poses/bao/cheers.webp",
+     "headX": 0.526,
+     "headTop": 0.047
+    },
+    {
+     "kind": "dinh_chop",
+     "file": "poses/bao/dinh_chop.webp",
+     "headX": 0.513,
+     "headTop": 0.039
+    },
+    {
+     "kind": "dzay_ha",
+     "file": "poses/bao/dzay_ha.webp",
+     "headX": 0.486,
+     "headTop": 0.045
+    },
+    {
+     "kind": "eggplant_trophy",
+     "file": "poses/bao/eggplant_trophy.webp",
+     "headX": 0.659,
+     "headTop": 0.037
+    },
+    {
+     "kind": "eye_roll",
+     "file": "poses/bao/eye_roll.webp",
+     "headX": 0.502,
+     "headTop": 0.047
+    },
+    {
+     "kind": "eyebrow_wiggle",
+     "file": "poses/bao/eyebrow_wiggle.webp",
+     "headX": 0.492,
+     "headTop": 0.038
+    },
+    {
+     "kind": "gm_chair",
+     "file": "poses/bao/gm_chair.webp",
+     "headX": 0.454,
+     "headTop": 0.038
+    },
+    {
+     "kind": "gm_fire",
+     "file": "poses/bao/gm_fire.webp",
+     "headX": 0.446,
+     "headTop": 0.043
+    },
+    {
+     "kind": "gm_handheld",
+     "file": "poses/bao/gm_handheld.webp",
+     "headX": 0.487,
+     "headTop": 0.046
+    },
+    {
+     "kind": "gm_headset",
+     "file": "poses/bao/gm_headset.webp",
+     "headX": 0.498,
+     "headTop": 0.04
+    },
+    {
+     "kind": "gm_keyboard_sleep",
+     "file": "poses/bao/gm_keyboard_sleep.webp",
+     "headX": 0.68,
+     "headTop": 0.046
+    },
+    {
+     "kind": "gm_rage_quit",
+     "file": "poses/bao/gm_rage_quit.webp",
+     "headX": 0.443,
+     "headTop": 0.041
+    },
+    {
+     "kind": "gm_shades_dance",
+     "file": "poses/bao/gm_shades_dance.webp",
+     "headX": 0.519,
+     "headTop": 0.041
+    },
+    {
+     "kind": "gm_trophy",
+     "file": "poses/bao/gm_trophy.webp",
+     "headX": 0.573,
+     "headTop": 0.041
+    },
+    {
+     "kind": "gm_vr",
+     "file": "poses/bao/gm_vr.webp",
+     "headX": 0.396,
+     "headTop": 0.041
+    },
+    {
+     "kind": "hammock",
+     "file": "poses/bao/hammock.webp",
+     "headX": 0.558,
+     "headTop": 0.049
+    },
+    {
+     "kind": "het_cuu",
+     "file": "poses/bao/het_cuu.webp",
+     "headX": 0.489,
+     "headTop": 0.043
+    },
+    {
+     "kind": "hw_bat_scare",
+     "file": "poses/bao/hw_bat_scare.webp",
+     "headX": 0.598,
+     "headTop": 0.043
+    },
+    {
+     "kind": "hw_candy",
+     "file": "poses/bao/hw_candy.webp",
+     "headX": 0.483,
+     "headTop": 0.04
+    },
+    {
+     "kind": "hw_cat",
+     "file": "poses/bao/hw_cat.webp",
+     "headX": 0.544,
+     "headTop": 0.043
+    },
+    {
+     "kind": "hw_ghost",
+     "file": "poses/bao/hw_ghost.webp",
+     "headX": 0.481,
+     "headTop": 0.042
+    },
+    {
+     "kind": "hw_leaves",
+     "file": "poses/bao/hw_leaves.webp",
+     "headX": 0.498,
+     "headTop": 0.042
+    },
+    {
+     "kind": "hw_mummy",
+     "file": "poses/bao/hw_mummy.webp",
+     "headX": 0.468,
+     "headTop": 0.041
+    },
+    {
+     "kind": "hw_pumpkin",
+     "file": "poses/bao/hw_pumpkin.webp",
+     "headX": 0.486,
+     "headTop": 0.04
+    },
+    {
+     "kind": "hw_vampire",
+     "file": "poses/bao/hw_vampire.webp",
+     "headX": 0.495,
+     "headTop": 0.04
+    },
+    {
+     "kind": "hw_witch",
+     "file": "poses/bao/hw_witch.webp",
+     "headX": 0.369,
+     "headTop": 0.037
+    },
+    {
+     "kind": "innocent_toot",
+     "file": "poses/bao/innocent_toot.webp",
+     "headX": 0.369,
+     "headTop": 0.046
+    },
+    {
+     "kind": "karaoke",
+     "file": "poses/bao/karaoke.webp",
+     "headX": 0.513,
+     "headTop": 0.045
+    },
+    {
+     "kind": "khum",
+     "file": "poses/bao/khum.webp",
+     "headX": 0.471,
+     "headTop": 0.044
+    },
+    {
+     "kind": "nose_up",
+     "file": "poses/bao/nose_up.webp",
+     "headX": 0.638,
+     "headTop": 0.045
+    },
+    {
+     "kind": "oi_doi_oi",
+     "file": "poses/bao/oi_doi_oi.webp",
+     "headX": 0.57,
+     "headTop": 0.039
+    },
+    {
+     "kind": "pho_slurp",
+     "file": "poses/bao/pho_slurp.webp",
+     "headX": 0.533,
+     "headTop": 0.04
+    },
+    {
+     "kind": "plastic_stool",
+     "file": "poses/bao/plastic_stool.webp",
+     "headX": 0.525,
+     "headTop": 0.037
+    },
+    {
+     "kind": "qua_da",
+     "file": "poses/bao/qua_da.webp",
+     "headX": 0.519,
+     "headTop": 0.042
+    },
+    {
+     "kind": "royal_beg",
+     "file": "poses/bao/royal_beg.webp",
+     "headX": 0.468,
+     "headTop": 0.041
+    },
+    {
+     "kind": "royal_bow",
+     "file": "poses/bao/royal_bow.webp",
+     "headX": 0.51,
+     "headTop": 0.04
+    },
+    {
+     "kind": "royal_crown_pop",
+     "file": "poses/bao/royal_crown_pop.webp",
+     "headX": 0.683,
+     "headTop": 0.038
+    },
+    {
+     "kind": "royal_dismiss",
+     "file": "poses/bao/royal_dismiss.webp",
+     "headX": 0.633,
+     "headTop": 0.039
+    },
+    {
+     "kind": "royal_entrance",
+     "file": "poses/bao/royal_entrance.webp",
+     "headX": 0.556,
+     "headTop": 0.036
+    },
+    {
+     "kind": "royal_point",
+     "file": "poses/bao/royal_point.webp",
+     "headX": 0.451,
+     "headTop": 0.037
+    },
+    {
+     "kind": "royal_scroll",
+     "file": "poses/bao/royal_scroll.webp",
+     "headX": 0.573,
+     "headTop": 0.04
+    },
+    {
+     "kind": "royal_throne",
+     "file": "poses/bao/royal_throne.webp",
+     "headX": 0.498,
+     "headTop": 0.038
+    },
+    {
+     "kind": "royal_tired",
+     "file": "poses/bao/royal_tired.webp",
+     "headX": 0.558,
+     "headTop": 0.041
+    },
+    {
+     "kind": "scooter",
+     "file": "poses/bao/scooter.webp",
+     "headX": 0.478,
+     "headTop": 0.038
+    },
+    {
+     "kind": "slipper_throw",
+     "file": "poses/bao/slipper_throw.webp",
+     "headX": 0.602,
+     "headTop": 0.041
+    },
+    {
+     "kind": "talk_hand",
+     "file": "poses/bao/talk_hand.webp",
+     "headX": 0.409,
+     "headTop": 0.037
+    },
+    {
+     "kind": "tongue_out",
+     "file": "poses/bao/tongue_out.webp",
+     "headX": 0.499,
+     "headTop": 0.038
+    },
+    {
+     "kind": "tra_sua",
+     "file": "poses/bao/tra_sua.webp",
+     "headX": 0.521,
+     "headTop": 0.039
+    },
+    {
+     "kind": "u_la_troi",
+     "file": "poses/bao/u_la_troi.webp",
+     "headX": 0.502,
+     "headTop": 0.04
+    },
+    {
+     "kind": "xiu_up_down",
+     "file": "poses/bao/xiu_up_down.webp",
+     "headX": 0.777,
+     "headTop": 0.04
+    },
+    {
+     "kind": "xm_cocoa",
+     "file": "poses/bao/xm_cocoa.webp",
+     "headX": 0.422,
+     "headTop": 0.041
+    },
+    {
+     "kind": "xm_gift",
+     "file": "poses/bao/xm_gift.webp",
+     "headX": 0.623,
+     "headTop": 0.039
+    },
+    {
+     "kind": "xm_lights",
+     "file": "poses/bao/xm_lights.webp",
+     "headX": 0.526,
+     "headTop": 0.04
+    },
+    {
+     "kind": "xm_reindeer",
+     "file": "poses/bao/xm_reindeer.webp",
+     "headX": 0.515,
+     "headTop": 0.041
+    },
+    {
+     "kind": "xm_santa",
+     "file": "poses/bao/xm_santa.webp",
+     "headX": 0.383,
+     "headTop": 0.039
+    },
+    {
+     "kind": "xm_scarf",
+     "file": "poses/bao/xm_scarf.webp",
+     "headX": 0.478,
+     "headTop": 0.04
+    },
+    {
+     "kind": "xm_sleep",
+     "file": "poses/bao/xm_sleep.webp",
+     "headX": 0.47,
+     "headTop": 0.047
+    },
+    {
+     "kind": "xm_snowball",
+     "file": "poses/bao/xm_snowball.webp",
+     "headX": 0.598,
+     "headTop": 0.042
+    },
+    {
+     "kind": "xm_snowman",
+     "file": "poses/bao/xm_snowman.webp",
+     "headX": 0.339,
+     "headTop": 0.04
+    },
+    {
+     "kind": "off_faint",
+     "file": "poses/bao/off_faint.webp",
+     "headX": 0.316,
+     "headTop": 0.043
+    },
+    {
+     "kind": "off_hem_beg",
+     "file": "poses/bao/off_hem_beg.webp",
+     "headX": 0.422,
+     "headTop": 0.046
+    },
+    {
+     "kind": "off_kowtow",
+     "file": "poses/bao/off_kowtow.webp",
+     "headX": 0.473,
+     "headTop": 0.047
+    },
+    {
+     "kind": "off_no_no",
+     "file": "poses/bao/off_no_no.webp",
+     "headX": 0.51,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_present",
+     "file": "poses/bao/off_present.webp",
+     "headX": 0.502,
+     "headTop": 0.038
+    },
+    {
+     "kind": "off_scroll_bow",
+     "file": "poses/bao/off_scroll_bow.webp",
+     "headX": 0.534,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_stern",
+     "file": "poses/bao/off_stern.webp",
+     "headX": 0.498,
+     "headTop": 0.035
+    },
+    {
+     "kind": "off_tremble",
+     "file": "poses/bao/off_tremble.webp",
+     "headX": 0.517,
+     "headTop": 0.038
+    },
+    {
+     "kind": "off_wail",
+     "file": "poses/bao/off_wail.webp",
+     "headX": 0.471,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_whisper",
+     "file": "poses/bao/off_whisper.webp",
+     "headX": 0.448,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_whisper_sly",
+     "file": "poses/bao/off_whisper_sly.webp",
+     "headX": 0.513,
+     "headTop": 0.04
+    }
+   ]
+  },
+  {
+   "id": "mochi",
+   "name": "Mochi",
+   "poses": [
+    {
+     "kind": "hi",
+     "file": "poses/mochi/hi.webp",
+     "headX": 0.561,
+     "headTop": 0.043
+    },
+    {
+     "kind": "thumbs_up",
+     "file": "poses/mochi/thumbs_up.webp",
+     "headX": 0.412,
+     "headTop": 0.047
+    },
+    {
+     "kind": "laugh",
+     "file": "poses/mochi/laugh.webp",
+     "headX": 0.428,
+     "headTop": 0.038
+    },
+    {
+     "kind": "thanks",
+     "file": "poses/mochi/thanks.webp",
+     "headX": 0.489,
+     "headTop": 0.042
+    },
+    {
+     "kind": "facepalm",
+     "file": "poses/mochi/facepalm.webp",
+     "headX": 0.568,
+     "headTop": 0.044
+    },
+    {
+     "kind": "shrug",
+     "file": "poses/mochi/shrug.webp",
+     "headX": 0.496,
+     "headTop": 0.044
+    },
+    {
+     "kind": "love",
+     "file": "poses/mochi/love.webp",
+     "headX": 0.469,
+     "headTop": 0.04
+    },
+    {
+     "kind": "confused",
+     "file": "poses/mochi/confused.webp",
+     "headX": 0.717,
+     "headTop": 0.036
+    },
+    {
+     "kind": "sleep",
+     "file": "poses/mochi/sleep.webp",
+     "headX": 0.463,
+     "headTop": 0.041
+    },
+    {
+     "kind": "side_eye",
+     "file": "poses/mochi/side_eye.webp",
+     "headX": 0.388,
+     "headTop": 0.039
+    },
+    {
+     "kind": "cool",
+     "file": "poses/mochi/cool.webp",
+     "headX": 0.389,
+     "headTop": 0.041
+    },
+    {
+     "kind": "mind_blown",
+     "file": "poses/mochi/mind_blown.webp",
+     "headX": 0.391,
+     "headTop": 0.04
+    },
+    {
+     "kind": "fine_crying",
+     "file": "poses/mochi/fine_crying.webp",
+     "headX": 0.387,
+     "headTop": 0.041
+    },
+    {
+     "kind": "soul_leaving",
+     "file": "poses/mochi/soul_leaving.webp",
+     "headX": 0.794,
+     "headTop": 0.039
+    },
+    {
+     "kind": "popcorn",
+     "file": "poses/mochi/popcorn.webp",
+     "headX": 0.386,
+     "headTop": 0.037
+    },
+    {
+     "kind": "slow_clap",
+     "file": "poses/mochi/slow_clap.webp",
+     "headX": 0.535,
+     "headTop": 0.041
+    },
+    {
+     "kind": "gasp",
+     "file": "poses/mochi/gasp.webp",
+     "headX": 0.551,
+     "headTop": 0.044
+    },
+    {
+     "kind": "melting",
+     "file": "poses/mochi/melting.webp",
+     "headX": 0.448,
+     "headTop": 0.053
+    },
+    {
+     "kind": "typing",
+     "file": "poses/mochi/typing.webp",
+     "headX": 0.491,
+     "headTop": 0.037
+    },
+    {
+     "kind": "buried",
+     "file": "poses/mochi/buried.webp",
+     "headX": 0.509,
+     "headTop": 0.038
+    },
+    {
+     "kind": "coffee",
+     "file": "poses/mochi/coffee.webp",
+     "headX": 0.479,
+     "headTop": 0.038
+    },
+    {
+     "kind": "loading",
+     "file": "poses/mochi/loading.webp",
+     "headX": 0.561,
+     "headTop": 0.031
+    },
+    {
+     "kind": "two_buttons",
+     "file": "poses/mochi/two_buttons.webp",
+     "headX": 0.464,
+     "headTop": 0.036
+    },
+    {
+     "kind": "rich",
+     "file": "poses/mochi/rich.webp",
+     "headX": 0.532,
+     "headTop": 0.04
+    },
+    {
+     "kind": "pancake",
+     "file": "poses/mochi/pancake.webp",
+     "headX": 0.409,
+     "headTop": 0.064
+    },
+    {
+     "kind": "running_late",
+     "file": "poses/mochi/running_late.webp",
+     "headX": 0.705,
+     "headTop": 0.044
+    },
+    {
+     "kind": "mic_drop",
+     "file": "poses/mochi/mic_drop.webp",
+     "headX": 0.54,
+     "headTop": 0.042
+    },
+    {
+     "kind": "crying",
+     "file": "poses/mochi/crying.webp",
+     "headX": 0.459,
+     "headTop": 0.039
+    },
+    {
+     "kind": "angry",
+     "file": "poses/mochi/angry.webp",
+     "headX": 0.491,
+     "headTop": 0.035
+    },
+    {
+     "kind": "shy",
+     "file": "poses/mochi/shy.webp",
+     "headX": 0.393,
+     "headTop": 0.035
+    },
+    {
+     "kind": "peek",
+     "file": "poses/mochi/peek.webp",
+     "headX": 0.29,
+     "headTop": 0.035
+    },
+    {
+     "kind": "party",
+     "file": "poses/mochi/party.webp",
+     "headX": 0.368,
+     "headTop": 0.034
+    },
+    {
+     "kind": "hungry",
+     "file": "poses/mochi/hungry.webp",
+     "headX": 0.476,
+     "headTop": 0.039
+    },
+    {
+     "kind": "hug",
+     "file": "poses/mochi/hug.webp",
+     "headX": 0.589,
+     "headTop": 0.039
+    },
+    {
+     "kind": "fainted",
+     "file": "poses/mochi/fainted.webp",
+     "headX": 0.511,
+     "headTop": 0.039
+    },
+    {
+     "kind": "point",
+     "file": "poses/mochi/point.webp",
+     "headX": 0.438,
+     "headTop": 0.039
+    },
+    {
+     "kind": "deadlift_rage",
+     "file": "poses/mochi/deadlift_rage.webp",
+     "headX": 0.498,
+     "headTop": 0.05
+    },
+    {
+     "kind": "donut_cheat",
+     "file": "poses/mochi/donut_cheat.webp",
+     "headX": 0.476,
+     "headTop": 0.043
+    },
+    {
+     "kind": "gym_selfie",
+     "file": "poses/mochi/gym_selfie.webp",
+     "headX": 0.513,
+     "headTop": 0.044
+    },
+    {
+     "kind": "lift_struggle",
+     "file": "poses/mochi/lift_struggle.webp",
+     "headX": 0.466,
+     "headTop": 0.041
+    },
+    {
+     "kind": "mat_flop",
+     "file": "poses/mochi/mat_flop.webp",
+     "headX": 0.528,
+     "headTop": 0.067
+    },
+    {
+     "kind": "mirror_flex",
+     "file": "poses/mochi/mirror_flex.webp",
+     "headX": 0.491,
+     "headTop": 0.047
+    },
+    {
+     "kind": "protein_shake",
+     "file": "poses/mochi/protein_shake.webp",
+     "headX": 0.432,
+     "headTop": 0.041
+    },
+    {
+     "kind": "treadmill_cry",
+     "file": "poses/mochi/treadmill_cry.webp",
+     "headX": 0.495,
+     "headTop": 0.037
+    },
+    {
+     "kind": "yoga_tangle",
+     "file": "poses/mochi/yoga_tangle.webp",
+     "headX": 0.522,
+     "headTop": 0.043
+    },
+    {
+     "kind": "off_faint",
+     "file": "poses/mochi/off_faint.webp",
+     "headX": 0.692,
+     "headTop": 0.035
+    },
+    {
+     "kind": "off_hem_beg",
+     "file": "poses/mochi/off_hem_beg.webp",
+     "headX": 0.364,
+     "headTop": 0.029
+    },
+    {
+     "kind": "off_kowtow",
+     "file": "poses/mochi/off_kowtow.webp",
+     "headX": 0.513,
+     "headTop": 0.054
+    },
+    {
+     "kind": "off_no_no",
+     "file": "poses/mochi/off_no_no.webp",
+     "headX": 0.546,
+     "headTop": 0.031
+    },
+    {
+     "kind": "off_present",
+     "file": "poses/mochi/off_present.webp",
+     "headX": 0.499,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_scroll_bow",
+     "file": "poses/mochi/off_scroll_bow.webp",
+     "headX": 0.555,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_tremble",
+     "file": "poses/mochi/off_tremble.webp",
+     "headX": 0.46,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_wail",
+     "file": "poses/mochi/off_wail.webp",
+     "headX": 0.521,
+     "headTop": 0.035
+    },
+    {
+     "kind": "off_whisper",
+     "file": "poses/mochi/off_whisper.webp",
+     "headX": 0.475,
+     "headTop": 0.033
+    }
+   ]
+  },
+  {
+   "id": "linh",
+   "name": "Linh",
+   "poses": [
+    {
+     "kind": "hi",
+     "file": "poses/linh/hi.webp",
+     "headX": 0.501,
+     "headTop": 0.037
+    },
+    {
+     "kind": "thumbs_up",
+     "file": "poses/linh/thumbs_up.webp",
+     "headX": 0.641,
+     "headTop": 0.037
+    },
+    {
+     "kind": "laugh",
+     "file": "poses/linh/laugh.webp",
+     "headX": 0.655,
+     "headTop": 0.037
+    },
+    {
+     "kind": "thanks",
+     "file": "poses/linh/thanks.webp",
+     "headX": 0.587,
+     "headTop": 0.034
+    },
+    {
+     "kind": "facepalm",
+     "file": "poses/linh/facepalm.webp",
+     "headX": 0.537,
+     "headTop": 0.037
+    },
+    {
+     "kind": "shrug",
+     "file": "poses/linh/shrug.webp",
+     "headX": 0.584,
+     "headTop": 0.034
+    },
+    {
+     "kind": "love",
+     "file": "poses/linh/love.webp",
+     "headX": 0.58,
+     "headTop": 0.033
+    },
+    {
+     "kind": "confused",
+     "file": "poses/linh/confused.webp",
+     "headX": 0.538,
+     "headTop": 0.033
+    },
+    {
+     "kind": "sleep",
+     "file": "poses/linh/sleep.webp",
+     "headX": 0.49,
+     "headTop": 0.038
+    },
+    {
+     "kind": "side_eye",
+     "file": "poses/linh/side_eye.webp",
+     "headX": 0.602,
+     "headTop": 0.04
+    },
+    {
+     "kind": "cool",
+     "file": "poses/linh/cool.webp",
+     "headX": 0.601,
+     "headTop": 0.039
+    },
+    {
+     "kind": "mind_blown",
+     "file": "poses/linh/mind_blown.webp",
+     "headX": 0.553,
+     "headTop": 0.039
+    },
+    {
+     "kind": "fine_crying",
+     "file": "poses/linh/fine_crying.webp",
+     "headX": 0.6,
+     "headTop": 0.039
+    },
+    {
+     "kind": "soul_leaving",
+     "file": "poses/linh/soul_leaving.webp",
+     "headX": 0.763,
+     "headTop": 0.034
+    },
+    {
+     "kind": "popcorn",
+     "file": "poses/linh/popcorn.webp",
+     "headX": 0.603,
+     "headTop": 0.037
+    },
+    {
+     "kind": "slow_clap",
+     "file": "poses/linh/slow_clap.webp",
+     "headX": 0.617,
+     "headTop": 0.039
+    },
+    {
+     "kind": "gasp",
+     "file": "poses/linh/gasp.webp",
+     "headX": 0.538,
+     "headTop": 0.037
+    },
+    {
+     "kind": "melting",
+     "file": "poses/linh/melting.webp",
+     "headX": 0.745,
+     "headTop": 0.041
+    },
+    {
+     "kind": "typing",
+     "file": "poses/linh/typing.webp",
+     "headX": 0.619,
+     "headTop": 0.037
+    },
+    {
+     "kind": "buried",
+     "file": "poses/linh/buried.webp",
+     "headX": 0.487,
+     "headTop": 0.043
+    },
+    {
+     "kind": "coffee",
+     "file": "poses/linh/coffee.webp",
+     "headX": 0.677,
+     "headTop": 0.038
+    },
+    {
+     "kind": "loading",
+     "file": "poses/linh/loading.webp",
+     "headX": 0.394,
+     "headTop": 0.039
+    },
+    {
+     "kind": "two_buttons",
+     "file": "poses/linh/two_buttons.webp",
+     "headX": 0.58,
+     "headTop": 0.038
+    },
+    {
+     "kind": "rich",
+     "file": "poses/linh/rich.webp",
+     "headX": 0.549,
+     "headTop": 0.043
+    },
+    {
+     "kind": "pancake",
+     "file": "poses/linh/pancake.webp",
+     "headX": 0.309,
+     "headTop": 0.052
+    },
+    {
+     "kind": "running_late",
+     "file": "poses/linh/running_late.webp",
+     "headX": 0.562,
+     "headTop": 0.041
+    },
+    {
+     "kind": "mic_drop",
+     "file": "poses/linh/mic_drop.webp",
+     "headX": 0.465,
+     "headTop": 0.041
+    },
+    {
+     "kind": "crying",
+     "file": "poses/linh/crying.webp",
+     "headX": 0.599,
+     "headTop": 0.03
+    },
+    {
+     "kind": "angry",
+     "file": "poses/linh/angry.webp",
+     "headX": 0.5,
+     "headTop": 0.031
+    },
+    {
+     "kind": "shy",
+     "file": "poses/linh/shy.webp",
+     "headX": 0.605,
+     "headTop": 0.031
+    },
+    {
+     "kind": "peek",
+     "file": "poses/linh/peek.webp",
+     "headX": 0.412,
+     "headTop": 0.035
+    },
+    {
+     "kind": "party",
+     "file": "poses/linh/party.webp",
+     "headX": 0.795,
+     "headTop": 0.032
+    },
+    {
+     "kind": "hungry",
+     "file": "poses/linh/hungry.webp",
+     "headX": 0.643,
+     "headTop": 0.035
+    },
+    {
+     "kind": "hug",
+     "file": "poses/linh/hug.webp",
+     "headX": 0.39,
+     "headTop": 0.033
+    },
+    {
+     "kind": "fainted",
+     "file": "poses/linh/fainted.webp",
+     "headX": 0.369,
+     "headTop": 0.048
+    },
+    {
+     "kind": "point",
+     "file": "poses/linh/point.webp",
+     "headX": 0.647,
+     "headTop": 0.033
+    },
+    {
+     "kind": "tet_banh_chung",
+     "file": "poses/linh/tet_banh_chung.webp",
+     "headX": 0.7,
+     "headTop": 0.033
+    },
+    {
+     "kind": "tet_bow",
+     "file": "poses/linh/tet_bow.webp",
+     "headX": 0.431,
+     "headTop": 0.03
+    },
+    {
+     "kind": "tet_envelope",
+     "file": "poses/linh/tet_envelope.webp",
+     "headX": 0.531,
+     "headTop": 0.035
+    },
+    {
+     "kind": "tet_envelopes_fan",
+     "file": "poses/linh/tet_envelopes_fan.webp",
+     "headX": 0.642,
+     "headTop": 0.038
+    },
+    {
+     "kind": "tet_feast",
+     "file": "poses/linh/tet_feast.webp",
+     "headX": 0.275,
+     "headTop": 0.042
+    },
+    {
+     "kind": "tet_fireworks",
+     "file": "poses/linh/tet_fireworks.webp",
+     "headX": 0.492,
+     "headTop": 0.029
+    },
+    {
+     "kind": "tet_lion",
+     "file": "poses/linh/tet_lion.webp",
+     "headX": 0.463,
+     "headTop": 0.033
+    },
+    {
+     "kind": "tet_mai",
+     "file": "poses/linh/tet_mai.webp",
+     "headX": 0.293,
+     "headTop": 0.034
+    },
+    {
+     "kind": "tet_seeds",
+     "file": "poses/linh/tet_seeds.webp",
+     "headX": 0.294,
+     "headTop": 0.037
+    },
+    {
+     "kind": "tet_shy",
+     "file": "poses/linh/tet_shy.webp",
+     "headX": 0.528,
+     "headTop": 0.032
+    },
+    {
+     "kind": "off_faint",
+     "file": "poses/linh/off_faint.webp",
+     "headX": 0.678,
+     "headTop": 0.048
+    },
+    {
+     "kind": "off_hem_beg",
+     "file": "poses/linh/off_hem_beg.webp",
+     "headX": 0.612,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_kowtow",
+     "file": "poses/linh/off_kowtow.webp",
+     "headX": 0.416,
+     "headTop": 0.061
+    },
+    {
+     "kind": "off_no_no",
+     "file": "poses/linh/off_no_no.webp",
+     "headX": 0.539,
+     "headTop": 0.041
+    },
+    {
+     "kind": "off_panic",
+     "file": "poses/linh/off_panic.webp",
+     "headX": 0.471,
+     "headTop": 0.04
+    },
+    {
+     "kind": "off_present",
+     "file": "poses/linh/off_present.webp",
+     "headX": 0.502,
+     "headTop": 0.035
+    },
+    {
+     "kind": "off_scroll_bow",
+     "file": "poses/linh/off_scroll_bow.webp",
+     "headX": 0.525,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_tremble",
+     "file": "poses/linh/off_tremble.webp",
+     "headX": 0.504,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_tremble_stand",
+     "file": "poses/linh/off_tremble_stand.webp",
+     "headX": 0.492,
+     "headTop": 0.033
+    },
+    {
+     "kind": "off_wail",
+     "file": "poses/linh/off_wail.webp",
+     "headX": 0.482,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_whisper",
+     "file": "poses/linh/off_whisper.webp",
+     "headX": 0.485,
+     "headTop": 0.044
+    }
+   ]
+  },
+  {
+   "id": "capy",
+   "name": "Capy",
+   "poses": [
+    {
+     "kind": "hi",
+     "file": "poses/capy/hi.webp",
+     "headX": 0.522,
+     "headTop": 0.033
+    },
+    {
+     "kind": "thumbs_up",
+     "file": "poses/capy/thumbs_up.webp",
+     "headX": 0.559,
+     "headTop": 0.035
+    },
+    {
+     "kind": "laugh",
+     "file": "poses/capy/laugh.webp",
+     "headX": 0.617,
+     "headTop": 0.037
+    },
+    {
+     "kind": "thanks",
+     "file": "poses/capy/thanks.webp",
+     "headX": 0.637,
+     "headTop": 0.036
+    },
+    {
+     "kind": "facepalm",
+     "file": "poses/capy/facepalm.webp",
+     "headX": 0.46,
+     "headTop": 0.036
+    },
+    {
+     "kind": "shrug",
+     "file": "poses/capy/shrug.webp",
+     "headX": 0.505,
+     "headTop": 0.036
+    },
+    {
+     "kind": "love",
+     "file": "poses/capy/love.webp",
+     "headX": 0.464,
+     "headTop": 0.037
+    },
+    {
+     "kind": "confused",
+     "file": "poses/capy/confused.webp",
+     "headX": 0.65,
+     "headTop": 0.036
+    },
+    {
+     "kind": "sleep",
+     "file": "poses/capy/sleep.webp",
+     "headX": 0.463,
+     "headTop": 0.037
+    },
+    {
+     "kind": "side_eye",
+     "file": "poses/capy/side_eye.webp",
+     "headX": 0.508,
+     "headTop": 0.035
+    },
+    {
+     "kind": "cool",
+     "file": "poses/capy/cool.webp",
+     "headX": 0.509,
+     "headTop": 0.035
+    },
+    {
+     "kind": "mind_blown",
+     "file": "poses/capy/mind_blown.webp",
+     "headX": 0.508,
+     "headTop": 0.036
+    },
+    {
+     "kind": "fine_crying",
+     "file": "poses/capy/fine_crying.webp",
+     "headX": 0.506,
+     "headTop": 0.034
+    },
+    {
+     "kind": "soul_leaving",
+     "file": "poses/capy/soul_leaving.webp",
+     "headX": 0.708,
+     "headTop": 0.039
+    },
+    {
+     "kind": "popcorn",
+     "file": "poses/capy/popcorn.webp",
+     "headX": 0.504,
+     "headTop": 0.037
+    },
+    {
+     "kind": "slow_clap",
+     "file": "poses/capy/slow_clap.webp",
+     "headX": 0.487,
+     "headTop": 0.035
+    },
+    {
+     "kind": "gasp",
+     "file": "poses/capy/gasp.webp",
+     "headX": 0.544,
+     "headTop": 0.037
+    },
+    {
+     "kind": "melting",
+     "file": "poses/capy/melting.webp",
+     "headX": 0.431,
+     "headTop": 0.048
+    },
+    {
+     "kind": "typing",
+     "file": "poses/capy/typing.webp",
+     "headX": 0.561,
+     "headTop": 0.041
+    },
+    {
+     "kind": "buried",
+     "file": "poses/capy/buried.webp",
+     "headX": 0.442,
+     "headTop": 0.043
+    },
+    {
+     "kind": "coffee",
+     "file": "poses/capy/coffee.webp",
+     "headX": 0.577,
+     "headTop": 0.039
+    },
+    {
+     "kind": "loading",
+     "file": "poses/capy/loading.webp",
+     "headX": 0.452,
+     "headTop": 0.033
+    },
+    {
+     "kind": "studying",
+     "file": "poses/capy/studying.webp",
+     "headX": 0.565,
+     "headTop": 0.035
+    },
+    {
+     "kind": "rich",
+     "file": "poses/capy/rich.webp",
+     "headX": 0.699,
+     "headTop": 0.035
+    },
+    {
+     "kind": "pancake",
+     "file": "poses/capy/pancake.webp",
+     "headX": 0.568,
+     "headTop": 0.065
+    },
+    {
+     "kind": "running_late",
+     "file": "poses/capy/running_late.webp",
+     "headX": 0.655,
+     "headTop": 0.042
+    },
+    {
+     "kind": "mic_drop",
+     "file": "poses/capy/mic_drop.webp",
+     "headX": 0.556,
+     "headTop": 0.04
+    },
+    {
+     "kind": "crying",
+     "file": "poses/capy/crying.webp",
+     "headX": 0.506,
+     "headTop": 0.035
+    },
+    {
+     "kind": "angry",
+     "file": "poses/capy/angry.webp",
+     "headX": 0.505,
+     "headTop": 0.036
+    },
+    {
+     "kind": "shy",
+     "file": "poses/capy/shy.webp",
+     "headX": 0.449,
+     "headTop": 0.037
+    },
+    {
+     "kind": "peek",
+     "file": "poses/capy/peek.webp",
+     "headX": 0.357,
+     "headTop": 0.037
+    },
+    {
+     "kind": "party",
+     "file": "poses/capy/party.webp",
+     "headX": 0.419,
+     "headTop": 0.038
+    },
+    {
+     "kind": "hungry",
+     "file": "poses/capy/hungry.webp",
+     "headX": 0.509,
+     "headTop": 0.042
+    },
+    {
+     "kind": "hug",
+     "file": "poses/capy/hug.webp",
+     "headX": 0.525,
+     "headTop": 0.039
+    },
+    {
+     "kind": "fainted",
+     "file": "poses/capy/fainted.webp",
+     "headX": 0.185,
+     "headTop": 0.043
+    },
+    {
+     "kind": "point",
+     "file": "poses/capy/point.webp",
+     "headX": 0.528,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_faint",
+     "file": "poses/capy/off_faint.webp",
+     "headX": 0.721,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_hem_beg",
+     "file": "poses/capy/off_hem_beg.webp",
+     "headX": 0.56,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_kowtow",
+     "file": "poses/capy/off_kowtow.webp",
+     "headX": 0.365,
+     "headTop": 0.048
+    },
+    {
+     "kind": "off_no_no",
+     "file": "poses/capy/off_no_no.webp",
+     "headX": 0.513,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_present",
+     "file": "poses/capy/off_present.webp",
+     "headX": 0.56,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_scroll_bow",
+     "file": "poses/capy/off_scroll_bow.webp",
+     "headX": 0.527,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_tremble",
+     "file": "poses/capy/off_tremble.webp",
+     "headX": 0.595,
+     "headTop": 0.037
+    },
+    {
+     "kind": "off_wail",
+     "file": "poses/capy/off_wail.webp",
+     "headX": 0.453,
+     "headTop": 0.039
+    },
+    {
+     "kind": "off_whisper",
+     "file": "poses/capy/off_whisper.webp",
+     "headX": 0.49,
+     "headTop": 0.037
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+Meaning models used by the keyboard, run on the phone with ONNX Runtime (MIT licence,
+https://github.com/microsoft/onnxruntime).
+
+minilm.onnx
+  paraphrase-multilingual-MiniLM-L12-v2 by sentence-transformers
+  https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Licence: Apache License 2.0
+
+e5.onnx
+  multilingual-e5-small by Liang Wang et al., Microsoft (intfloat)
+  https://huggingface.co/intfloat/multilingual-e5-small
+  Licence: MIT
+
+Both are the published 8-bit versions with the word-piece table cut down to the pieces
+English and Vietnamese need (vocab.txt, from the models' shared XLM-RoBERTa piece list).
+poses_*.bin hold the models' readings of short example phrases for each pose.
+Nothing else was changed.
