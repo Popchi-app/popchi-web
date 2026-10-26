@@ -1,0 +1,69 @@
+name: Publish the Android app
+
+# Copies the newest APK from the app's private repo into a release here, so the
+# website's "Get the Android app" button has something to download. Releases are
+# made by the GitHub Actions bot, not a personal account.
+# Run it from Actions → "Publish the Android app" → Run workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: "What's new (optional, one line)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find the newest app build
+        id: app
+        env:
+          GH_TOKEN: ${{ secrets.APP_REPO_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::The APP_REPO_TOKEN secret is missing. See the setup steps."
+            exit 1
+          fi
+          name=$(gh release view --repo Popchi-app/Popchi-app-keyboard --json name --jq .name)
+          version="v${name##*v}"   # "Popchi v0.1.27" -> "v0.1.27"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Newest app build: $name"
+
+      - name: Skip if it's already published
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.app.outputs.version }}" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "${{ steps.app.outputs.version }} is already published here."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download the APK
+        if: steps.check.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.APP_REPO_TOKEN }}
+        run: |
+          mkdir out
+          gh release download --repo Popchi-app/Popchi-app-keyboard --pattern '*.apk' --dir out
+          ls -l out
+
+      - name: Publish the release
+        if: steps.check.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          body="Download the .apk below on your Android phone and open it to install or update."
+          if [ -n "$NOTES" ]; then body="$body"$'\n\n'"What's new: $NOTES"; fi
+          gh release create "${{ steps.app.outputs.version }}" out/*.apk \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "${{ steps.app.outputs.name }}" \
+            --notes "$body" \
+            --latest
