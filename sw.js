@@ -1,6 +1,6 @@
 // Keeps Popchi's own files on the phone so it opens fast and works offline.
 // Only this site's files are cached; nothing the person types is ever stored or sent.
-const VERSION = 'popchi-v4';
+const VERSION = 'popchi-v5';
 const SHELL = ['./', 'index.html', 'app.css', 'credits.html', 'manifest.webmanifest',
   'js/app.js', 'js/engine.js', 'js/render.js', 'js/meaning.js', 'js/splitter.js', 'js/gif.js', 'js/season.js',
   'assets/poses.json', 'assets/props.json', 'assets/heads.json', 'assets/fonts/baloo2_xbold.ttf',
