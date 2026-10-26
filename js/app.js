@@ -226,6 +226,50 @@ const t = (k, vars) => {
   if (vars) for (const [a, b] of Object.entries(vars)) s = s.replace('{' + a + '}', b);
   return s;
 };
+// Prop names in Vietnamese. The Android app has the same list (L.java), so both say the same.
+const PROP_VI = {
+  "crown": "vương miện",
+  "party hat": "nón chóp tiệc",
+  "santa hat": "mũ ông già Noel",
+  "witch hat": "mũ phù thuỷ",
+  "non la": "nón lá",
+  "grad cap": "nón cử nhân",
+  "chef hat": "mũ đầu bếp",
+  "hard hat": "mũ bảo hộ",
+  "flower crown": "vòng hoa",
+  "propeller cap": "nón chong chóng",
+  "cowboy hat": "nón cao bồi",
+  "beanie": "mũ len beanie",
+  "pixel crown": "vương miện pixel",
+  "snapback": "mũ snapback",
+  "foil hat": "mũ giấy bạc",
+  "royal crown": "vương miện hoàng gia",
+  "tiara": "vương miện nữ hoàng",
+  "jester hat": "mũ chú hề",
+  "hennin": "nón công chúa",
+  "feather beret": "mũ lông chim",
+  "laurel": "vòng nguyệt quế",
+  "mianguan": "mũ miện",
+  "warrior helmet": "mũ giáp binh",
+  "official wings": "mũ cánh chuồn",
+  "phoenix crown": "mũ phượng",
+  "korean gat": "nón gat",
+  "red official hat": "mũ quan màu đỏ",
+  "black official hat": "mũ quan màu đen",
+  "qing headdress": "mũ cách cách",
+  "devil horns": "sừng ác quỷ",
+  "bunny ears": "tai thỏ",
+  "cat ears": "tai mèo",
+  "antlers": "gạc nai",
+  "retro headband": "băng đô retro",
+  "halo": "vòng sáng thiên thần",
+  "monitor head": "đầu màn hình",
+  "knight helmet": "mũ hiệp sĩ",
+};
+const propName = (id) => {
+  const en = id.replace(/_/g, ' ');
+  return lang === 'vi' ? (PROP_VI[en] || en) : en;
+};
 function applyLang() {
   document.documentElement.lang = lang;
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
@@ -360,7 +404,7 @@ function renderStrip(gen) {
     b.type = 'button';
     b.className = 'tile';
     b.setAttribute('aria-pressed', String(i === state.selected));
-    b.setAttribute('aria-label', item.pose.kind.replace(/_/g, ' ') + (item.prop ? ' with ' + item.prop.id.replace(/_/g, ' ') : ''));
+    b.setAttribute('aria-label', item.pose.kind.replace(/_/g, ' ') + (item.prop ? (lang === 'vi' ? ' đội ' : ' with ') + propName(item.prop.id) : ''));
     b.addEventListener('click', () => select(i));
     strip.appendChild(b);
     draw(item, STRIP_PX, text).then((c) => { if (gen === state.gen) b.appendChild(c); }).catch(() => {});
@@ -658,7 +702,7 @@ function renderProps() {
     g.appendChild(b);
   };
   add(t('auto'), 'auto', null);
-  for (const p of state.lib.props) add(p.id.replace(/_/g, ' '), p.id, A + 'props/' + p.id + '.webp');
+  for (const p of state.lib.props) add(propName(p.id), p.id, A + 'props/' + p.id + '.webp');
 }
 
 // ------------------------------------------------------------------ plans
@@ -1045,7 +1089,7 @@ async function main() {
   state.lib.select(store.get('character', ALL_ID));
   const wear = store.get('wearing', null);
   state.wearing = wear ? state.lib.propById(wear) : null;
-  $('wearing-name').textContent = state.wearing ? state.wearing.id.replace(/_/g, ' ') : t('auto');
+  $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
   $('clean').checked = state.keepClean;
   $('moving').checked = state.moving;
 
@@ -1083,7 +1127,7 @@ async function main() {
     renderWho();
     renderSettings();
     $('more').textContent = state.gridOpen ? t('fewer') : t('more');
-    $('wearing-name').textContent = state.wearing ? state.wearing.id.replace(/_/g, ' ') : t('auto');
+    $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
     refresh();
   });
   $('maker-save').addEventListener('click', saveMaker);
