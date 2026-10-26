@@ -20,13 +20,9 @@
 <div class="app" id="app">
   <header class="top">
     <h1 class="brand">Popchi</h1>
-    <div class="top-actions">
-      <button class="lang" id="lang" type="button" aria-label="Switch language">VI</button>
-      <button class="ghost" id="open-plans" type="button" data-i18n="plans">Plans</button>
-      <button class="ghost" id="open-help" type="button" aria-label="How it works">?</button>
-    </div>
   </header>
 
+  <main class="tab" id="tab-stickers">
   <section class="compose">
     <label class="visually-hidden" for="msg" data-i18n="typeLabel">Your message</label>
     <textarea id="msg" rows="2" maxlength="300" autocomplete="off" autocorrect="on" spellcheck="true"></textarea>
@@ -58,7 +54,6 @@
   <section class="extras">
     <div class="toggles">
       <label class="switch"><input type="checkbox" id="nowords"><span data-i18n="noWords">No words</span></label>
-      <label class="switch"><input type="checkbox" id="clean" checked><span data-i18n="clean">Keep it clean</span></label>
       <label class="switch"><input type="checkbox" id="moving"><span data-i18n="moving">Moving</span></label>
       <button class="chip" id="props-btn" type="button"><span data-i18n="props">Props</span>: <b id="wearing-name">Auto</b></button>
       <button class="chip" id="packs-btn" type="button" data-i18n="packs">📦 Packs</button>
@@ -70,10 +65,73 @@
   <footer class="foot">
     <p class="smart" id="smart"></p>
     <p data-i18n="privacy">Everything happens on your phone. Popchi never sends what you type anywhere.</p>
-    <p><button class="linkish" id="open-reports" type="button" hidden></button></p>
-    <p class="credits"><a href="credits.html" data-i18n="credits">Credits and licences</a></p>
   </footer>
+  </main>
+
+  <section class="tab" id="tab-packs" hidden>
+    <h2 class="page-title" data-i18n="packsTitle">Packs</h2>
+    <p class="toast" id="packs-toast" role="status" aria-live="polite"></p>
+    <h3 class="section" data-i18n="thisSeason">This season</h3>
+    <p class="muted" id="season-note"></p>
+    <div id="season-list"></div>
+    <h3 class="section" data-i18n="yourPacks">Your packs</h3>
+    <p class="muted" data-i18n="packsHelp">Make a pack from your favorite poses and share it with friends as a link or QR code.</p>
+    <p class="muted" id="packs-none" data-i18n="noPacks">None yet.</p>
+    <div id="packs-list"></div>
+    <button class="primary" id="make-pack" type="button" data-i18n="makePack">Make a pack</button>
+    <h3 class="section" data-i18n="popchiPacks">Popchi packs</h3>
+    <div id="builtin-list"></div>
+    <p class="muted" data-i18n="androidPacks">Adding packs to WhatsApp and Telegram works in the Android app.</p>
+  </section>
+
+  <section class="tab" id="tab-create" hidden>
+    <h2 class="page-title" data-i18n="createTitle">Create</h2>
+    <div class="plan">
+      <h3 data-i18n="makeOwn">Make your own character</h3>
+      <p data-i18n="makeOwnText">Turn a selfie or a few choices into a full set of stickers that look like you, with a Tết set and outfits for your occasions.</p>
+      <p class="muted" data-i18n="makeOwnWhere">In the Android app now (Pro, test mode). Coming to the web.</p>
+      <a class="primary as-button" id="get-android" href="https://github.com/Popchi-app/popchi-web/releases" rel="noopener" data-i18n="getAndroid">Get the Android app</a>
+      <button class="secondary" id="create-plans" type="button" data-i18n="seePlans">See plans</button>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-settings" hidden>
+    <h2 class="page-title" data-i18n="settingsTitle">Settings</h2>
+    <h3 class="section" data-i18n="language">Language</h3>
+    <div class="card-list">
+      <div class="row-chips"><button class="chip" type="button" data-lang="en">English</button><button class="chip" type="button" data-lang="vi">Tiếng Việt</button></div>
+    </div>
+    <h3 class="section" data-i18n="stickersSection">Stickers</h3>
+    <div class="card-list">
+      <label class="switch row"><input type="checkbox" id="clean" checked><span data-i18n="cleanLong">Keep it clean: hide swear words in bubbles</span></label>
+      <label class="switch row"><input type="checkbox" id="moving-default"><span data-i18n="movingLong">Moving stickers (GIF)</span></label>
+      <button class="row-button" type="button" data-tab="packs"><span data-i18n="packsTitle">Packs</span><small data-i18n="packsRow">Packs you make and share</small></button>
+    </div>
+    <h3 class="section" data-i18n="planSection">Plan</h3>
+    <div class="card-list">
+      <button class="row-button" type="button" id="settings-plans"><span id="plan-name">Free</span><small data-i18n="planRow">See plans. No real payments yet.</small></button>
+    </div>
+    <h3 class="section" data-i18n="improveSection">Help Popchi get better</h3>
+    <div class="card-list">
+      <button class="row-button" type="button" id="open-reports"><span id="reports-row" data-i18n="reportsTitle">Wrong-sticker reports</span><small data-i18n="reportsRow">Saved on your phone until you choose to send them</small></button>
+      <a class="row-button" href="mailto:hello@popchi.app"><span data-i18n="contact">Contact us</span><small>hello@popchi.app</small></a>
+    </div>
+    <h3 class="section" data-i18n="aboutSection">About</h3>
+    <div class="card-list">
+      <button class="row-button" type="button" id="open-help"><span data-i18n="howItWorks">How it works</span><small data-i18n="howRow">A quick tour</small></button>
+      <a class="row-button" href="privacy.html"><span data-i18n="privacyTitle">Privacy</span><small data-i18n="privacyRow">Nothing you type leaves your phone</small></a>
+      <a class="row-button" href="credits.html"><span data-i18n="credits">Credits and licences</span></a>
+      <a class="row-button" href="https://github.com/Popchi-app/popchi-web/releases" rel="noopener"><span data-i18n="getAndroid">Get the Android app</span><small data-i18n="androidRow">Popchi as a keyboard, right in your chats</small></a>
+    </div>
+  </section>
 </div>
+
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <button type="button" data-tab="stickers" aria-current="page"><span aria-hidden="true">💬</span><b data-i18n="tabStickers">Stickers</b></button>
+  <button type="button" data-tab="packs"><span aria-hidden="true">📦</span><b data-i18n="tabPacks">Packs</b></button>
+  <button type="button" data-tab="create"><span aria-hidden="true">✨</span><b data-i18n="tabCreate">Create</b></button>
+  <button type="button" data-tab="settings"><span aria-hidden="true">⚙️</span><b data-i18n="tabSettings">Settings</b></button>
+</nav>
 
 <dialog id="props-dialog" class="sheet">
   <h2 data-i18n="propsTitle">Props</h2>
@@ -109,16 +167,6 @@
   <p class="muted" data-i18n="testNote">Test mode: there are no real payments yet. Making your own character works in the Android app for now and is coming to the web.</p>
   <label class="switch"><input type="checkbox" id="pro-test"><span data-i18n="proTest">Pretend I'm Pro</span></label>
   <button class="secondary" id="plans-close" type="button" data-i18n="done">Done</button>
-</dialog>
-
-<dialog id="packs-dialog" class="sheet">
-  <h2 data-i18n="packsTitle">Sticker packs</h2>
-  <p class="muted" data-i18n="packsHelp">Make a pack from your favorite poses and share it with friends as a link or QR code.</p>
-  <p class="muted" id="packs-none" data-i18n="noPacks">None yet.</p>
-  <div id="packs-list"></div>
-  <button class="primary" id="make-pack" type="button" data-i18n="makePack">Make a pack</button>
-  <p class="muted" data-i18n="androidPacks">Adding packs to WhatsApp and Telegram works in the Android app.</p>
-  <button class="secondary" id="packs-close" type="button" data-i18n="done">Done</button>
 </dialog>
 
 <dialog id="maker-dialog" class="sheet">

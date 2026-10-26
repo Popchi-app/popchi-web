@@ -53,12 +53,27 @@ const T = {
     w2t: 'Send it anywhere', w2p: 'Messenger, Zalo, Telegram, iMessage: tap Send and pick the chat.',
     w3t: 'Tiếng Việt too', w3p: 'Write with or without accents. Popchi gets the meaning, not just the words.',
     w4t: 'Stays on your phone', w4p: 'Popchi reads your message right here. Nothing you type is sent anywhere.',
+    tabStickers: 'Stickers', tabPacks: 'Packs', tabCreate: 'Create', tabSettings: 'Settings',
+    thisSeason: 'This season', yourPacks: 'Your packs', popchiPacks: 'Popchi packs',
+    seasonNow: 'Tết is here: these poses lead your sticker row until two weeks after Tết.',
+    seasonSoon: 'Coming up: Tết. These poses lead your sticker row from three weeks before Tết.',
+    addToRow: 'Add to my sticker row', added: 'Added. It’s in the character row as 📦 {name}.',
+    createTitle: 'Create', makeOwn: 'Make your own character',
+    makeOwnText: 'Turn a selfie or a few choices into a full set of stickers that look like you, with a Tết set and outfits for your occasions.',
+    makeOwnWhere: 'In the Android app now (Pro, test mode). Coming to the web.', getAndroid: 'Get the Android app',
+    seePlans: 'See plans', settingsTitle: 'Settings', language: 'Language', stickersSection: 'Stickers',
+    cleanLong: 'Keep it clean: hide swear words in bubbles', movingLong: 'Moving stickers (GIF)',
+    packsRow: 'Packs you make and share', planSection: 'Plan', planRow: 'See plans. No real payments yet.',
+    improveSection: 'Help Popchi get better', reportsRow: 'Saved on your phone until you choose to send them',
+    contact: 'Contact us', aboutSection: 'About', howItWorks: 'How it works', howRow: 'A quick tour',
+    privacyTitle: 'Privacy', privacyRow: 'Nothing you type leaves your phone',
+    androidRow: 'Popchi as a keyboard, right in your chats', freeName: 'Free', proName: 'Pro (test mode)',
     moving: 'Moving', movingOn: 'Moving stickers go out as GIFs. Copy gives a still one.',
     noneFit: 'None fit', noneFitSaved: 'Saved on this phone. Open the reports at the bottom of the page to look it over and send it to us.',
     reports: 'Wrong-sticker reports ({n})', reportsTitle: 'Wrong-sticker reports',
     reportsHelp: 'When none of the stickers fit, tap 👎 None fit at the end of the row. It saves what you typed here, on this phone. Nothing is sent unless you email it, and you can remove anything private first.',
     reportsEmpty: 'Nothing saved yet.', remove: 'Remove', emailThem: 'Email these to Popchi', clearAll: 'Clear the list', got: 'got',
-    packs: '📦 Packs', packsTitle: 'Sticker packs',
+    packs: '📦 Packs', packsTitle: 'Packs',
     packsHelp: 'Make a pack from your favorite poses and share it with friends as a link or QR code. Packs hold Popchi’s characters, never your messages.',
     noPacks: 'None yet. Make one for your group chat’s inside jokes.', makePack: 'Make a pack',
     packName: 'Pack name, e.g. Our group chat', pickPoses: 'Pick 3 to 30 poses from any of the crew. Tap again to remove.',
@@ -97,6 +112,21 @@ const T = {
     w2t: 'Gửi đi đâu cũng được', w2p: 'Messenger, Zalo, Telegram, iMessage: bấm Gửi rồi chọn cuộc trò chuyện.',
     w3t: 'Có cả tiếng Việt', w3p: 'Gõ có dấu hay không dấu đều được. Popchi hiểu ý, không chỉ hiểu chữ.',
     w4t: 'Ở yên trên điện thoại', w4p: 'Popchi đọc tin nhắn ngay tại đây. Không gì bạn gõ bị gửi đi.',
+    tabStickers: 'Sticker', tabPacks: 'Bộ', tabCreate: 'Tạo', tabSettings: 'Cài đặt',
+    thisSeason: 'Mùa này', yourPacks: 'Bộ của bạn', popchiPacks: 'Bộ của Popchi',
+    seasonNow: 'Tết đến rồi: các dáng này đứng đầu hàng sticker đến hai tuần sau Tết.',
+    seasonSoon: 'Sắp tới: Tết. Các dáng này sẽ đứng đầu hàng sticker từ ba tuần trước Tết.',
+    addToRow: 'Thêm vào hàng sticker', added: 'Đã thêm. Bộ này nằm ở hàng nhân vật: 📦 {name}.',
+    createTitle: 'Tạo', makeOwn: 'Tạo nhân vật của riêng bạn',
+    makeOwnText: 'Biến ảnh selfie hoặc vài lựa chọn thành cả bộ sticker giống bạn, có bộ Tết và trang phục cho từng dịp.',
+    makeOwnWhere: 'Đã có trên app Android (Pro, chế độ thử). Sắp có trên web.', getAndroid: 'Tải app Android',
+    seePlans: 'Xem gói', settingsTitle: 'Cài đặt', language: 'Ngôn ngữ', stickersSection: 'Sticker',
+    cleanLong: 'Che từ tục trong bong bóng', movingLong: 'Sticker chuyển động (GIF)',
+    packsRow: 'Bộ sticker bạn tạo và chia sẻ', planSection: 'Gói', planRow: 'Xem các gói. Chưa thu tiền thật.',
+    improveSection: 'Giúp Popchi tốt hơn', reportsRow: 'Lưu trên điện thoại cho đến khi bạn tự gửi',
+    contact: 'Liên hệ', aboutSection: 'Thông tin', howItWorks: 'Cách dùng', howRow: 'Xem nhanh',
+    privacyTitle: 'Quyền riêng tư', privacyRow: 'Không gì bạn gõ rời khỏi điện thoại',
+    androidRow: 'Popchi làm bàn phím, ngay trong cuộc trò chuyện', freeName: 'Miễn phí', proName: 'Pro (chế độ thử)',
     moving: 'Chuyển động', movingOn: 'Sticker chuyển động được gửi dạng GIF. Nút Chép cho ảnh tĩnh.',
     noneFit: 'Không hợp', noneFitSaved: 'Đã lưu trên điện thoại này. Mở mục báo cáo ở cuối trang để xem lại và gửi cho tụi mình.',
     reports: 'Báo sticker chưa hợp ({n})', reportsTitle: 'Báo sticker chưa hợp',
@@ -123,7 +153,6 @@ const t = (k, vars) => {
 };
 function applyLang() {
   document.documentElement.lang = lang;
-  $('lang').textContent = lang === 'vi' ? 'EN' : 'VI';
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
   $('msg').placeholder = t('placeholder');
   for (const el of document.querySelectorAll('[data-i18n-placeholder]')) el.placeholder = t(el.dataset.i18nPlaceholder);
@@ -275,7 +304,7 @@ function noneFitTile(typed, shown) {
   b.textContent = '👎 ' + t('noneFit');
   b.addEventListener('click', () => {
     const reports = store.get('reports', []);
-    reports.push({ text: typed.trim().slice(0, 120), detail: shown.slice(0, 4).map((x) => x.pose.kind.replace(/_/g, ' ')).join(', '), at: Date.now() });
+    reports.push({ text: typed.trim().slice(0, 120), detail: shown.slice(0, 4).map((x) => x.pose.owner + ' ' + x.pose.kind.replace(/_/g, ' ')).join(', '), at: Date.now() });
     store.set('reports', reports.slice(-50));
     renderReportsLink();
     toast(t('noneFitSaved'));
@@ -290,9 +319,7 @@ function reportLine(r) {
 
 function renderReportsLink() {
   const n = store.get('reports', []).length;
-  const b = $('open-reports');
-  b.textContent = t('reports', { n });
-  b.hidden = n === 0;
+  $('reports-row').textContent = n ? t('reports', { n }) : t('reportsTitle');
 }
 
 function openReports() {
@@ -690,7 +717,48 @@ function button(label, cls, fn) {
   return b;
 }
 
-function openPacks() {
+/** Popchi's own packs: one per character, plus Tết. Same rules as Packs.builtIns() in the app. */
+function builtInPacks() {
+  const out = [];
+  const house = state.lib.characters.filter((c) => HOUSE.includes(c.id));
+  for (const ch of house) {
+    const items = [...ch.poses].sort((a, b) => a.order - b.order)
+      .filter((p) => !/^(hw_|xm_|tet_)/.test(p.kind)).slice(0, PACK_MAX).map((p) => ch.id + '.' + p.kind);
+    out.push({ id: ch.id, name: ch.name, items, builtIn: true });
+  }
+  const tet = [];
+  for (const ch of house) for (const p of ch.poses) if (p.kind.startsWith('tet_') && tet.length < PACK_MAX) tet.push(ch.id + '.' + p.kind);
+  if (tet.length >= PACK_MIN) out.unshift({ id: 'tet', name: 'Tết', items: tet, builtIn: true });
+  return out;
+}
+
+function builtInCard(pk) {
+  const card = document.createElement('div');
+  card.className = 'plan pack';
+  const h = document.createElement('h3');
+  h.textContent = pk.name;
+  const n = document.createElement('p');
+  n.className = 'muted';
+  n.textContent = t('stickers', { n: pk.items.length });
+  const row = document.createElement('div');
+  row.className = 'pack-actions';
+  row.append(button(t('addToRow'), 'chip', () => {
+    savePacks([{ id: 'u' + Date.now().toString(36), name: pk.name, items: [...pk.items] }, ...myPacks()]);
+    renderPacks();
+    $('packs-toast').textContent = t('added', { name: pk.name });
+  }));
+  card.append(h, n, previewRow(pk), row);
+  return card;
+}
+
+function renderPacks() {
+  const built = builtInPacks();
+  const tet = built.find((p) => p.id === 'tet');
+  $('season-note').textContent = isTet() ? t('seasonNow') : t('seasonSoon');
+  $('season-list').textContent = '';
+  if (tet) $('season-list').appendChild(builtInCard(tet));
+  $('builtin-list').textContent = '';
+  for (const pk of built) if (pk.id !== 'tet') $('builtin-list').appendChild(builtInCard(pk));
   const list = $('packs-list');
   list.textContent = '';
   const packs = myPacks();
@@ -708,17 +776,37 @@ function openPacks() {
     row.append(
       button(t('shareLink'), 'chip', () => sharePack(pk)),
       button(t('qr'), 'chip', () => showQr(pk)),
-      button(t('edit'), 'chip', () => { $('packs-dialog').close(); openMaker(pk); }),
+      button(t('edit'), 'chip', () => openMaker(pk)),
       button(t('del'), 'chip', () => {
         if (!confirm(t('deleteAsk', { name: pk.name }))) return;
         savePacks(myPacks().filter((x) => x.id !== pk.id));
-        openPacks();
+        renderPacks();
       }),
     );
     card.append(h, n, previewRow(pk), row);
     list.appendChild(card);
   }
-  if (!$('packs-dialog').open) $('packs-dialog').showModal();
+}
+
+// ------------------------------------------------------------------ tabs
+// The same four sections as the Android app: Stickers, Packs, Create, Settings.
+function showTab(name) {
+  for (const el of document.querySelectorAll('.tab')) el.hidden = el.id !== 'tab-' + name;
+  document.querySelector('.top').hidden = name !== 'stickers'; // other tabs have their own title
+  for (const b of $('tabbar').children) {
+    if (b.dataset.tab === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+  }
+  if (name === 'packs') { $('packs-toast').textContent = ''; renderPacks(); }
+  if (name === 'settings') renderSettings();
+  window.scrollTo(0, 0);
+}
+
+function renderSettings() {
+  for (const b of document.querySelectorAll('[data-lang]')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  $('plan-name').textContent = store.get('pro', false) ? t('proName') : t('freeName');
+  $('clean').checked = state.keepClean;
+  $('moving-default').checked = state.moving;
+  renderReportsLink();
 }
 
 async function sharePack(pk) {
@@ -817,7 +905,7 @@ function saveMaker() {
   if (i >= 0) list[i] = editing; else list.unshift(editing);
   savePacks(list);
   $('maker-dialog').close();
-  openPacks();
+  renderPacks();
 }
 
 /** A shared link opened: show the pack and offer to save it. */
@@ -898,14 +986,33 @@ async function main() {
   $('moving').addEventListener('change', (e) => {
     state.moving = e.target.checked;
     store.set('moving', state.moving);
+    $('moving-default').checked = state.moving;
     if (state.moving) toast(t('movingOn'));
     showBig(state.gen, state.selectedItem);
   });
-  $('packs-btn').addEventListener('click', openPacks);
-  $('packs-close').addEventListener('click', () => $('packs-dialog').close());
-  $('make-pack').addEventListener('click', () => { $('packs-dialog').close(); openMaker(null); });
+  $('packs-btn').addEventListener('click', () => showTab('packs'));
+  $('make-pack').addEventListener('click', () => openMaker(null));
+  for (const b of document.querySelectorAll('[data-tab]')) b.addEventListener('click', () => showTab(b.dataset.tab));
+  $('create-plans').addEventListener('click', openPlans);
+  $('settings-plans').addEventListener('click', openPlans);
+  $('plans-dialog').addEventListener('close', () => { if (!$('tab-settings').hidden) renderSettings(); });
+  $('moving-default').addEventListener('change', (e) => {
+    state.moving = e.target.checked;
+    store.set('moving', state.moving);
+    $('moving').checked = state.moving;
+  });
+  for (const b of document.querySelectorAll('[data-lang]')) b.addEventListener('click', () => {
+    lang = b.dataset.lang;
+    store.set('lang', lang);
+    applyLang();
+    renderWho();
+    renderSettings();
+    $('more').textContent = state.gridOpen ? t('fewer') : t('more');
+    $('wearing-name').textContent = state.wearing ? state.wearing.id.replace(/_/g, ' ') : t('auto');
+    refresh();
+  });
   $('maker-save').addEventListener('click', saveMaker);
-  $('maker-cancel').addEventListener('click', () => { $('maker-dialog').close(); openPacks(); });
+  $('maker-cancel').addEventListener('click', () => $('maker-dialog').close());
   $('qr-close').addEventListener('click', () => $('qr-dialog').close());
   $('shared-no').addEventListener('click', () => $('shared-dialog').close());
   $('open-reports').addEventListener('click', openReports);
@@ -913,7 +1020,6 @@ async function main() {
   $('reports-clear').addEventListener('click', () => { store.set('reports', []); renderReportsLink(); openReports(); });
   window.addEventListener('hashchange', checkSharedLink);
   $('props-close').addEventListener('click', () => $('props-dialog').close());
-  $('open-plans').addEventListener('click', openPlans);
   $('plans-close').addEventListener('click', () => $('plans-dialog').close());
   $('pro-test').addEventListener('change', (e) => {
     store.set('pro', e.target.checked);
@@ -943,16 +1049,6 @@ async function main() {
     $('grid').hidden = !state.gridOpen;
     $('more').textContent = state.gridOpen ? t('fewer') : t('more');
     if (state.gridOpen) renderGrid();
-  });
-  $('lang').addEventListener('click', () => {
-    lang = lang === 'vi' ? 'en' : 'vi';
-    store.set('lang', lang);
-    applyLang();
-    renderWho();
-    renderReportsLink();
-    $('more').textContent = state.gridOpen ? t('fewer') : t('more');
-    $('wearing-name').textContent = state.wearing ? state.wearing.id.replace(/_/g, ' ') : t('auto');
-    refresh();
   });
 
   renderWho();
