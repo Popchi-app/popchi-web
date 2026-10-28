@@ -43,7 +43,16 @@ const T = {
     emptyOne: 'Type a message and {name} reacts. Tap a sticker to pick it.',
     tooLong: 'Only the first 40 letters fit on a sticker.',
     sent: 'Sent. Pick another or keep typing.', copied: 'Copied. Paste it in your chat.',
-    saved: 'Saved to your downloads.', copyFail: 'Your browser blocked copying. Use Send or Save, or press and hold the sticker.',
+    saved: 'Saved to your downloads.',
+    stickerBtn: 'Real sticker for WhatsApp or Telegram',
+    stickerTitle: 'Send it as a real sticker',
+    stickerWhy: 'Copy and paste turn it into a photo. Save the sticker file, then:',
+    stickerTg: 'Telegram: drop the file into the chat. It arrives as a sticker.',
+    stickerWa: 'WhatsApp on a computer: click 😊, open Stickers, click Create, and pick the file.',
+    stickerPhone: 'On an Android phone, the Popchi keyboard sends real stickers to any chat.',
+    stickerSave: 'Save sticker file',
+    stickerSaved: 'Sticker file saved. Drop it into Telegram, or use Create in WhatsApp.',
+    stickerPng: 'This browser can’t make sticker files, so it saved a PNG. WhatsApp’s Create takes it; Telegram will show it as a photo.', copyFail: 'Your browser blocked copying. Use Send or Save, or press and hold the sticker.',
     shareFail: 'Sharing isn’t available here, so the sticker was saved instead.',
     smartLoading: 'Smart matching is loading ({p}%, a one-time 70 MB download). Word matching works already.',
     smartOn: 'Smart matching is on, right here on your phone.',
@@ -127,6 +136,15 @@ const T = {
     sent: 'Gửi xong! Chọn dáng khác hoặc gõ tiếp đi.',
     copied: 'Đã chép. Qua chat dán liền tay!',
     saved: 'Đã lưu về máy.',
+    stickerBtn: 'Sticker xịn cho WhatsApp, Telegram',
+    stickerTitle: 'Gửi dạng sticker xịn',
+    stickerWhy: 'Chép rồi dán thì nó thành ảnh. Lưu file sticker về máy rồi làm vầy nha:',
+    stickerTg: 'Telegram: kéo file thả vô khung chat là thành sticker liền.',
+    stickerWa: 'WhatsApp trên máy tính: bấm 😊, vô mục Sticker, bấm Tạo rồi chọn file.',
+    stickerPhone: 'Trên điện thoại Android, bàn phím Popchi gửi sticker xịn vô mọi app chat luôn.',
+    stickerSave: 'Lưu file sticker',
+    stickerSaved: 'Lưu file sticker rồi đó. Thả vô Telegram, hoặc bấm Tạo trong WhatsApp nha.',
+    stickerPng: 'Trình duyệt này hông làm được file sticker nên lưu ảnh PNG. WhatsApp vẫn Tạo được, còn Telegram sẽ hiện thành ảnh.',
     copyFail: 'Trình duyệt hông cho chép. Thử nút Gửi, Lưu hoặc đè giữ sticker nha.',
     shareFail: 'Không share thẳng được, nhưng đã lưu về máy gòi nha.',
     smartLoading: 'Đang tải AI hiểu ngữ nghĩa ({p}%, tải 1 lần duy nhất 70 MB). Trong lúc chờ vẫn xài bình thường nha.',
@@ -594,6 +612,29 @@ async function onCopy() {
   } catch {
     toast(t('copyFail'));
   }
+}
+
+// A still 512 × 512 WebP with a see-through background: the format WhatsApp and Telegram use for
+// stickers. Telegram shows a WebP file as a sticker; WhatsApp turns it into one through Create.
+async function onStickerFile() {
+  if (!state.selectedItem) return;
+  const c = await draw(state.selectedItem, BIG_PX, words());
+  let blob = await new Promise((res) => c.toBlob(res, 'image/webp', 0.9));
+  // keep it under WhatsApp's 100 KB limit for still stickers
+  if (blob && blob.type === 'image/webp' && blob.size > 100000) {
+    blob = await new Promise((res) => c.toBlob(res, 'image/webp', 0.7));
+  }
+  const webp = blob && blob.type === 'image/webp';
+  if (!webp) blob = await stillBlob(); // Safari can't make WebP
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fileName(blob).replace(/\.png$/, webp ? '.webp' : '.png');
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  afterSend();
+  toast(t(webp ? 'stickerSaved' : 'stickerPng'));
 }
 
 async function onSave() {
@@ -1099,6 +1140,9 @@ async function main() {
   $('send').addEventListener('click', onSend);
   $('copy').addEventListener('click', onCopy);
   $('save').addEventListener('click', onSave);
+  $('sticker-file-btn').addEventListener('click', () => $('sticker-dialog').showModal());
+  $('sticker-save').addEventListener('click', () => { $('sticker-dialog').close(); onStickerFile(); });
+  $('sticker-close').addEventListener('click', () => $('sticker-dialog').close());
   $('nowords').addEventListener('change', (e) => { state.noWords = e.target.checked; refresh(); });
   $('clean').addEventListener('change', (e) => { state.keepClean = e.target.checked; store.set('keepClean', state.keepClean); refresh(); });
   $('props-btn').addEventListener('click', () => { renderProps(); $('props-dialog').showModal(); });

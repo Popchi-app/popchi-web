@@ -48,6 +48,7 @@
       <button class="secondary" id="copy" type="button" data-i18n="copy">Copy</button>
       <button class="secondary" id="save" type="button" data-i18n="save">Save</button>
     </div>
+    <button class="link-button" id="sticker-file-btn" type="button" data-i18n="stickerBtn">Real sticker for WhatsApp or Telegram</button>
     <p class="toast" id="toast" role="status" aria-live="polite"></p>
   </section>
 
@@ -188,6 +189,18 @@
   <div id="shared-preview"></div>
   <button class="primary" id="shared-save" type="button" data-i18n="savePackBtn">Save this pack</button>
   <button class="secondary" id="shared-no" type="button" data-i18n="noThanks">No thanks</button>
+</dialog>
+
+<dialog id="sticker-dialog" class="sheet">
+  <h2 data-i18n="stickerTitle">Send it as a real sticker</h2>
+  <p class="muted" data-i18n="stickerWhy">Copy and paste turn it into a photo. Save the sticker file, then:</p>
+  <ul class="steps">
+    <li data-i18n="stickerTg">Telegram: drop the file into the chat. It arrives as a sticker.</li>
+    <li data-i18n="stickerWa">WhatsApp on a computer: click 😊, open Stickers, click Create, and pick the file.</li>
+    <li data-i18n="stickerPhone">On an Android phone, the Popchi keyboard sends real stickers to any chat.</li>
+  </ul>
+  <button class="primary" id="sticker-save" type="button" data-i18n="stickerSave">Save sticker file</button>
+  <button class="secondary" id="sticker-close" type="button" data-i18n="done">Done</button>
 </dialog>
 
 <dialog id="qr-dialog" class="sheet">
