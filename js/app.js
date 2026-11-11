@@ -283,8 +283,59 @@ const PROP_VI = {
   "halo": "vòng sáng thiên thần",
   "monitor head": "đầu màn hình",
   "knight helmet": "mũ hiệp sĩ",
+  "guard pillow": "lính cầm gối",
+  "guard run": "lính chạy tới",
+  "pillow paddle": "gậy gối",
+  "poison cup": "chén rượu xanh",
+  "farewell hanky": "khăn tay vẫy",
+  "cold palace gate": "cổng lãnh cung",
+  "medicine box": "hộp thuốc thái y",
+  "maid buns": "tóc búi cung nữ",
+  "physician cap": "mũ thái y",
+  "horsetail whisk": "phất trần",
+  "imperial decree": "thánh chỉ",
+  "rolled memorial": "tấu chương",
+  "jade seal": "ngọc tỷ",
+  "gold ingot": "nén vàng",
+  "coin string": "xâu tiền xu",
+  "abacus": "bàn tính",
+  "bamboo slips": "thẻ tre",
+  "old books": "chồng sách",
+  "feather duster": "chổi lông gà",
+  "teapot": "ấm trà",
+  "teacup": "chén trà",
+  "steamed buns": "xửng bánh bao",
+  "mooncakes": "bánh trung thu",
+  "candied haws": "kẹo hồ lô",
+  "roast chicken": "gà quay",
+  "potion bottle": "bình thuốc tím",
+  "herb mortar": "cối giã thuốc",
+  "ginseng": "nhân sâm",
+  "bird nest soup": "chén yến",
+  "red lantern": "lồng đèn đỏ",
+  "folding screen": "bình phong",
+  "incense burner": "lư hương",
+  "bonsai": "cây bonsai",
+  "porcelain vase": "bình sứ",
+  "pipa": "đàn tỳ bà",
+  "paper fan": "quạt giấy",
+  "guzheng": "đàn tranh",
+  "round fan": "quạt tròn",
+  "broom": "chổi quét",
+  "red court hat": "mũ trạng nguyên",
+  "dragon robe": "long bào",
+  "embroidered shoes": "hài thêu",
+  "pearl necklace": "chuỗi ngọc trai",
+  "jade bangle": "vòng cẩm thạch",
+  "gold hairpin": "trâm cài tóc",
+  "water bucket": "xô nước",
+  "bronze mirror": "gương đồng",
+  "palace puppy": "cún cung đình",
+  "wash basin": "chậu rửa",
 };
 const propName = (id) => {
+  // an outfit of several props: "guard_run+poison_cup" reads "guard run + poison cup"
+  if (id.includes('+')) return id.split('+').map(propName).join(' + ');
   const en = id.replace(/_/g, ' ');
   return lang === 'vi' ? (PROP_VI[en] || en) : en;
 };
@@ -319,11 +370,16 @@ function loadImage(src) {
 }
 const poseImage = (pose) => loadImage(A + pose.file);
 const propImage = (prop) => loadImage(A + 'props/' + prop.id + '.webp');
+/** A prop or an outfit of several props, with its pictures loaded: {pieces: [{data, img}...]}, or null. */
+async function loadProp(p) {
+  if (!p) return null;
+  const parts = p.parts || [p];
+  return { pieces: await Promise.all(parts.map(async (d) => ({ data: d, img: await propImage(d) }))) };
+}
 
 async function draw(item, size, text) {
   const art = await poseImage(item.pose);
-  let prop = null;
-  if (item.prop) prop = { data: item.prop, img: await propImage(item.prop) };
+  const prop = await loadProp(item.prop);
   return renderSticker({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean });
 }
 
@@ -543,8 +599,7 @@ async function showBig(gen, item) {
 
 async function drawFrames(item, size, text) {
   const art = await poseImage(item.pose);
-  let prop = null;
-  if (item.prop) prop = { data: item.prop, img: await propImage(item.prop) };
+  const prop = await loadProp(item.prop);
   return renderFrames({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean }, GIF_FRAMES);
 }
 

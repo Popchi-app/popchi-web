@@ -101,7 +101,8 @@
     "chef",
     "nau an",
     "bep",
-    "👨‍🍳"
+    "👨‍🍳",
+    "ngu tru"
    ]
   },
   {
@@ -501,6 +502,609 @@
     "hiep si",
     "chien dau",
     "⚔️"
+   ]
+  },
+  {
+   "id": "guard_pillow",
+   "type": "side",
+   "size": 0.75,
+   "depth": 0.0,
+   "facing": "right",
+   "tags": [
+    "30 truong",
+    "ho gia",
+    "mau ho gia",
+    "ba muoi truong",
+    "danh truong",
+    "loi ra danh",
+    "danh don",
+    "linh canh",
+    "thi ve",
+    "guard"
+   ]
+  },
+  {
+   "id": "guard_run",
+   "type": "side",
+   "size": 0.75,
+   "depth": 0.0,
+   "facing": "right",
+   "tags": [
+    "nguoi dau",
+    "ho gia",
+    "mau ho gia",
+    "loi ra",
+    "bat lai",
+    "bat no lai",
+    "guards",
+    "seize"
+   ]
+  },
+  {
+   "id": "pillow_paddle",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "truong",
+    "đánh đòn",
+    "phat don",
+    "bonk",
+    "pillow fight"
+   ]
+  },
+  {
+   "id": "poison_cup",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "ruou doc",
+    "ban ruou",
+    "ban ruou doc",
+    "ban chet",
+    "poison"
+   ]
+  },
+  {
+   "id": "farewell_hanky",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "vinh biet",
+    "tien biet",
+    "tam biet",
+    "farewell"
+   ]
+  },
+  {
+   "id": "cold_palace_gate",
+   "type": "side",
+   "size": 0.78,
+   "depth": 0.0,
+   "tags": [
+    "lanh cung",
+    "day vao lanh cung",
+    "that sung",
+    "cold palace"
+   ]
+  },
+  {
+   "id": "medicine_box",
+   "type": "side",
+   "size": 0.52,
+   "depth": 0.0,
+   "tags": [
+    "thai y",
+    "bat mach",
+    "uong thuoc",
+    "bi om",
+    "bi benh",
+    "medicine"
+   ]
+  },
+  {
+   "id": "maid_buns",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.48,
+   "tags": [
+    "cung nu",
+    "no ty",
+    "nha hoan",
+    "a hoan",
+    "palace maid"
+   ]
+  },
+  {
+   "id": "physician_cap",
+   "type": "hat",
+   "size": 0.85,
+   "depth": 0.42,
+   "tags": [
+    "thai y",
+    "ngu y",
+    "dai phu",
+    "doctor"
+   ]
+  },
+  {
+   "id": "horsetail_whisk",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "phat tran",
+    "cong cong",
+    "thai giam",
+    "gia dao"
+   ]
+  },
+  {
+   "id": "imperial_decree",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "thanh chi",
+    "thanh chi den",
+    "truyen chi",
+    "phung thien thua van",
+    "decree"
+   ]
+  },
+  {
+   "id": "rolled_memorial",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "tau chuong",
+    "dang so",
+    "khoi bam"
+   ]
+  },
+  {
+   "id": "jade_seal",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "ngoc ty",
+    "ngoc ti",
+    "dong dau",
+    "phe duyet",
+    "duyet",
+    "approved"
+   ]
+  },
+  {
+   "id": "gold_ingot",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "ban thuong",
+    "nen vang",
+    "thuong vang",
+    "phat tai",
+    "gold"
+   ]
+  },
+  {
+   "id": "coin_string",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "tien xu",
+    "xau tien",
+    "ngan luong",
+    "coins"
+   ]
+  },
+  {
+   "id": "abacus",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "ban tinh",
+    "tinh tien",
+    "ke toan",
+    "so sach",
+    "accounting"
+   ]
+  },
+  {
+   "id": "bamboo_slips",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "the tre",
+    "ho so",
+    "giay to",
+    "paperwork"
+   ]
+  },
+  {
+   "id": "old_books",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "doc sach",
+    "on thi",
+    "thi cu",
+    "books"
+   ]
+  },
+  {
+   "id": "feather_duster",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "choi long ga",
+    "an roi",
+    "an don",
+    "don dep"
+   ]
+  },
+  {
+   "id": "teapot",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "pha tra",
+    "uong tra",
+    "tea time"
+   ]
+  },
+  {
+   "id": "teacup",
+   "type": "side",
+   "size": 0.4,
+   "depth": 0.0,
+   "tags": [
+    "dang tra",
+    "moi dung tra",
+    "sip tea"
+   ]
+  },
+  {
+   "id": "steamed_buns",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "banh bao",
+    "xiu mai",
+    "ha cao",
+    "dim sum"
+   ]
+  },
+  {
+   "id": "mooncakes",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "banh trung thu",
+    "trung thu",
+    "mooncake",
+    "mid autumn"
+   ]
+  },
+  {
+   "id": "candied_haws",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "keo ho lo",
+    "tanghulu"
+   ]
+  },
+  {
+   "id": "roast_chicken",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "ga quay",
+    "ngu thien",
+    "ngu tru",
+    "dung bua",
+    "feast"
+   ]
+  },
+  {
+   "id": "potion_bottle",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "thuoc doc",
+    "doc duoc",
+    "thuoc me",
+    "bua me",
+    "potion"
+   ]
+  },
+  {
+   "id": "herb_mortar",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "sac thuoc",
+    "boc thuoc",
+    "thuoc bac",
+    "thuoc nam"
+   ]
+  },
+  {
+   "id": "ginseng",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "nhan sam",
+    "boi bo",
+    "tam bo",
+    "ginseng"
+   ]
+  },
+  {
+   "id": "bird_nest_soup",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "to yen",
+    "chen yen",
+    "che yen",
+    "bo duong"
+   ]
+  },
+  {
+   "id": "red_lantern",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "long den",
+    "den long",
+    "lantern",
+    "nguyen tieu"
+   ]
+  },
+  {
+   "id": "folding_screen",
+   "type": "side",
+   "size": 0.8,
+   "depth": 0.0,
+   "tags": [
+    "binh phong",
+    "nghe len",
+    "nghe trom",
+    "eavesdrop"
+   ]
+  },
+  {
+   "id": "incense_burner",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "lu huong",
+    "thap huong",
+    "incense"
+   ]
+  },
+  {
+   "id": "bonsai",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "bonsai",
+    "cay canh",
+    "an nhan"
+   ]
+  },
+  {
+   "id": "porcelain_vase",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "binh su",
+    "binh hoa",
+    "co vat",
+    "lam vo",
+    "vase"
+   ]
+  },
+  {
+   "id": "pipa",
+   "type": "side",
+   "size": 0.62,
+   "depth": 0.0,
+   "tags": [
+    "ty ba",
+    "dan ty ba",
+    "tau nhac",
+    "choi dan"
+   ]
+  },
+  {
+   "id": "paper_fan",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "quạt giấy",
+    "phe phẩy",
+    "quạt mát"
+   ]
+  },
+  {
+   "id": "guzheng",
+   "type": "side",
+   "size": 0.3,
+   "depth": 0.0,
+   "tags": [
+    "dan tranh",
+    "guzheng",
+    "cam ky thi hoa"
+   ]
+  },
+  {
+   "id": "round_fan",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "quat tron",
+    "che mat",
+    "tieu thu"
+   ]
+  },
+  {
+   "id": "broom",
+   "type": "side",
+   "size": 0.62,
+   "depth": 0.0,
+   "tags": [
+    "quet nha",
+    "quet san",
+    "don nha",
+    "lau don"
+   ]
+  },
+  {
+   "id": "red_court_hat",
+   "type": "hat",
+   "size": 1.0,
+   "depth": 0.5,
+   "tags": [
+    "trang nguyen",
+    "do trang nguyen",
+    "vinh quy bai to",
+    "thu khoa"
+   ]
+  },
+  {
+   "id": "dragon_robe",
+   "type": "side",
+   "size": 0.6,
+   "depth": 0.0,
+   "tags": [
+    "long bao",
+    "hoang bao",
+    "ao rong"
+   ]
+  },
+  {
+   "id": "embroidered_shoes",
+   "type": "side",
+   "size": 0.4,
+   "depth": 0.0,
+   "tags": [
+    "giay theu",
+    "hai theu",
+    "doi hai"
+   ]
+  },
+  {
+   "id": "pearl_necklace",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "chuoi ngoc",
+    "ngoc trai",
+    "pearl",
+    "necklace"
+   ]
+  },
+  {
+   "id": "jade_bangle",
+   "type": "side",
+   "size": 0.4,
+   "depth": 0.0,
+   "tags": [
+    "vong ngoc",
+    "vong tay",
+    "cam thach",
+    "jade",
+    "bangle"
+   ]
+  },
+  {
+   "id": "gold_hairpin",
+   "type": "side",
+   "size": 0.55,
+   "depth": 0.0,
+   "tags": [
+    "tram cai",
+    "tram cai toc",
+    "cay tram",
+    "hairpin"
+   ]
+  },
+  {
+   "id": "water_bucket",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "xo nuoc",
+    "tat nuoc",
+    "xach nuoc",
+    "ganh nuoc"
+   ]
+  },
+  {
+   "id": "bronze_mirror",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "soi guong",
+    "guong dong",
+    "guong than",
+    "mirror mirror"
+   ]
+  },
+  {
+   "id": "palace_puppy",
+   "type": "side",
+   "size": 0.5,
+   "depth": 0.0,
+   "tags": [
+    "cun cung",
+    "cun con",
+    "gau gau",
+    "puppy",
+    "doggo"
+   ]
+  },
+  {
+   "id": "wash_basin",
+   "type": "side",
+   "size": 0.45,
+   "depth": 0.0,
+   "tags": [
+    "chau nuoc",
+    "rua mat",
+    "ngam chan",
+    "rua chan"
    ]
   }
  ]

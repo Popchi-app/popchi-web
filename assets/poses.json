@@ -1384,7 +1384,9 @@
    "lui ra",
    "dismissed",
    "leave",
-   "begone"
+   "begone",
+   "mien le",
+   "binh than"
   ],
   "royal_bow": [
    "tuan chi",
@@ -1407,7 +1409,11 @@
    "loi ra ngoai",
    "chém",
    "off with",
-   "guards"
+   "guards",
+   "nguoi dau",
+   "ban ruou doc",
+   "day vao lanh cung",
+   "loi ra danh"
   ],
   "royal_beg": [
    "xin tha",
@@ -1427,7 +1433,9 @@
    "thanh chi",
    "announcement",
    "decree",
-   "phung thien"
+   "phung thien",
+   "thanh chi den",
+   "truyen chi"
   ],
   "royal_tired": [
    "tram met",
@@ -1448,7 +1456,10 @@
    "than oan",
    "hoang thuong oan",
    "troi oi oan",
-   "😭"
+   "😭",
+   "lanh cung",
+   "day vao lanh cung",
+   "that sung"
   ],
   "off_scroll_bow": [
    "than khong dam",
@@ -1456,7 +1467,10 @@
    "than tuan chi",
    "than xin tuan lenh",
    "vang a",
-   "da vang"
+   "da vang",
+   "thanh chi den",
+   "tiep chi",
+   "tau chuong"
   ],
   "off_no_no": [
    "khong dam",
@@ -1471,7 +1485,11 @@
    "toang roi",
    "hoang",
    "panic",
-   "sao gio"
+   "sao gio",
+   "ho gia",
+   "mau ho gia",
+   "co thich khach",
+   "thich khach"
   ],
   "off_stern": [
    "nghiem tuc",
@@ -1485,7 +1503,9 @@
    "khau dau",
    "lạy",
    "lay ca",
-   "tham bai"
+   "tham bai",
+   "ta chu long an",
+   "ta on"
   ],
   "off_hem_beg": [
    "xin tha mang",
@@ -1500,7 +1520,13 @@
    "sợ quá",
    "sợ",
    "scared",
-   "trembling"
+   "trembling",
+   "30 truong",
+   "danh 30 truong",
+   "tha cho",
+   "ho gia",
+   "mau ho gia",
+   "thich khach"
   ],
   "off_tremble_stand": [
    "run so",
@@ -1511,7 +1537,9 @@
    "xiu",
    "ngat",
    "thon thuc",
-   "ngat xiu"
+   "ngat xiu",
+   "ruou doc",
+   "trung doc"
   ],
   "off_whisper": [
    "bẩm",
@@ -1534,7 +1562,125 @@
    "bam bao",
    "khai bao",
    "report",
-   "bao cao"
+   "bao cao",
+   "khoi bam",
+   "bam hoang thuong"
+  ],
+  "qm_faint": [
+   "ruou doc",
+   "trung doc",
+   "xiu",
+   "ngat",
+   "choang"
+  ],
+  "qm_fan_smug": [
+   "ai gia",
+   "bon cung",
+   "smug",
+   "hay lam"
+  ],
+  "qm_fury": [
+   "to gan",
+   "quan bay dau",
+   "phan nghich",
+   "treason",
+   "lam phan"
+  ],
+  "qm_phone": [
+   "san sale",
+   "flash sale",
+   "chot don",
+   "len don",
+   "shopping"
+  ],
+  "qm_point": [
+   "nguoi dau",
+   "ban ruou doc",
+   "day vao lanh cung",
+   "loi ra danh",
+   "bat lai"
+  ],
+  "qm_shock": [
+   "sold out",
+   "bay mau",
+   "het hang",
+   "soc"
+  ],
+  "qm_side_eye": [
+   "beo vay",
+   "khinh",
+   "coi thuong",
+   "tam thuong"
+  ],
+  "qm_throne_tea": [
+   "ai gia",
+   "thai hau",
+   "uong tra",
+   "pha tra",
+   "binh tinh"
+  ],
+  "qm_wail": [
+   "troi oi bao tap mua sa",
+   "bao tap mua sa",
+   "lanh cung",
+   "that sung",
+   "oan qua"
+  ],
+  "sale_beg": [
+   "nan ni",
+   "xin ma",
+   "xin di",
+   "please"
+  ],
+  "sale_box_hug": [
+   "hang ve",
+   "nhan hang",
+   "unboxing",
+   "co hang"
+  ],
+  "sale_box_side": [
+   "giấu đi",
+   "giấu kỹ",
+   "lo mua",
+   "mua len"
+  ],
+  "sale_kowtow": [
+   "ta chu long an",
+   "tha cho",
+   "xin loi",
+   "toi biet loi"
+  ],
+  "sale_offer": [
+   "kinh dang",
+   "dang len",
+   "qua cho",
+   "tang ban"
+  ],
+  "sale_phone_sly": [
+   "san sale",
+   "flash sale",
+   "chot don",
+   "len don",
+   "add to cart"
+  ],
+  "sale_pillar": [
+   "ho gia",
+   "mau ho gia",
+   "nup",
+   "tron di",
+   "co thich khach"
+  ],
+  "sale_run": [
+   "bo chay",
+   "chay mat",
+   "chuon",
+   "chay ngay"
+  ],
+  "sale_whistle": [
+   "vo toi",
+   "khong biet gi",
+   "dau co",
+   "innocent"
   ]
  },
  "characters": [
@@ -2309,6 +2455,60 @@
      "file": "poses/bao/off_whisper_sly.webp",
      "headX": 0.513,
      "headTop": 0.04
+    },
+    {
+     "kind": "sale_beg",
+     "file": "poses/bao/sale_beg.webp",
+     "headX": 0.331,
+     "headTop": 0.037
+    },
+    {
+     "kind": "sale_box_hug",
+     "file": "poses/bao/sale_box_hug.webp",
+     "headX": 0.483,
+     "headTop": 0.008
+    },
+    {
+     "kind": "sale_box_side",
+     "file": "poses/bao/sale_box_side.webp",
+     "headX": 0.377,
+     "headTop": 0.037
+    },
+    {
+     "kind": "sale_kowtow",
+     "file": "poses/bao/sale_kowtow.webp",
+     "headX": 0.376,
+     "headTop": 0.044
+    },
+    {
+     "kind": "sale_offer",
+     "file": "poses/bao/sale_offer.webp",
+     "headX": 0.419,
+     "headTop": 0.037
+    },
+    {
+     "kind": "sale_phone_sly",
+     "file": "poses/bao/sale_phone_sly.webp",
+     "headX": 0.493,
+     "headTop": 0.021
+    },
+    {
+     "kind": "sale_pillar",
+     "file": "poses/bao/sale_pillar.webp",
+     "headX": 0.6,
+     "headTop": 0.039
+    },
+    {
+     "kind": "sale_run",
+     "file": "poses/bao/sale_run.webp",
+     "headX": 0.608,
+     "headTop": 0.039
+    },
+    {
+     "kind": "sale_whistle",
+     "file": "poses/bao/sale_whistle.webp",
+     "headX": 0.469,
+     "headTop": 0.037
     }
    ]
   },
@@ -3263,6 +3463,60 @@
      "file": "poses/capy/off_whisper.webp",
      "headX": 0.49,
      "headTop": 0.037
+    },
+    {
+     "kind": "qm_faint",
+     "file": "poses/capy/qm_faint.webp",
+     "headX": 0.402,
+     "headTop": 0.03
+    },
+    {
+     "kind": "qm_fan_smug",
+     "file": "poses/capy/qm_fan_smug.webp",
+     "headX": 0.54,
+     "headTop": 0.039
+    },
+    {
+     "kind": "qm_fury",
+     "file": "poses/capy/qm_fury.webp",
+     "headX": 0.507,
+     "headTop": 0.035
+    },
+    {
+     "kind": "qm_phone",
+     "file": "poses/capy/qm_phone.webp",
+     "headX": 0.499,
+     "headTop": 0.025
+    },
+    {
+     "kind": "qm_point",
+     "file": "poses/capy/qm_point.webp",
+     "headX": 0.63,
+     "headTop": 0.036
+    },
+    {
+     "kind": "qm_shock",
+     "file": "poses/capy/qm_shock.webp",
+     "headX": 0.544,
+     "headTop": 0.037
+    },
+    {
+     "kind": "qm_side_eye",
+     "file": "poses/capy/qm_side_eye.webp",
+     "headX": 0.446,
+     "headTop": 0.037
+    },
+    {
+     "kind": "qm_throne_tea",
+     "file": "poses/capy/qm_throne_tea.webp",
+     "headX": 0.461,
+     "headTop": 0.037
+    },
+    {
+     "kind": "qm_wail",
+     "file": "poses/capy/qm_wail.webp",
+     "headX": 0.563,
+     "headTop": 0.035
     }
    ]
   }

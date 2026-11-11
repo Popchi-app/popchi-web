@@ -257,7 +257,8 @@ export class Library {
 
   static canWearProp(kind) {
     return !(kind.startsWith('royal_') || kind.startsWith('off_') || kind.startsWith('hw_') || kind.startsWith('xm_')
-      || kind.startsWith('tet_') || kind.startsWith('gm_') || kind === 'party'
+      || kind.startsWith('tet_') || kind.startsWith('gm_') || kind.startsWith('qm_') || kind.startsWith('sale_')
+      || kind === 'party'
       || kind === 'sleep' || kind === 'protein_shake' || kind === 'buried');
   }
 
@@ -316,7 +317,8 @@ export class Library {
     }
     const poseScore = this.lastFallback ? 0 : this.lastTopScore;
     const hits = this.propMatches(text);
-    const hit = hits.length ? hits[0] : null;
+    // the best head prop plus up to two side props ("người đâu, ban rượu độc": a guard and the cup)
+    const hit = outfit(hits);
     // the words are more about the outfit than any pose: dress up easy-going poses first
     const propFirst = hit !== null && this.lastPropTop > poseScore;
     if (propFirst && this.lastFallback) list = this.dressable();
@@ -327,15 +329,51 @@ export class Library {
       const dressed = new Set();
       for (const q of list) {
         if (added >= 3) break;
-        if (!Library.canWearProp(q.kind) || dressed.has(q.kind)) continue;
+        // poses already in costume keep their own headwear but can still have props beside them
+        const w = Library.canWearProp(q.kind) ? hit : sidesOnly(hit);
+        if (!w || dressed.has(q.kind)) continue;
         dressed.add(q.kind);
-        out.push({ pose: q, prop: hit });
+        out.push({ pose: q, prop: w });
         added++;
       }
       for (let i = plainFirst; i < list.length; i++) out.push({ pose: list[i], prop: null });
     }
     return out;
   }
+}
+
+/** The single props a prop stands for: itself, or the pieces of an outfit. */
+export const pieces = (p) => (p && p.parts ? p.parts : p ? [p] : []);
+
+const makeOutfit = (parts) => (parts.length === 1 ? parts[0]
+  : { id: parts.map((p) => p.id).join('+'), type: 'outfit', parts });
+
+/**
+ * What a sticker wears for the props the words matched (best first): the best head prop and up to
+ * two side props. Null if nothing matched. Same as Props.outfit() in the app.
+ */
+export function outfit(hits) {
+  let head = null;
+  const sides = [];
+  for (const p of hits) {
+    if (p.type === 'side') { if (sides.length < 2) sides.push(p); } else if (!head) head = p;
+  }
+  const all = head ? [head, ...sides] : sides;
+  return all.length ? makeOutfit(all) : null;
+}
+
+/** The same outfit without its head prop, for poses already in costume; null if nothing is left. */
+export function sidesOnly(p) {
+  const s = pieces(p).filter((q) => q.type === 'side');
+  return s.length ? makeOutfit(s) : null;
+}
+
+/** Where a side prop stands, in the pose picture's pixels: beside the character on its ground line. */
+export function placeSide(p, pw, ph, baseW, baseH, onLeft) {
+  const h = baseH * p.size, w = h * pw / ph;
+  const overlap = baseW * 0.08;
+  const left = onLeft ? overlap - w : baseW - overlap;
+  return { left, top: baseH - h, right: left + w, bottom: baseH };
 }
 
 /** Where to draw a prop, in the pose picture's pixels. hx = head centre x, ht = head top y, hw = head width. */

@@ -1,6 +1,6 @@
 // Draws one sticker on a canvas: the pose (with an optional prop on its head) and a speech
 // bubble holding the text. A port of the keyboard app's StickerRenderer.java.
-import { placeProp } from './engine.js';
+import { placeProp, placeSide } from './engine.js';
 
 export const MAX_CHARS = 40;
 const INK = '#2A2024', WHITE = '#FFFFFF', MAX_LINES = 3;
@@ -144,26 +144,59 @@ function shapePieces(style, b, shapeW, shapeH, rad, ey, s, tx, tipX, tipY, shape
 }
 
 /**
- * Renders a sticker. art = loaded pose image, prop = {data, img} or null,
+ * Renders a sticker. art = loaded pose image, prop = {data, img} or {pieces: [{data, img}...]} or null,
  * head = [width, centreX, top] fractions for props. Returns a canvas of size x size.
+ * Side props stand beside the character on its ground line (behind it where they overlap);
+ * the head prop goes on top. Same as StickerRenderer.art() in the app.
  */
 export function renderSticker({ art, pose, head, prop, text, size, keepClean, motion }) {
   let img = art, headX = pose.headX, headTop = pose.headTop;
-  if (prop && head) {
+  const parts = prop ? (prop.pieces || [prop]) : [];
+  if (parts.length && head) {
     const w = art.width, h = art.height;
-    const r = placeProp(prop.data, prop.img.width, prop.img.height, head[1] * w, head[2] * h, head[0] * w);
-    const left = Math.min(0, r.left), top = Math.min(0, r.top);
-    const right = Math.max(w, r.right), bottom = Math.max(h, r.bottom);
+    const sides = parts.filter((p) => p.data.type === 'side');
+    const hat = parts.find((p) => p.data.type !== 'side') || null;
+    // the first side prop stands on the left, the second on the right
+    const placed = sides.map((sp, i) => {
+      const onLeft = sides.length === 1 ? sp.data.facing !== 'left' : i === 0;
+      const r = placeSide(sp.data, sp.img.width, sp.img.height, w, h, onLeft);
+      // art that looks right faces the character from the left; turn it round on the right
+      const flip = (sp.data.facing === 'right' && !onLeft) || (sp.data.facing === 'left' && onLeft);
+      return { sp, r, flip };
+    });
+    const hr = hat ? placeProp(hat.data, hat.img.width, hat.img.height, head[1] * w, head[2] * h, head[0] * w) : null;
+    let left = 0, top = 0, right = w, bottom = h;
+    for (const { r } of placed) { left = Math.min(left, r.left); top = Math.min(top, r.top); right = Math.max(right, r.right); }
+    if (hr) {
+      left = Math.min(left, hr.left); top = Math.min(top, hr.top);
+      right = Math.max(right, hr.right); bottom = Math.max(bottom, hr.bottom);
+    }
     const comp = document.createElement('canvas');
     comp.width = Math.round(right - left);
     comp.height = Math.round(bottom - top);
     const cc = comp.getContext('2d');
     cc.imageSmoothingQuality = 'high';
+    for (const { sp, r, flip } of placed) {
+      const x = r.left - left, y = r.top - top, rw = r.right - r.left, rh = r.bottom - r.top;
+      if (flip) {
+        cc.save();
+        cc.translate(x + rw, y);
+        cc.scale(-1, 1);
+        cc.drawImage(sp.img, 0, 0, rw, rh);
+        cc.restore();
+      } else {
+        cc.drawImage(sp.img, x, y, rw, rh);
+      }
+    }
     cc.drawImage(art, -left, -top);
-    const rr = { left: r.left - left, top: r.top - top, right: r.right - left, bottom: r.bottom - top };
-    cc.drawImage(prop.img, rr.left, rr.top, rr.right - rr.left, rr.bottom - rr.top);
+    let headTopPx = pose.headTop * h - top;
+    if (hr) {
+      const rr = { left: hr.left - left, top: hr.top - top, right: hr.right - left, bottom: hr.bottom - top };
+      cc.drawImage(hat.img, rr.left, rr.top, rr.right - rr.left, rr.bottom - rr.top);
+      headTopPx = Math.min(rr.top, headTopPx);
+    }
     headX = (head[1] * w - left) / comp.width;
-    headTop = Math.min(rr.top, pose.headTop * h - top) / comp.height;
+    headTop = headTopPx / comp.height;
     img = comp;
   }
   return draw(img, headX, headTop, pose.kind, text, size, keepClean, motion);
