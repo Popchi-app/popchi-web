@@ -1,36 +1,38 @@
-// Reads what a message means with two small models (MiniLM and E5), entirely in this
-// browser. Same models, splitter and pose readings as the Android keyboard.
+// Reads what a message means with one small model (E5), entirely in this browser.
+// Same model, splitter and pose readings as the Android keyboard. MiniLM was dropped in
+// Nov 2026: on the 2,000-message test set E5 alone scored higher than the two together.
 import { Splitter } from './splitter.js';
+
+/** How alike two messages must read before what was learned from one applies to the other. */
+const NEAR = 0.9;
+/** Picks kept on this phone, oldest dropped first. */
+export const MEMORY_MAX = 500;
 
 export class Meaning {
   constructor(base) {
-    this.base = base;           // folder with vocab.txt, *.onnx, poses_*.bin
+    this.base = base;           // folder with vocab.txt, e5.onnx, poses_e5.bin
     this.ready = false;
     this.failed = false;
-    this.cache = new Map();     // text -> {kind: [minilm, e5]}
-    this.models = [{ file: 'minilm', prefix: '' }, { file: 'e5', prefix: 'query: ' }];
+    this.cache = new Map();     // text -> {kind: similarity}
+    this.vectors = new Map();   // text -> the model's reading (kept in memory only)
+    this.model = { file: 'e5', prefix: 'query: ', size: 35062745 };
+    this.memory = [];           // [{kind, sign, v: Int8Array}] what this phone learned from picks
+    this.learning = true;
   }
 
-  /** Loads everything; onProgress(fraction) while the two models download. */
+  /** Loads everything; onProgress(fraction) while the model downloads. */
   async load(ort, onProgress) {
     try {
       const vocab = await (await fetch(this.base + 'vocab.txt')).text();
       this.splitter = new Splitter(vocab);
-      const sizes = [35062686, 35062745];
-      const got = [0, 0];
-      const report = () => onProgress && onProgress((got[0] + got[1]) / (sizes[0] + sizes[1]));
-      const buffers = await Promise.all(this.models.map((m, i) =>
-        download(this.base + m.file + '.onnx', (n) => { got[i] = n; report(); })));
-      for (let i = 0; i < 2; i++) {
-        const m = this.models[i];
-        m.session = await ort.InferenceSession.create(buffers[i], { executionProviders: ['wasm'] });
-        const bin = await (await fetch(this.base + 'poses_' + m.file + '.bin')).arrayBuffer();
-        readPoses(m, bin);
-      }
+      const m = this.model;
+      const buffer = await download(this.base + m.file + '.onnx', (n) => onProgress && onProgress(n / m.size));
+      m.session = await ort.InferenceSession.create(buffer, { executionProviders: ['wasm'] });
+      readPoses(m, await (await fetch(this.base + 'poses_' + m.file + '.bin')).arrayBuffer());
       this.ort = ort;
       this.ready = true;
     } catch (e) {
-      console.warn('Meaning models unavailable, using word lists only', e);
+      console.warn('Meaning model unavailable, using word lists only', e);
       this.failed = true;
     }
     return this.ready;
@@ -40,7 +42,7 @@ export class Meaning {
     return this.ready ? this.cache.get(text.trim()) || null : null;
   }
 
-  /** {kind: [best similarity from MiniLM, from E5]} for this text. One at a time: the models can't overlap. */
+  /** {kind: best similarity} for this text. One at a time: runs can't overlap. */
   read(text) {
     const key = text.trim();
     if (!this.ready || !key) return Promise.resolve(null);
@@ -52,22 +54,77 @@ export class Meaning {
 
   async readNow(key) {
     if (this.cache.has(key)) return this.cache.get(key);
+    const md = this.model;
+    const v = await this.embed(md, key);
     const out = {};
-    for (let m = 0; m < 2; m++) {
-      const md = this.models[m];
-      const v = await this.embed(md, key);
-      for (let r = 0; r < md.rowKind.length; r++) {
-        let s = 0;
-        const off = r * md.dim;
-        for (let d = 0; d < md.dim; d++) s += v[d] * md.rows[off + d];
-        const k = md.rowKind[r];
-        if (!out[k]) out[k] = [-2, -2];
-        if (s > out[k][m]) out[k][m] = s;
-      }
+    for (let r = 0; r < md.rowKind.length; r++) {
+      let s = 0;
+      const off = r * md.dim;
+      for (let d = 0; d < md.dim; d++) s += v[d] * md.rows[off + d];
+      const k = md.rowKind[r];
+      if (out[k] === undefined || s > out[k]) out[k] = s;
     }
+    this.applyMemory(v, out);
     this.cache.set(key, out);
-    if (this.cache.size > 40) this.cache.delete(this.cache.keys().next().value);
+    this.vectors.set(key, v);
+    if (this.cache.size > 40) {
+      const old = this.cache.keys().next().value;
+      this.cache.delete(old);
+      this.vectors.delete(old);
+    }
     return out;
+  }
+
+  // ------------------------------------------------------------ learning on this phone
+  // A pick is saved as the model's reading of the message (384 small numbers, never the words)
+  // with the pose that was picked. A later message that reads nearly the same ranks that pose
+  // first. "None fit" saves the poses that were shown, to rank them lower. Nothing is sent anywhere.
+
+  applyMemory(v, out) {
+    if (!this.learning) return;
+    for (const m of this.memory) {
+      let s = 0;
+      for (let d = 0; d < v.length; d++) s += v[d] * m.v[d];
+      s /= 127;
+      if (s < NEAR) continue;
+      if (m.sign > 0) out[m.kind] = Math.max(out[m.kind] === undefined ? -2 : out[m.kind], s + 0.02);
+      else if (out[m.kind] !== undefined) out[m.kind] -= (s - NEAR) * 1.5;
+    }
+  }
+
+  /** Remembers a pick (sign 1) or a pose that didn't fit (sign -1) for a message read earlier. */
+  learn(text, kind, sign) {
+    const v = this.vectors.get((text || '').trim());
+    if (!this.learning || !v) return false;
+    const q = new Int8Array(v.length);
+    for (let d = 0; d < v.length; d++) q[d] = Math.max(-127, Math.min(127, Math.round(v[d] * 127)));
+    this.memory.push({ kind, sign, v: q });
+    if (this.memory.length > MEMORY_MAX) this.memory.splice(0, this.memory.length - MEMORY_MAX);
+    this.cache.clear(); // readings change with what was learned
+    return true;
+  }
+
+  forget() {
+    this.memory = [];
+    this.cache.clear();
+  }
+
+  /** The memory as text for localStorage: kind, sign and the reading in base64. */
+  saveMemory() {
+    return this.memory.map((m) => m.kind + '|' + m.sign + '|' + btoa(String.fromCharCode(...new Uint8Array(m.v.buffer))));
+  }
+
+  loadMemory(list) {
+    this.memory = [];
+    for (const line of list || []) {
+      const [kind, sign, b64] = String(line).split('|');
+      try {
+        const raw = atob(b64);
+        const v = new Int8Array(raw.length);
+        for (let i = 0; i < raw.length; i++) v[i] = (raw.charCodeAt(i) << 24) >> 24;
+        if (kind && v.length) this.memory.push({ kind, sign: Number(sign) < 0 ? -1 : 1, v });
+      } catch { /* a damaged line is skipped */ }
+    }
   }
 
   async embed(m, text) {

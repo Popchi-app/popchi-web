@@ -1,0 +1,28 @@
+{
+  "about": "Themed sets for the Themes shelf (keyboard, app and popchi.app). A theme holds every pose whose kind starts with one of its prefixes or is listed in kinds, plus ready-made stickers (combos: a pose, props and words). The Android app has the same file; keep the two the same.",
+  "themes": [
+    {"id": "palace", "icon": "👑", "en": "Palace", "vi": "Hậu cung", "prefixes": ["royal_", "off_", "qm_", "sale_"], "kinds": [],
+     "combos": [
+       {"who": "bao", "pose": "royal_point", "props": ["poison_cup", "guard_pillow"], "vi": "Người đâu, ban rượu độc!", "en": "Guards! The green drink!"},
+       {"who": "linh", "pose": "off_wail", "props": ["guard_run", "cold_palace_gate"], "vi": "Đày vào lãnh cung!", "en": "To the cold palace!"},
+       {"who": "mochi", "pose": "off_tremble", "props": ["guard_pillow", "pillow_paddle"], "vi": "Lôi ra đánh 30 trượng!", "en": "Thirty pillow whacks!"},
+       {"who": "bao", "pose": "sale_pillar", "props": ["guard_pillow", "guard_run"], "vi": "Người đâu, mau hộ giá!", "en": "Guards! Protect me!"},
+       {"who": "bao", "pose": "royal_entrance", "props": [], "vi": "Hoàng thượng giá lâm!", "en": "The Emperor has arrived!"},
+       {"who": "capy", "pose": "qm_throne_tea", "props": [], "vi": "Ai gia đã quyết.", "en": "The Queen Mother has decided."},
+       {"who": "mochi", "pose": "off_scroll_bow", "props": [], "vi": "Thánh chỉ đến!", "en": "A royal decree!"},
+       {"who": "bao", "pose": "royal_dismiss", "props": [], "vi": "Bãi triều!", "en": "Court dismissed!"},
+       {"who": "linh", "pose": "off_kowtow", "props": [], "vi": "Tạ chủ long ân!", "en": "Thank you, Your Majesty!"},
+       {"who": "capy", "pose": "point", "props": ["physician_cap", "medicine_box"], "vi": "Thái y tới!", "en": "The royal physician is here!"},
+       {"who": "linh", "pose": "hi", "props": ["maid_buns"], "vi": "Dạ, nô tỳ có mặt.", "en": "At your service."},
+       {"who": "capy", "pose": "qm_fury", "props": [], "vi": "To gan!!", "en": "How dare you!!"}
+     ]},
+    {"id": "tet", "icon": "🧧", "en": "Tết", "vi": "Tết", "prefixes": ["tet_"], "kinds": [], "combos": []},
+    {"id": "food", "icon": "🍜", "en": "Food", "vi": "Ăn uống", "prefixes": [],
+     "kinds": ["hungry", "pho_slurp", "banh_mi", "tra_sua", "boba_hug", "ca_phe", "coffee", "pizza", "fries", "noodle_bath", "drool_chicken", "food_love", "food_coma", "spicy", "cheers", "candy_hype", "donut_cheat"], "combos": []},
+    {"id": "gaming", "icon": "🎮", "en": "Gaming", "vi": "Game", "prefixes": ["gm_"], "kinds": [], "combos": []},
+    {"id": "gym", "icon": "💪", "en": "Gym", "vi": "Gym", "prefixes": [],
+     "kinds": ["gym_selfie", "lift_struggle", "deadlift_rage", "treadmill_cry", "protein_shake", "mirror_flex", "yoga_tangle", "mat_flop"], "combos": []},
+    {"id": "xmas", "icon": "🎄", "en": "Christmas", "vi": "Giáng sinh", "prefixes": ["xm_"], "kinds": [], "combos": []},
+    {"id": "halloween", "icon": "🎃", "en": "Halloween", "vi": "Halloween", "prefixes": ["hw_"], "kinds": [], "combos": []}
+  ]
+}

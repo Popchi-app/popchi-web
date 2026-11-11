@@ -43,24 +43,25 @@
     <div class="chat-row">
       <div class="sent" id="sent"><canvas id="big" width="512" height="512" aria-label="Selected sticker"></canvas></div>
     </div>
-    <div class="send-row">
+    <div class="send-row one">
       <button class="primary" id="send" type="button" data-i18n="send">Send</button>
-      <button class="secondary" id="copy" type="button" data-i18n="copy">Copy</button>
-      <button class="secondary" id="save" type="button" data-i18n="save">Save</button>
+      <button class="secondary more-btn" id="send-more" type="button" aria-haspopup="dialog" data-i18n-label="moreWays">⋯</button>
     </div>
-    <button class="link-button" id="sticker-file-btn" type="button" data-i18n="stickerBtn">Real sticker for WhatsApp or Telegram</button>
+    <div class="opts" id="opts">
+      <label class="chip toggle"><input type="checkbox" id="nowords"><span data-i18n="noWords">No words</span></label>
+      <label class="chip toggle"><input type="checkbox" id="moving"><span data-i18n="moving">Moving</span></label>
+      <button class="chip" id="props-btn" type="button">🎩 <b id="wearing-name">Auto</b></button>
+    </div>
     <p class="toast" id="toast" role="status" aria-live="polite"></p>
   </section>
 
-  <section class="extras">
-    <div class="toggles">
-      <label class="switch"><input type="checkbox" id="nowords"><span data-i18n="noWords">No words</span></label>
-      <label class="switch"><input type="checkbox" id="moving"><span data-i18n="moving">Moving</span></label>
-      <button class="chip" id="props-btn" type="button"><span data-i18n="props">Props</span>: <b id="wearing-name">Auto</b></button>
-      <button class="chip" id="packs-btn" type="button" data-i18n="packs">📦 Packs</button>
-    </div>
-    <button class="more" id="more" type="button" data-i18n="more">See every pose</button>
-    <div class="grid" id="grid" hidden></div>
+  <section class="tiles" id="tiles" aria-label="More">
+    <button type="button" data-go="themes"><span aria-hidden="true">👑</span><b data-i18n="tileThemes">Themes</b></button>
+    <button type="button" data-go="poses"><span aria-hidden="true">🗂️</span><b data-i18n="tilePoses">All poses</b></button>
+    <button type="button" data-go="props"><span aria-hidden="true">🎩</span><b data-i18n="tileProps">Props</b></button>
+    <button type="button" data-go="games"><span aria-hidden="true">🎲</span><b data-i18n="tileGames">Games</b></button>
+    <button type="button" data-go="packs"><span aria-hidden="true">📦</span><b data-i18n="tilePacks">Packs</b></button>
+    <button type="button" data-go="mine"><span aria-hidden="true">⭐</span><b data-i18n="tileMine">My stickers</b></button>
   </section>
 
   <footer class="foot">
@@ -69,25 +70,11 @@
   </footer>
   </main>
 
-  <section class="tab" id="tab-packs" hidden>
-    <h2 class="page-title" data-i18n="packsTitle">Packs</h2>
+  <section class="tab" id="tab-make" hidden>
+    <h2 class="page-title" data-i18n="makeTitle">Make</h2>
     <p class="toast" id="packs-toast" role="status" aria-live="polite"></p>
-    <h3 class="section" data-i18n="thisSeason">This season</h3>
-    <p class="muted" id="season-note"></p>
-    <div id="season-list"></div>
-    <h3 class="section" data-i18n="yourPacks">Your packs</h3>
-    <p class="muted" data-i18n="packsHelp">Make a pack from your favorite poses and share it with friends as a link or QR code.</p>
-    <p class="muted" id="packs-none" data-i18n="noPacks">None yet.</p>
-    <div id="packs-list"></div>
-    <button class="primary" id="make-pack" type="button" data-i18n="makePack">Make a pack</button>
-    <h3 class="section" data-i18n="popchiPacks">Popchi packs</h3>
-    <div id="builtin-list"></div>
-    <p class="muted" data-i18n="androidPacks">Adding packs to WhatsApp and Telegram works in the Android app.</p>
-  </section>
 
-  <section class="tab" id="tab-create" hidden>
-    <h2 class="page-title" data-i18n="createTitle">Create</h2>
-    <div class="plan">
+    <div class="plan" id="make-games">
       <h3 data-i18n="playTitle">Chat games</h3>
       <p data-i18n="playText">Make a picture for the group chat: a made-up message with your sticker reply, a royal decree, or your family's palace court.</p>
       <div class="play-links">
@@ -96,7 +83,29 @@
         <button class="secondary" type="button" data-play="court" data-i18n="modeCourt">Palace court</button>
       </div>
     </div>
-    <div class="plan">
+
+    <div class="plan" id="make-mine">
+      <h3 data-i18n="mineTitle">My stickers</h3>
+      <p data-i18n="mineText">Got your own art? Add the pictures and they join your sticker row.</p>
+      <div class="grid mine-grid" id="mine-grid"></div>
+      <input type="file" id="mine-file" accept="image/png,image/webp,image/jpeg" multiple hidden>
+      <button class="primary" id="mine-add" type="button" data-i18n="mineAdd">Add pictures</button>
+      <p class="muted" data-i18n="mineTip">Pictures with a see-through background look best. They stay on this phone.</p>
+    </div>
+
+    <h3 class="section" id="make-packs" data-i18n="yourPacks">Your packs</h3>
+    <p class="muted" data-i18n="packsHelp">Make a pack from your favorite poses and share it with friends as a link or QR code.</p>
+    <p class="muted" id="packs-none" data-i18n="noPacks">None yet.</p>
+    <div id="packs-list"></div>
+    <button class="primary" id="make-pack" type="button" data-i18n="makePack">Make a pack</button>
+    <h3 class="section" data-i18n="thisSeason">This season</h3>
+    <p class="muted" id="season-note"></p>
+    <div id="season-list"></div>
+    <h3 class="section" data-i18n="popchiPacks">Popchi packs</h3>
+    <div id="builtin-list"></div>
+    <p class="muted" data-i18n="androidPacks">Adding packs to WhatsApp and Telegram works in the Android app.</p>
+
+    <div class="plan" id="make-own">
       <h3 data-i18n="makeOwn">Make your own character</h3>
       <p data-i18n="makeOwnText">Turn a selfie or a few choices into a full set of stickers that look like you, with a Tết set and outfits for your occasions.</p>
       <p class="muted" data-i18n="makeOwnWhere">In the Android app now (Pro, test mode). Coming to the web.</p>
@@ -106,7 +115,7 @@
   </section>
 
   <section class="tab" id="tab-play" hidden>
-    <button class="back" type="button" data-tab="create" data-i18n="backCreate">‹ Create</button>
+    <button class="back" type="button" data-tab="make" data-i18n="backMake">‹ Make</button>
     <h2 class="page-title" data-i18n="playTitle">Chat games</h2>
     <div class="row-chips" id="play-modes">
       <button class="chip" type="button" data-mode="inbox" data-i18n="modeInbox">Inbox</button>
@@ -180,7 +189,12 @@
     <div class="card-list">
       <label class="switch row"><input type="checkbox" id="clean" checked><span data-i18n="cleanLong">Keep it clean: hide swear words in bubbles</span></label>
       <label class="switch row"><input type="checkbox" id="moving-default"><span data-i18n="movingLong">Moving stickers (GIF)</span></label>
-      <button class="row-button" type="button" data-tab="packs"><span data-i18n="packsTitle">Packs</span><small data-i18n="packsRow">Packs you make and share</small></button>
+    </div>
+    <h3 class="section" data-i18n="learnSection">What Popchi learns</h3>
+    <div class="card-list">
+      <label class="switch row"><input type="checkbox" id="learning" checked><span data-i18n="learnLong">Learn from the stickers I pick</span></label>
+      <p class="muted" id="learn-note"></p>
+      <button class="row-button" type="button" id="forget"><span data-i18n="forget">Forget what Popchi learned</span><small data-i18n="forgetRow">Clears it from this phone</small></button>
     </div>
     <h3 class="section" data-i18n="planSection">Plan</h3>
     <div class="card-list">
@@ -202,11 +216,43 @@
 </div>
 
 <nav class="tabbar" id="tabbar" aria-label="Sections">
-  <button type="button" data-tab="stickers" aria-current="page"><span aria-hidden="true">💬</span><b data-i18n="tabStickers">Stickers</b></button>
-  <button type="button" data-tab="packs"><span aria-hidden="true">📦</span><b data-i18n="tabPacks">Packs</b></button>
-  <button type="button" data-tab="create"><span aria-hidden="true">✨</span><b data-i18n="tabCreate">Create</b></button>
+  <button type="button" data-tab="stickers" aria-current="page"><span aria-hidden="true">💬</span><b data-i18n="tabHome">Home</b></button>
+  <button type="button" data-tab="make"><span aria-hidden="true">✨</span><b data-i18n="tabMake">Make</b></button>
   <button type="button" data-tab="settings"><span aria-hidden="true">⚙️</span><b data-i18n="tabSettings">Settings</b></button>
 </nav>
+
+<dialog id="more-dialog" class="sheet">
+  <h2 data-i18n="moreWays">More ways to send</h2>
+  <div class="card-list">
+    <button class="row-button" id="copy" type="button"><span data-i18n="copy">Copy</span><small data-i18n="copyRow">Then paste it in your chat</small></button>
+    <button class="row-button" id="save" type="button"><span data-i18n="save">Save</span><small data-i18n="saveRow">Keep the picture on this phone</small></button>
+    <button class="row-button" id="sticker-file-btn" type="button"><span data-i18n="stickerBtn">Real sticker for WhatsApp or Telegram</span><small data-i18n="stickerRow">A sticker file with a see-through background</small></button>
+  </div>
+  <button class="secondary" id="more-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="themes-dialog" class="sheet tall">
+  <h2 data-i18n="tileThemes">Themes</h2>
+  <div class="row-chips scroll" id="theme-chips"></div>
+  <div class="grid" id="theme-grid"></div>
+  <button class="secondary" id="themes-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="poses-dialog" class="sheet tall">
+  <h2 data-i18n="tilePoses">All poses</h2>
+  <p class="muted" data-i18n="posesHelp">Best match for your words first. Tap one to use it.</p>
+  <div class="grid" id="grid"></div>
+  <button class="secondary" id="poses-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="mine-dialog" class="sheet">
+  <h2 data-i18n="mineEdit">Your sticker</h2>
+  <canvas class="mine-preview" id="mine-preview" width="240" height="240"></canvas>
+  <label for="mine-words" data-i18n="mineWords">Words that bring it up (commas between)</label>
+  <input class="text-input" id="mine-words" maxlength="80" autocomplete="off">
+  <button class="primary" id="mine-save" type="button" data-i18n="done">Done</button>
+  <button class="secondary" id="mine-delete" type="button" data-i18n="del">Delete</button>
+</dialog>
 
 <dialog id="props-dialog" class="sheet">
   <h2 data-i18n="propsTitle">Props</h2>

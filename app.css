@@ -251,11 +251,11 @@ a.as-button { display: flex; align-items: center; justify-content: center; text-
 .maker-grid img { width: 100%; height: 100%; object-fit: contain; }
 canvas.qr { display: block; width: min(280px, 100%); height: auto; margin: 8px auto; border-radius: 12px; }
 
-/* tabs: Stickers, Packs, Create, Settings (same as the Android app) */
+/* tabs: Home, Make, Settings (same as the Android app) */
 .app { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .tabbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   background: var(--tile); border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -321,3 +321,32 @@ canvas.qr { display: block; width: min(280px, 100%); height: auto; margin: 8px a
 .court-face canvas { width: 100%; height: 100%; display: block; }
 .court-role { font: 800 16px/1.2 var(--display); color: var(--plum); }
 .court-row .text-input { margin-top: 0 !important; }
+
+/* revamp, Nov 2026: one Send, an options row, six tiles */
+.send-row.one { grid-template-columns: 1fr 56px; }
+.more-btn { font-size: 24px; line-height: 1; padding: 0; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip.toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.chip.toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip.toggle:has(input:checked) { background: var(--plum); border-color: var(--plum); color: #fff; }
+.chip.toggle:has(input:focus-visible) { outline: 3px solid var(--gold); outline-offset: 2px; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.tiles button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  min-height: 84px; border: 0; border-radius: 18px; background: var(--tile); padding: 10px 6px;
+}
+.tiles button span { font-size: 28px; line-height: 1; }
+.tiles button b { font: 800 15px/1.15 var(--display); color: var(--plum); text-align: center; }
+.tiles button:active { transform: translateY(1px); }
+dialog.sheet.tall { height: calc(100% - 48px); display: none; flex-direction: column; }
+dialog.sheet.tall[open] { display: flex; }
+dialog.sheet.tall .grid { flex: 1; overflow-y: auto; align-content: start; margin: 8px 0 0; }
+.row-chips.scroll { overflow-x: auto; padding: 6px 0; scrollbar-width: none; flex: none; }
+.row-chips.scroll .chip { flex: none; white-space: nowrap; }
+.grid-head { grid-column: 1 / -1; margin: 8px 2px 0; font: 800 13px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.mine-grid { margin: 10px 0; }
+.mine-grid:empty { display: none; }
+.mine-grid .tile img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mine-preview { display: block; width: 160px; height: 160px; margin: 6px auto 12px; }
+#tab-make .plan .primary { width: 100%; margin-top: 10px; }
+#make-own { margin-top: 22px; }

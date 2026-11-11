@@ -68,14 +68,25 @@ export class Library {
     this.all.avatar = this.characters[0] && this.characters[0].avatar;
     this.current = this.all;
     this.packs = [];
+    this.mine = null;
     this.props = propsData.props;
     this.lastFallback = false;
     this.lastTopScore = 0;
     this.lastPropTop = 0;
+    this.minTop = 2.3;      // how clearly the best pose must stand out when no tag word matched
+    this.neutralEdge = 0.6;  // how far ahead of "everyday message" it must be
     this.wordWeight = 1.6; // word matches count more than at first: unaccented Vietnamese ("doi qua") needs it
   }
 
-  pickable() { return [this.all, ...this.characters, ...this.packs]; }
+  pickable() { return [this.all, ...this.characters, ...(this.mine ? [this.mine] : []), ...this.packs]; }
+
+  /** The person's own stickers as one more character (or null to remove it). They also show under All. */
+  setMine(ch) {
+    const was = this.current;
+    this.mine = ch && ch.poses.length ? ch : null;
+    this.all.poses = this.characters.flatMap((c) => c.poses).concat(this.mine ? this.mine.poses : []);
+    if (was && was.isMine) this.current = this.mine || this.all;
+  }
 
   /** Packs the person made or saved from a link: [{id, name, items: ['bao.hi', ...]}]. */
   setPacks(list) {
@@ -107,7 +118,7 @@ export class Library {
   }
 
   find(characterId, kind) {
-    const c = this.characters.find((x) => x.id === characterId);
+    const c = characterId === 'mine' ? this.mine : this.characters.find((x) => x.id === characterId);
     return c ? c.poses.find((p) => p.kind === kind) || null : null;
   }
 
@@ -162,33 +173,30 @@ export class Library {
   }
 
   /**
-   * Meaning (two small models) plus words. Each model's similarities are put on the same
-   * scale across these poses, averaged, then words add up to wordWeight. Null without meaning.
+   * Meaning (from the small model) plus words. The model's similarities are put on one scale
+   * across these poses, then words add up to wordWeight. sem = {kind: similarity}; a personal
+   * boost (what this phone learned from picks) is already folded in. Null without meaning.
    */
   blend(poses, sem, words, wordTop) {
     if (!sem) return null;
-    const kinds = [...new Set(poses.filter((p) => sem[p.kind]).map((p) => p.kind))];
+    const kinds = [...new Set(poses.filter((p) => sem[p.kind] !== undefined).map((p) => p.kind))];
     if (kinds.length < 3) return null;
-    const mu = [0, 0], sd = [0, 0];
-    for (let m = 0; m < 2; m++) {
-      let sum = 0;
-      for (const k of kinds) sum += sem[k][m];
-      const mean = sum / kinds.length;
-      let sq = 0;
-      for (const k of kinds) sq += (sem[k][m] - mean) ** 2;
-      mu[m] = mean;
-      sd[m] = Math.max(1e-6, Math.sqrt(sq / kinds.length));
-    }
-    const z = (v) => ((v[0] - mu[0]) / sd[0] + (v[1] - mu[1]) / sd[1]) / 2;
+    let sum = 0;
+    for (const k of kinds) sum += sem[k];
+    const mu = sum / kinds.length;
+    let sq = 0;
+    for (const k of kinds) sq += (sem[k] - mu) ** 2;
+    const sd = Math.max(1e-6, Math.sqrt(sq / kinds.length));
+    const z = (v) => (v - mu) / sd;
     const b = { score: new Map(), top: -9, neutral: -9 };
     for (const p of poses) {
       const s = sem[p.kind];
-      const zz = s ? z(s) : 0;
+      const zz = s === undefined ? 0 : z(s);
       b.top = Math.max(b.top, zz);
       const w = wordTop > 0 ? words.get(p) / wordTop : 0;
       b.score.set(p, zz + this.wordWeight * w);
     }
-    if (sem[NEUTRAL]) b.neutral = z(sem[NEUTRAL]);
+    if (sem[NEUTRAL] !== undefined) b.neutral = z(sem[NEUTRAL]);
     return b;
   }
 
@@ -206,7 +214,7 @@ export class Library {
       this.lastFallback = out.length === 0;
     } else {
       // nothing in the words, and the meaning is weak or everyday logistics: don't guess a feeling
-      this.lastFallback = wordTop === 0 && (b.top < 2.3 || b.neutral >= b.top);
+      this.lastFallback = wordTop === 0 && (b.top < this.minTop || b.neutral >= b.top - this.neutralEdge);
       if (!this.lastFallback) {
         out = Library.rank(poses, b.score).filter((p) => words.get(p) > 0 || b.score.get(p) >= 1);
       }

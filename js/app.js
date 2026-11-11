@@ -6,6 +6,7 @@ import { encodeGif } from './gif.js';
 import { isTet } from './season.js';
 import { Meaning } from './meaning.js';
 import { initPlay, openPlay, playLang } from './play.js';
+import { listMine, saveMine, deleteMine, prepare, asCharacter } from './mine.js';
 
 if (window.top !== window.self) window.top.location = window.self.location; // no framing
 
@@ -28,7 +29,7 @@ const store = {
 // ------------------------------------------------------------------ words for the interface
 const T = {
   en: {
-    plans: 'Plans', typeLabel: 'Your message', hint: 'End with !! to shout, ... to think.',
+    plans: 'Plans', typeLabel: 'Your message', hint: '!! to shout, ... to overthink.',
     send: 'Send', copy: 'Copy', save: 'Save', noWords: 'No words', clean: 'Keep it clean', props: 'Props',
     more: 'See every pose', fewer: 'Show fewer', privacy: 'Everything happens on your phone. Popchi never sends what you type anywhere.',
     credits: 'Credits and licences', propsTitle: 'Props',
@@ -38,13 +39,13 @@ const T = {
     pro1: 'Make your own chibi from a selfie or a description', pro2: 'A new pose pack every month', pro3: 'Everything in Free',
     once1: 'Make one character of your own and keep it',
     testNote: 'Test mode: there are no real payments yet. Making your own character works in the Android app for now and is coming to the web.',
-    proTest: "Pretend I'm Pro", start: 'Start typing', next: 'Next', skip: 'Skip', placeholder: 'Type a message… or gõ tiếng Việt',
+    proTest: "Pretend I'm Pro", start: 'Start typing', next: 'Next', skip: 'Skip', placeholder: 'Say something… hoặc gõ tiếng Việt',
     all: 'All', make: '＋ Create your own', auto: 'Auto', none: 'None',
-    empty: 'Type a message and the crew reacts. Tap a sticker to pick it.',
-    emptyOne: 'Type a message and {name} reacts. Tap a sticker to pick it.',
-    tooLong: 'Only the first 40 letters fit on a sticker.',
-    sent: 'Sent. Pick another or keep typing.', copied: 'Copied. Paste it in your chat.',
-    saved: 'Saved to your downloads.',
+    empty: 'Type anything. The crew acts it out. Tap your fave.',
+    emptyOne: 'Type anything. {name} acts it out. Tap your fave.',
+    tooLong: 'Whoa, essay. Only the first 40 letters fit.',
+    sent: 'Sent! Go again?', copied: 'Copied. Go paste it.',
+    saved: 'Saved. It lives in your downloads now.',
     stickerBtn: 'Real sticker for WhatsApp or Telegram',
     stickerTitle: 'Send it as a real sticker',
     stickerWhy: 'Copy and paste turn it into a photo. Save the sticker file, then:',
@@ -55,13 +56,13 @@ const T = {
     stickerSaved: 'Sticker file saved. Drop it into Telegram, or use Create in WhatsApp.',
     stickerPng: 'This browser can’t make sticker files, so it saved a PNG. WhatsApp’s Create takes it; Telegram will show it as a photo.', copyFail: 'Your browser blocked copying. Use Send or Save, or press and hold the sticker.',
     shareFail: 'Sharing isn’t available here, so the sticker was saved instead.',
-    smartLoading: 'Smart matching is loading ({p}%, a one-time 70 MB download). Word matching works already.',
+    smartLoading: 'Smart matching is loading ({p}%, a one-time 35 MB download). Word matching works already.',
     smartOn: 'Smart matching is on, right here on your phone.',
     smartOff: 'Smart matching couldn’t start on this browser. Word matching still works.',
     onPro: "You're on Pro (test mode).", onFree: "You're on Free.",
-    w1t: 'Type, and the crew reacts', w1p: 'Every sticker carries your words in a speech bubble.',
-    w2t: 'Send it anywhere', w2p: 'Messenger, Zalo, Telegram, iMessage: tap Send and pick the chat.',
-    w3t: 'Tiếng Việt too', w3p: 'Write with or without accents. Popchi gets the meaning, not just the words.',
+    w1t: 'You type. They act.', w1p: 'Your words, their drama, one speech bubble.',
+    w2t: 'Send it anywhere', w2p: 'Messenger, Zalo, Telegram, iMessage. Hit Send, pick the chat.',
+    w3t: 'Tiếng Việt too', w3p: 'Accents or no accents, Popchi gets the vibe, not just the words.',
     w4t: 'Stays on your phone', w4p: 'Popchi reads your message right here. Nothing you type is sent anywhere.',
     tabStickers: 'Stickers', tabPacks: 'Packs', tabCreate: 'Create', tabSettings: 'Settings',
     thisSeason: 'This season', yourPacks: 'Your packs', popchiPacks: 'Popchi packs',
@@ -79,13 +80,13 @@ const T = {
     privacyTitle: 'Privacy', privacyRow: 'Nothing you type leaves your phone',
     androidRow: 'Popchi as a keyboard, right in your chats', freeName: 'Free', proName: 'Pro (test mode)',
     moving: 'Moving', movingOn: 'Moving stickers go out as GIFs. Copy gives a still one.',
-    noneFit: 'None fit', noneFitSaved: 'Saved on this phone. Review and send it in Settings → Wrong-sticker reports.',
+    noneFit: 'Nope, none', noneFitSaved: 'Saved on this phone. Review and send it in Settings → Wrong-sticker reports.',
     reports: 'Wrong-sticker reports ({n})', reportsTitle: 'Wrong-sticker reports',
     reportsHelp: 'When none of the stickers fit, tap 👎 None fit at the end of the row. It saves what you typed here, on this phone. Nothing is sent unless you email it, and you can remove anything private first.',
     reportsEmpty: 'Nothing saved yet.', remove: 'Remove', emailThem: 'Email these to Popchi', clearAll: 'Clear the list', got: 'got',
     packs: '📦 Packs', packsTitle: 'Packs',
     packsHelp: 'Make a pack from your favorite poses and share it with friends as a link or QR code. Packs hold Popchi’s characters, never your messages.',
-    noPacks: 'None yet. Make one for your group chat’s inside jokes.', makePack: 'Make a pack',
+    noPacks: 'Nothing yet. Make one for the group chat’s inside jokes.', makePack: 'Make a pack',
     packName: 'Pack name, e.g. Our group chat', pickPoses: 'Pick 3 to 30 poses from any of the crew. Tap again to remove.',
     picked: '{n} picked', pickedMin: '{n} picked (at least 3)', savePack: 'Save pack', cancel: 'Cancel',
     shareLink: 'Share link', qr: 'QR code', del: 'Delete', edit: 'Edit', sharedTitle: 'Shared with you: {name}',
@@ -94,6 +95,19 @@ const T = {
     androidPacks: 'Adding packs to WhatsApp and Telegram works in the Android app.', stickers: '{n} stickers',
     badLink: 'That link doesn’t hold a Popchi pack.', pickAtLeast: 'Pick at least 3 poses.', myPack: 'My pack',
     sharePackText: 'My Popchi sticker pack “{name}”', deleteAsk: 'Delete {name}? Friends who saved it keep their copy.',
+    tabHome: 'Home', tabMake: 'Make', makeTitle: 'Make', backMake: '‹ Make', moreWays: 'More ways to send',
+    copyRow: 'Then paste it in your chat', saveRow: 'Keep the picture on this phone',
+    stickerRow: 'A sticker file with a see-through background',
+    tileThemes: 'Themes', tilePoses: 'All poses', tileProps: 'Props', tileGames: 'Games', tilePacks: 'Packs', tileMine: 'My stickers',
+    posesHelp: 'Best match for your words comes first. Tap one to use it.',
+    themeReady: 'Ready to send', themeAll: 'Every pose',
+    mineTitle: 'My stickers', mineText: 'Got your own art? Drop the pictures in and they join your sticker row.',
+    mineAdd: 'Add pictures', mineTip: 'See-through backgrounds look best. Your pictures stay on this phone.',
+    mineEdit: 'Your sticker', mineWords: 'Words that bring it up (commas between)', mine: 'Mine',
+    mineAdded: 'Added {n}. Find them under ⭐ Mine in the sticker row.', mineFail: 'That picture didn’t load. Try a PNG or JPG.',
+    learnSection: 'What Popchi learns', learnLong: 'Learn from the stickers I pick',
+    learnNote: 'Popchi remembers {n} of your picks as numbers, never your words. Nothing leaves this phone.',
+    forget: 'Forget what Popchi learned', forgetRow: 'Clears it from this phone', forgot: 'Gone. Popchi starts fresh.',
     playTitle: 'Chat games', playText: 'Make a picture for the group chat: a made-up message with your sticker reply, a royal decree, or your family’s palace court.',
     modeInbox: 'Inbox', modeDecree: 'Royal decree', modeCourt: 'Palace court', backCreate: '‹ Create',
     inboxHelp: 'A message comes in. Pick the funniest sticker reply.', inboxFrom: 'From', inboxNew: '🎲 Another one',
@@ -161,7 +175,7 @@ const T = {
     stickerPng: 'Trình duyệt này hông làm được file sticker nên lưu ảnh PNG. WhatsApp vẫn Tạo được, còn Telegram sẽ hiện thành ảnh.',
     copyFail: 'Trình duyệt hông cho chép. Thử nút Gửi, Lưu hoặc đè giữ sticker nha.',
     shareFail: 'Không share thẳng được, nhưng đã lưu về máy gòi nha.',
-    smartLoading: 'Đang tải AI hiểu ngữ nghĩa ({p}%, tải 1 lần duy nhất 70 MB). Trong lúc chờ vẫn xài bình thường nha.',
+    smartLoading: 'Đang tải AI hiểu ngữ nghĩa ({p}%, tải 1 lần duy nhất 35 MB). Trong lúc chờ vẫn xài bình thường nha.',
     smartOn: 'AI hiểu ngữ nghĩa đang chạy mượt trên máy bạn.',
     smartOff: 'Trình duyệt này hông chạy được AI hiểu ngữ nghĩa. Nhận diện từ khoá vẫn hoạt động bình thường.',
     onPro: 'Bạn đang xài Pro (bản test).',
@@ -250,12 +264,43 @@ const T = {
     myPack: 'Hàng của tui',
     sharePackText: 'Bộ sticker Popchi “{name}” của tui',
     deleteAsk: 'Chắc chắn xoá {name}? Ai đã lưu trước đó thì vẫn còn bản copy trên máy họ nghen.',
+    tabHome: 'Trang chủ',
+    tabMake: 'Chế',
+    makeTitle: 'Chế đồ chơi',
+    backMake: '‹ Chế',
+    moreWays: 'Gửi kiểu khác',
+    copyRow: 'Rồi qua chat dán vô',
+    saveRow: 'Giữ hình trong máy',
+    stickerRow: 'File sticker nền trong suốt',
+    tileThemes: 'Chủ đề',
+    tilePoses: 'Tất cả dáng',
+    tileProps: 'Phụ kiện',
+    tileGames: 'Trò vui',
+    tilePacks: 'Bộ sticker',
+    tileMine: 'Hàng của tui',
+    posesHelp: 'Dáng hợp chữ nhất nằm trên cùng. Chạm để xài.',
+    themeReady: 'Bấm là gửi',
+    themeAll: 'Full dáng',
+    mineTitle: 'Hàng của tui',
+    mineText: 'Có tranh tự vẽ hả? Thả hình vô đây là nó nhập hội sticker liền.',
+    mineAdd: 'Thêm hình',
+    mineTip: 'Hình nền trong suốt là đẹp nhất. Hình chỉ nằm trên máy bạn thôi.',
+    mineEdit: 'Sticker của bạn',
+    mineWords: 'Gõ chữ gì thì nó hiện (cách nhau bằng dấu phẩy)',
+    mine: 'Của tui',
+    mineAdded: 'Đã thêm {n} hình. Kiếm ở mục ⭐ Của tui trên hàng sticker nha.',
+    mineFail: 'Hình này mở hông được. Thử PNG hoặc JPG coi.',
+    learnSection: 'Popchi học gì',
+    learnLong: 'Học theo sticker tui hay chọn',
+    learnNote: 'Popchi nhớ {n} lần bạn chọn dưới dạng con số, không lưu chữ bạn gõ. Không có gì rời khỏi máy.',
+    forget: 'Quên hết những gì Popchi đã học',
+    forgetRow: 'Xoá sạch khỏi máy này',
+    forgot: 'Xoá xong. Popchi học lại từ đầu.',
     playTitle: 'Trò vui cho nhóm chat',
     playText: 'Làm một tấm hình để thả vào nhóm: tin nhắn bá đạo kèm sticker trả lời, thánh chỉ, hoặc triều đình nhà mình.',
     modeInbox: 'Hộp thư',
     modeDecree: 'Thánh chỉ',
     modeCourt: 'Triều đình',
-    backCreate: '‹ Tạo',
     inboxHelp: 'Có tin nhắn tới. Chọn sticker trả lời mặn nhất.',
     inboxFrom: 'Từ ai',
     inboxNew: '🎲 Đổi tin khác',
@@ -385,6 +430,7 @@ function applyLang() {
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
   $('msg').placeholder = t('placeholder');
   for (const el of document.querySelectorAll('[data-i18n-placeholder]')) el.placeholder = t(el.dataset.i18nPlaceholder);
+  for (const el of document.querySelectorAll('[data-i18n-label]')) el.setAttribute('aria-label', t(el.dataset.i18nLabel));
 }
 
 // ------------------------------------------------------------------ state
@@ -409,7 +455,7 @@ function loadImage(src) {
   if (state.images.size > 160) state.images.delete(state.images.keys().next().value);
   return p;
 }
-const poseImage = (pose) => loadImage(A + pose.file);
+const poseImage = (pose) => loadImage(pose.url || A + pose.file);
 const propImage = (prop) => loadImage(A + 'props/' + prop.id + '.webp');
 /** A prop or an outfit of several props, with its pictures loaded: {pieces: [{data, img}...]}, or null. */
 async function loadProp(p) {
@@ -526,7 +572,7 @@ function renderStrip(gen) {
   });
   if (state.text.trim()) strip.appendChild(noneFitTile(state.text, state.list));
   showBig(gen, state.list[state.selected]);
-  if (state.gridOpen) renderGrid();
+  if ($('poses-dialog').open) renderGrid();
 }
 
 // ------------------------------------------------------------------ "None fit" reports
@@ -541,7 +587,9 @@ function noneFitTile(typed, shown) {
     reports.push({ text: typed.trim().slice(0, 120), detail: shown.slice(0, 4).map((x) => x.pose.owner + ' ' + x.pose.kind.replace(/_/g, ' ')).join(', '), at: Date.now() });
     store.set('reports', reports.slice(-50));
     renderReportsLink();
+    remember(typed, [...new Set(shown.slice(0, 4).map((x) => x.pose.kind))], -1);
     toast(t('noneFitSaved'));
+    refresh();
   });
   return b;
 }
@@ -654,7 +702,18 @@ function afterSend() {
   const item = state.selectedItem;
   if (!item) return;
   recordUse(item.pose);
-  if (state.text.trim()) learn(state.text, item.pose.kind);
+  if (state.text.trim()) {
+    learn(state.text, item.pose.kind);
+    remember(state.text, [item.pose.kind], 1);
+  }
+}
+/** Saves what the model learned from a pick (or from "none fit") on this phone, as numbers only. */
+function remember(text, kinds, sign) {
+  const m = state.meaning;
+  if (!m || !m.ready || !store.get('learning', true)) return;
+  let any = false;
+  for (const k of kinds) any = m.learn(text, k, sign) || any;
+  if (any) store.set('memory', m.saveMemory());
 }
 function fileName(blob) {
   const k = state.selectedItem ? state.selectedItem.pose.kind : 'sticker';
@@ -763,7 +822,7 @@ function faceFor(ch) {
   if (ch.id !== ALL_ID) {
     const img = document.createElement('img');
     img.alt = '';
-    img.src = A + ch.avatar.file;
+    img.src = ch.avatar.url || A + ch.avatar.file;
     return img;
   }
   const c = document.createElement('canvas');
@@ -788,7 +847,7 @@ function renderWho() {
     b.setAttribute('aria-pressed', String(ch === state.lib.current));
     b.appendChild(faceFor(ch));
     const name = document.createElement('span');
-    name.textContent = ch.id === ALL_ID ? t('all') : ch.isPack ? '📦 ' + ch.name : ch.name;
+    name.textContent = ch.id === ALL_ID ? t('all') : ch.isPack ? '📦 ' + ch.name : ch.isMine ? '⭐ ' + t('mine') : ch.name;
     b.appendChild(name);
     b.addEventListener('click', () => {
       state.lib.select(ch.id);
@@ -802,7 +861,7 @@ function renderWho() {
   make.type = 'button';
   make.className = 'make';
   make.textContent = t('make');
-  make.addEventListener('click', openPlans);
+  make.addEventListener('click', () => go('mine'));
   who.appendChild(make);
 }
 
@@ -822,15 +881,15 @@ async function renderGrid() {
     b.addEventListener('click', () => {
       state.list = [item, ...state.list.filter((x) => x.pose !== pose)].slice(0, TILE_MAX);
       state.selected = 0;
+      $('poses-dialog').close();
       renderStrip(++state.gen);
-      $('chat').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
     grid.appendChild(b);
   }
   // draw a few at a time so typing stays smooth
   const tiles = [...grid.children];
   for (let i = 0; i < ranked.length; i++) {
-    if (gen !== state.gen || !state.gridOpen) return;
+    if (gen !== state.gen || !$('poses-dialog').open) return;
     try { tiles[i].appendChild(await draw({ pose: ranked[i], prop: state.wearing }, 200, text)); } catch { /* skip */ }
   }
 }
@@ -1071,7 +1130,7 @@ function showTab(name) {
   for (const b of $('tabbar').children) {
     if (b.dataset.tab === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
   }
-  if (name === 'packs') { $('packs-toast').textContent = ''; renderPacks(); }
+  if (name === 'make') { $('packs-toast').textContent = ''; renderPacks(); renderMine(); }
   if (name === 'settings') renderSettings();
   window.scrollTo(0, 0);
 }
@@ -1082,6 +1141,7 @@ function renderSettings() {
   $('clean').checked = state.keepClean;
   $('moving-default').checked = state.moving;
   renderReportsLink();
+  $('learn-note').textContent = t('learnNote', { n: store.get('memory', []).length });
 }
 
 async function sharePack(pk) {
@@ -1208,21 +1268,178 @@ function checkSharedLink() {
 }
 
 // ------------------------------------------------------------------ smart matching
+let meaningStarted = false;
+/** Loads the model the first time the person types, so a quick visit doesn't download 35 MB. */
+function wantMeaning() {
+  if (meaningStarted) return;
+  meaningStarted = true;
+}
 async function startMeaning() {
   const ort = await import('../vendor/ort/ort.wasm.min.mjs');
   ort.env.wasm.numThreads = 1;
   ort.env.wasm.proxy = false;
   ort.env.wasm.wasmPaths = new URL('../vendor/ort/', import.meta.url).href;
   const m = new Meaning(A + 'models/');
+  m.learning = store.get('learning', true);
+  m.loadMemory(store.get('memory', []));
   const smart = $('smart');
   smart.textContent = t('smartLoading', { p: 0 });
   let last = -1;
   const ok = await m.load(ort, (f) => {
-    const p = Math.floor(f * 100);
+    const p = Math.min(100, Math.floor(f * 100));
     if (p !== last) { last = p; smart.textContent = t('smartLoading', { p }); }
   });
   smart.textContent = ok ? t('smartOn') : t('smartOff');
   if (ok) { state.meaning = m; refresh(); }
+}
+
+// ------------------------------------------------------------------ the six tiles
+/** Where each tile on Home leads. The Android keyboard's ✨ panel has the same six. */
+function go(where) {
+  if (where === 'themes') { renderThemes(); $('themes-dialog').showModal(); }
+  else if (where === 'poses') { $('poses-dialog').showModal(); renderGrid(); }
+  else if (where === 'props') { renderProps(); $('props-dialog').showModal(); }
+  else if (where === 'games') { showTab('play'); openPlay(); }
+  else {
+    showTab('make');
+    const el = $(where === 'mine' ? 'make-mine' : 'make-packs');
+    if (el) el.scrollIntoView({ block: 'start' });
+  }
+}
+
+// ------------------------------------------------------------------ themes
+function themePoses(th) {
+  const out = [];
+  const lib = state.lib;
+  const fits = (k) => th.prefixes.some((p) => k.startsWith(p)) || th.kinds.includes(k);
+  const kinds = [];
+  for (const ch of lib.characters) for (const p of ch.poses) if (fits(p.kind) && !kinds.includes(p.kind)) kinds.push(p.kind);
+  // every kind once first, rotating the crew, then the other characters' versions
+  const rest = [];
+  kinds.forEach((k, i) => {
+    const have = lib.characters.map((c) => lib.find(c.id, k)).filter(Boolean);
+    const first = have[i % have.length];
+    out.push(first);
+    for (const p of have) if (p !== first) rest.push(p);
+  });
+  return out.concat(rest);
+}
+function useItem(item, wordsIfEmpty) {
+  if (wordsIfEmpty && !state.text.trim()) {
+    $('msg').value = wordsIfEmpty;
+    state.text = wordsIfEmpty;
+    onType();
+    clearTimeout(typingTimer);
+  }
+  state.list = [item, ...state.list.filter((x) => x.pose !== item.pose || x.prop !== item.prop)].slice(0, TILE_MAX);
+  state.selected = 0;
+  renderStrip(++state.gen);
+  window.scrollTo(0, 0);
+}
+function renderThemes() {
+  const chips = $('theme-chips'), grid = $('theme-grid');
+  const themes = state.themes;
+  if (!state.theme) state.theme = (isTet() ? themes.find((x) => x.id === 'tet') : null) || themes[0];
+  chips.textContent = '';
+  for (const th of themes) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip';
+    b.textContent = th.icon + ' ' + th[lang];
+    b.setAttribute('aria-pressed', String(th === state.theme));
+    b.addEventListener('click', () => { state.theme = th; renderThemes(); });
+    chips.appendChild(b);
+  }
+  grid.textContent = '';
+  const th = state.theme;
+  const tile = (item, text, label, onPick) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tile';
+    b.setAttribute('aria-label', label);
+    b.addEventListener('click', () => { $('themes-dialog').close(); onPick(); });
+    grid.appendChild(b);
+    draw(item, 200, text).then((c) => { if (state.theme === th && b.isConnected) b.appendChild(c); }).catch(() => {});
+  };
+  const head = (key) => {
+    const h = document.createElement('p');
+    h.className = 'grid-head';
+    h.textContent = t(key);
+    grid.appendChild(h);
+  };
+  const lib = state.lib;
+  if (th.combos.length) head('themeReady');
+  for (const c of th.combos) {
+    const pose = lib.find(c.who, c.pose);
+    if (!pose) continue;
+    const props = c.props.map((id) => lib.propById(id)).filter(Boolean);
+    const prop = !props.length ? null : props.length === 1 ? props[0] : { id: props.map((x) => x.id).join('+'), type: 'outfit', parts: props };
+    const item = { pose, prop };
+    tile(item, c[lang], c[lang], () => useItem(item, c[lang]));
+  }
+  if (th.combos.length) head('themeAll');
+  for (const pose of themePoses(th)) {
+    const item = { pose, prop: null };
+    tile(item, '', pose.kind.replace(/_/g, ' '), () => useItem(item, ''));
+  }
+}
+
+// ------------------------------------------------------------------ my stickers
+async function loadMine() {
+  state.mine = await listMine();
+  state.lib.setMine(asCharacter(state.mine, t('mine')));
+}
+function renderMine() {
+  const grid = $('mine-grid');
+  grid.textContent = '';
+  const ch = state.lib.mine;
+  for (const pose of ch ? ch.poses : []) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tile';
+    b.setAttribute('aria-label', t('mineEdit'));
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = pose.url;
+    b.appendChild(img);
+    b.addEventListener('click', () => editMine(pose));
+    grid.appendChild(b);
+  }
+}
+function editMine(pose) {
+  const item = state.mine.find((x) => x.id === pose.mineId);
+  if (!item) return;
+  const c = $('mine-preview').getContext('2d');
+  c.clearRect(0, 0, 240, 240);
+  poseImage(pose).then((img) => c.drawImage(img, 0, 0, 240, 240)).catch(() => {});
+  $('mine-words').value = item.words || '';
+  $('mine-save').onclick = async () => {
+    item.words = $('mine-words').value.trim();
+    try { await saveMine(item); } catch { /* private mode */ }
+    $('mine-dialog').close();
+    await afterMineChange();
+  };
+  $('mine-delete').onclick = async () => {
+    try { await deleteMine(item.id); } catch { /* private mode */ }
+    $('mine-dialog').close();
+    await afterMineChange();
+  };
+  $('mine-dialog').showModal();
+}
+async function afterMineChange() {
+  await loadMine();
+  state.lib.select(store.get('character', ALL_ID));
+  renderMine();
+  renderWho();
+  refresh();
+}
+async function addMine(files) {
+  let n = 0;
+  for (const f of files) {
+    try { await saveMine(await prepare(f)); n++; } catch { /* skip a picture that won't load */ }
+  }
+  await afterMineChange();
+  $('packs-toast').textContent = n ? t('mineAdded', { n }) : t('mineFail');
 }
 
 // ------------------------------------------------------------------ start
@@ -1236,12 +1453,14 @@ for (const d of document.querySelectorAll('dialog')) {
 
 async function main() {
   applyLang();
-  const [data, propsData, heads] = await Promise.all(
-    ['poses.json', 'props.json', 'heads.json'].map((f) => fetch(A + f).then((r) => r.json())));
+  const [data, propsData, heads, themes] = await Promise.all(
+    ['poses.json', 'props.json', 'heads.json', 'themes.json'].map((f) => fetch(A + f).then((r) => r.json())));
+  state.themes = themes.themes;
   state.heads = heads;
   for (const tags of Object.values(data.tags)) for (const tg of tags) for (const w of normalize(tg).split(' ')) if (w.length > 1) state.tagWords.add(w);
   state.lib = new Library(data, propsData, heads, store.get('pro', false));
   state.lib.setPacks(myPacks());
+  await loadMine();
   state.lib.select(store.get('character', ALL_ID));
   const wear = store.get('wearing', null);
   state.wearing = wear ? state.lib.propById(wear) : null;
@@ -1251,11 +1470,38 @@ async function main() {
 
   try { await document.fonts.load(`40px ${FONT}`); } catch { /* falls back to system font */ }
 
-  $('msg').addEventListener('input', onType);
+  $('msg').addEventListener('input', () => { wantMeaning(); onType(); });
   $('send').addEventListener('click', onSend);
-  $('copy').addEventListener('click', onCopy);
-  $('save').addEventListener('click', onSave);
-  $('sticker-file-btn').addEventListener('click', () => $('sticker-dialog').showModal());
+  $('send-more').addEventListener('click', () => $('more-dialog').showModal());
+  $('more-close').addEventListener('click', () => $('more-dialog').close());
+  // press and hold Send for the other ways, like the Android app
+  let holdTimer = 0;
+  $('send').addEventListener('pointerdown', () => { holdTimer = setTimeout(() => { holdTimer = -1; $('more-dialog').showModal(); }, 550); });
+  for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) $('send').addEventListener(ev, () => { if (holdTimer > 0) clearTimeout(holdTimer); });
+  $('send').addEventListener('click', (e) => { if (holdTimer === -1) { e.stopImmediatePropagation(); holdTimer = 0; } }, true);
+  $('copy').addEventListener('click', () => { $('more-dialog').close(); onCopy(); });
+  $('save').addEventListener('click', () => { $('more-dialog').close(); onSave(); });
+  $('sticker-file-btn').addEventListener('click', () => { $('more-dialog').close(); $('sticker-dialog').showModal(); });
+  for (const b of $('tiles').querySelectorAll('[data-go]')) b.addEventListener('click', () => go(b.dataset.go));
+  $('themes-close').addEventListener('click', () => $('themes-dialog').close());
+  $('poses-close').addEventListener('click', () => $('poses-dialog').close());
+  $('mine-add').addEventListener('click', () => $('mine-file').click());
+  $('mine-file').addEventListener('change', (e) => { addMine([...e.target.files]); e.target.value = ''; });
+  $('learning').checked = store.get('learning', true);
+  $('learning').addEventListener('change', (e) => {
+    store.set('learning', e.target.checked);
+    if (state.meaning) { state.meaning.learning = e.target.checked; state.meaning.cache.clear(); }
+    refresh();
+  });
+  $('forget').addEventListener('click', () => {
+    store.set('memory', []);
+    store.set('learned', {});
+    store.set('uses', {});
+    if (state.meaning) state.meaning.forget();
+    renderSettings();
+    $('learn-note').textContent = t('forgot');
+    refresh();
+  });
   $('sticker-save').addEventListener('click', () => { $('sticker-dialog').close(); onStickerFile(); });
   $('sticker-close').addEventListener('click', () => $('sticker-dialog').close());
   $('nowords').addEventListener('change', (e) => { state.noWords = e.target.checked; refresh(); });
@@ -1268,7 +1514,6 @@ async function main() {
     if (state.moving) toast(t('movingOn'));
     showBig(state.gen, state.selectedItem);
   });
-  $('packs-btn').addEventListener('click', () => showTab('packs'));
   $('make-pack').addEventListener('click', () => openMaker(null));
   for (const b of document.querySelectorAll('[data-tab]')) b.addEventListener('click', () => showTab(b.dataset.tab));
   $('create-plans').addEventListener('click', openPlans);
@@ -1285,7 +1530,6 @@ async function main() {
     applyLang();
     renderWho();
     renderSettings();
-    $('more').textContent = state.gridOpen ? t('fewer') : t('more');
     $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
     playLang();
     refresh();
@@ -1305,6 +1549,7 @@ async function main() {
     const keep = state.lib.current.id;
     state.lib = new Library(data, propsData, heads, e.target.checked);
     state.lib.setPacks(myPacks());
+    state.lib.setMine(asCharacter(state.mine || [], t('mine')));
     state.lib.select(keep);
     $('plan-status').textContent = e.target.checked ? t('onPro') : t('onFree');
     renderWho();
@@ -1323,12 +1568,6 @@ async function main() {
   });
   $('help-dialog').addEventListener('close', () => store.set('welcomed', true));
   for (const id of ['strip', 'who', 'cards']) sidewaysWheel($(id));
-  $('more').addEventListener('click', () => {
-    state.gridOpen = !state.gridOpen;
-    $('grid').hidden = !state.gridOpen;
-    $('more').textContent = state.gridOpen ? t('fewer') : t('more');
-    if (state.gridOpen) renderGrid();
-  });
 
   for (const b of document.querySelectorAll('[data-play]')) b.addEventListener('click', () => { showTab('play'); openPlay(b.dataset.play); });
   initPlay({
