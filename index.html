@@ -88,12 +88,86 @@
   <section class="tab" id="tab-create" hidden>
     <h2 class="page-title" data-i18n="createTitle">Create</h2>
     <div class="plan">
+      <h3 data-i18n="playTitle">Chat games</h3>
+      <p data-i18n="playText">Make a picture for the group chat: a made-up message with your sticker reply, a royal decree, or your family's palace court.</p>
+      <div class="play-links">
+        <button class="secondary" type="button" data-play="inbox" data-i18n="modeInbox">Inbox</button>
+        <button class="secondary" type="button" data-play="decree" data-i18n="modeDecree">Royal decree</button>
+        <button class="secondary" type="button" data-play="court" data-i18n="modeCourt">Palace court</button>
+      </div>
+    </div>
+    <div class="plan">
       <h3 data-i18n="makeOwn">Make your own character</h3>
       <p data-i18n="makeOwnText">Turn a selfie or a few choices into a full set of stickers that look like you, with a Tết set and outfits for your occasions.</p>
       <p class="muted" data-i18n="makeOwnWhere">In the Android app now (Pro, test mode). Coming to the web.</p>
       <a class="primary as-button" id="get-android" href="https://github.com/Popchi-app/popchi-web/releases/latest" rel="noopener" data-i18n="getAndroid">Get the Android app</a>
       <button class="secondary" id="create-plans" type="button" data-i18n="seePlans">See plans</button>
     </div>
+  </section>
+
+  <section class="tab" id="tab-play" hidden>
+    <button class="back" type="button" data-tab="create" data-i18n="backCreate">‹ Create</button>
+    <h2 class="page-title" data-i18n="playTitle">Chat games</h2>
+    <div class="row-chips" id="play-modes">
+      <button class="chip" type="button" data-mode="inbox" data-i18n="modeInbox">Inbox</button>
+      <button class="chip" type="button" data-mode="decree" data-i18n="modeDecree">Royal decree</button>
+      <button class="chip" type="button" data-mode="court" data-i18n="modeCourt">Palace court</button>
+    </div>
+
+    <div id="play-inbox">
+      <p class="muted" data-i18n="inboxHelp">A message comes in. Pick the funniest sticker reply.</p>
+      <div class="play-from">
+        <label class="visually-hidden" for="inbox-from" data-i18n="inboxFrom">From</label>
+        <input class="text-input" id="inbox-from" maxlength="24" autocomplete="off" data-i18n-placeholder="inboxFrom">
+        <button class="chip" id="inbox-new" type="button" data-i18n="inboxNew">🎲 Another one</button>
+      </div>
+      <label class="visually-hidden" for="inbox-msg" data-i18n="inboxMsg">The message</label>
+      <textarea class="text-input" id="inbox-msg" rows="2" maxlength="120" autocomplete="off"></textarea>
+      <h3 class="section" data-i18n="inboxReply">Your reply</h3>
+      <label class="visually-hidden" for="inbox-reply" data-i18n="inboxReplyWords">Words in the bubble (optional)</label>
+      <input class="text-input" id="inbox-reply" maxlength="40" autocomplete="off" data-i18n-placeholder="inboxReplyWords">
+      <div class="strip" id="inbox-strip"></div>
+      <div class="chat"><canvas class="play-preview" id="inbox-preview" width="720" height="600" aria-label="Inbox card with your reply"></canvas>
+        <div class="send-row two">
+          <button class="primary" id="inbox-send" type="button" data-i18n="send">Send</button>
+          <button class="secondary" id="inbox-save" type="button" data-i18n="save">Save</button>
+        </div>
+        <button class="link-button" id="inbox-card-only" type="button" data-i18n="inboxCardOnly">Send only the message, for a game</button>
+      </div>
+      <p class="muted" data-i18n="inboxGame">To play: one person sends a message card to the group. Everyone answers with a sticker, and the reply with the most reactions wins.</p>
+    </div>
+
+    <div id="play-decree" hidden>
+      <p class="muted" data-i18n="decreeHelp">Type an order and it becomes a royal scroll.</p>
+      <label class="visually-hidden" for="decree-text" data-i18n="decreeLabel">The order</label>
+      <textarea class="text-input" id="decree-text" rows="2" maxlength="120" autocomplete="off"></textarea>
+      <button class="chip" id="decree-example" type="button" data-i18n="decreeExample">💡 Give me an idea</button>
+      <h3 class="section" data-i18n="decreeWho">Who brings it</h3>
+      <div class="row-chips wrap" id="decree-holders"></div>
+      <div class="chat"><canvas class="play-preview" id="decree-preview" width="720" height="900" aria-label="Royal decree scroll"></canvas>
+        <div class="send-row two">
+          <button class="primary" id="decree-send" type="button" data-i18n="send">Send</button>
+          <button class="secondary" id="decree-save" type="button" data-i18n="save">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="play-court" hidden>
+      <p class="muted" data-i18n="courtHelp">Give the family palace roles. Only roles with a name go on the picture.</p>
+      <p class="note" data-i18n="courtAsk">Ask first: let each person pick their own role, or say no to one.</p>
+      <label class="visually-hidden" for="court-title" data-i18n="courtTitleLabel">Title</label>
+      <input class="text-input" id="court-title" maxlength="30" autocomplete="off">
+      <div id="court-rows"></div>
+      <p class="muted" id="court-empty" data-i18n="courtEmpty">Type a name next to a role to see the picture.</p>
+      <div class="chat" id="court-out" hidden><canvas class="play-preview" id="court-preview" width="720" height="900" aria-label="Palace court card"></canvas>
+        <div class="send-row two">
+          <button class="primary" id="court-send" type="button" data-i18n="send">Send</button>
+          <button class="secondary" id="court-save" type="button" data-i18n="save">Save</button>
+        </div>
+      </div>
+    </div>
+    <p class="toast" id="play-toast" role="status" aria-live="polite"></p>
+    <p class="muted" data-i18n="playPrivacy">Names and messages here stay on this page. Nothing is saved or sent until you send the picture.</p>
   </section>
 
   <section class="tab" id="tab-settings" hidden>

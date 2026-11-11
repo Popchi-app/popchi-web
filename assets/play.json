@@ -1,0 +1,79 @@
+{
+  "about": "Chat games: inbox cards, the royal decree maker and the court roster card. The website and the Android app keep the same copy (popchi-web assets/play.json, app/src/main/assets/play.json); keep the two the same. All lines are Popchi's own.",
+  "inbox": {
+    "vi": [
+      {"from": "Mẹ", "text": "Tết này dẫn người yêu về ra mắt nha con.", "replies": ["soul_leaving", "fainted", "khum", "melting"]},
+      {"from": "Sếp", "text": "Em rảnh không, anh nhờ xíu. (Thứ Sáu, 5 giờ chiều)", "replies": ["khum", "het_cuu", "melting", "soul_leaving"]},
+      {"from": "Ba", "text": "Mật khẩu wifi nhà mình là gì vậy con?", "replies": ["facepalm", "confused", "slow_clap"]},
+      {"from": "Group lớp", "text": "Họp lớp nha, ai chưa có bồ đóng gấp đôi.", "replies": ["fine_crying", "crying", "melting"]},
+      {"from": "Bạn thân", "text": "Tao kể cái này mày đừng giận nha.", "replies": ["side_eye", "popcorn", "gasp"]},
+      {"from": "Crush", "text": "Lỡ gửi nhầm, đừng đọc nha.", "replies": ["gasp", "shy", "mind_blown", "peek"]},
+      {"from": "Chủ nhà", "text": "Tháng sau tăng tiền nhà xíu nha em.", "replies": ["soul_leaving", "off_wail", "crying"]},
+      {"from": "Cô Ba", "text": "Năm nay con bao nhiêu ký rồi?", "replies": ["side_eye", "angry", "melting"]},
+      {"from": "Shipper", "text": "Em tới rồi, xuống lấy hàng liền nha. (Bạn đang tắm)", "replies": ["running_late", "gasp", "dramatic_run"]},
+      {"from": "Nhóm đồ án", "text": "Ủa slide ai làm vậy? Sáng mai thuyết trình rồi á.", "replies": ["buried", "typing", "het_cuu"]},
+      {"from": "Mẹ", "text": "Con ăn cơm chưa?", "replies": ["thumbs_up", "hungry", "love"]},
+      {"from": "Em gái", "text": "Áo mới của chị đẹp ghê, em mượn rồi nha.", "replies": ["angry", "slipper_throw", "side_eye"]},
+      {"from": "Bà nội", "text": "Bà mới học gửi sticker nè con!!", "replies": ["love", "slow_clap", "laugh"]},
+      {"from": "Sếp", "text": "Họp nhanh 5 phút thôi.", "replies": ["loading", "sleep", "soul_leaving"]},
+      {"from": "Ngân hàng", "text": "Số dư tài khoản của bạn vừa thay đổi.", "replies": ["crying", "fainted", "rich"]},
+      {"from": "Group gia đình", "text": "Ai ăn hết hộp bánh trong tủ lạnh vậy?", "replies": ["shy_peek", "peek", "side_eye"]},
+      {"from": "Ba", "text": "Chỉ ba cách gửi hình qua Zalo lại lần nữa nha.", "replies": ["facepalm", "thumbs_up", "typing"]},
+      {"from": "Thầy", "text": "Mai kiểm tra 15 phút nha các em.", "replies": ["mind_blown", "studying", "fainted"]},
+      {"from": "Mẹ", "text": "Đi chơi nhớ về trước 10 giờ. (Bạn 28 tuổi)", "replies": ["fine_crying", "shrug", "thumbs_up"]},
+      {"from": "Bạn cùng phòng", "text": "Bạn tao ở nhờ \"vài bữa\" được không?", "replies": ["side_eye", "shrug", "khum"]},
+      {"from": "App tập gym", "text": "Nhớ bạn quá! 47 ngày rồi đó.", "replies": ["peek", "pancake", "melting"]},
+      {"from": "Thánh chỉ", "text": "Út trực rửa chén cả tuần Tết.", "replies": ["off_wail", "off_kowtow", "qm_wail"]},
+      {"from": "Thái hậu", "text": "Ai gia muốn trà sữa trân châu đường đen. Ngay.", "replies": ["off_kowtow", "off_present", "running_late"]},
+      {"from": "Hoàng thượng", "text": "Trẫm lỡ tay chốt đơn 47 món.", "replies": ["qm_fury", "qm_shock", "facepalm"]}
+    ],
+    "en": [
+      {"from": "Mom", "text": "Are you bringing someone home for the holidays?", "replies": ["soul_leaving", "fainted", "melting"]},
+      {"from": "Boss", "text": "Got a sec? (Friday, 4:59 PM)", "replies": ["melting", "soul_leaving", "khum"]},
+      {"from": "Dad", "text": "What's the wifi password again?", "replies": ["facepalm", "confused", "slow_clap"]},
+      {"from": "Class chat", "text": "Reunion next week! Bring your partner.", "replies": ["fine_crying", "crying", "melting"]},
+      {"from": "Best friend", "text": "Don't be mad, but...", "replies": ["side_eye", "popcorn", "gasp"]},
+      {"from": "Crush", "text": "Oops, wrong chat. Don't read that.", "replies": ["gasp", "shy", "mind_blown", "peek"]},
+      {"from": "Landlord", "text": "Small rent update next month :)", "replies": ["soul_leaving", "crying", "off_wail"]},
+      {"from": "Group project", "text": "Who's doing the slides? We present tomorrow.", "replies": ["buried", "typing", "het_cuu"]},
+      {"from": "Delivery", "text": "I'm outside! (You're in the shower)", "replies": ["running_late", "gasp", "dramatic_run"]},
+      {"from": "Grandma", "text": "I learned how to send stickers!!", "replies": ["love", "slow_clap", "laugh"]},
+      {"from": "Boss", "text": "Quick 5-minute meeting.", "replies": ["loading", "sleep", "soul_leaving"]},
+      {"from": "Bank", "text": "Your balance has changed.", "replies": ["crying", "fainted", "rich"]},
+      {"from": "Family chat", "text": "Who ate the last slice of cake?", "replies": ["shy_peek", "peek", "side_eye"]},
+      {"from": "Roommate", "text": "Can my friend stay for \"a few days\"?", "replies": ["side_eye", "shrug", "khum"]},
+      {"from": "Teacher", "text": "Pop quiz tomorrow!", "replies": ["mind_blown", "studying", "fainted"]},
+      {"from": "Sister", "text": "I borrowed your new jacket. It looks better on me.", "replies": ["angry", "slipper_throw", "side_eye"]},
+      {"from": "Mom", "text": "Did you eat yet?", "replies": ["thumbs_up", "hungry", "love"]},
+      {"from": "Mom", "text": "Be home by 10. (You're 28)", "replies": ["fine_crying", "shrug", "thumbs_up"]},
+      {"from": "Gym app", "text": "We miss you! It's been 47 days.", "replies": ["peek", "pancake", "melting"]},
+      {"from": "Royal decree", "text": "You are on dish duty all week.", "replies": ["off_wail", "off_kowtow", "qm_wail"]},
+      {"from": "The Queen Mother", "text": "We require bubble tea. Now.", "replies": ["off_kowtow", "off_present", "running_late"]},
+      {"from": "The Emperor", "text": "I may have ordered 47 things.", "replies": ["qm_fury", "qm_shock", "facepalm"]}
+    ]
+  },
+  "decree": {
+    "vi": {"title": "THÁNH CHỈ", "open": "Phụng thiên thừa vận, Hoàng đế chiếu viết:", "close": "Khâm thử!",
+           "examples": ["Út trực rửa chén tối nay.", "Cả nhà đi ngủ trước 12 giờ.", "Ai đi chợ mua thêm trà sữa cho trẫm.", "Tối nay không ai được đụng điện thoại lúc ăn cơm.", "Ban cho Út một ngày nghỉ học bài."]},
+    "en": {"title": "ROYAL DECREE", "open": "By order of the throne:", "close": "So it is decreed!",
+           "examples": ["Whoever is closest makes the tea.", "No phones at dinner tonight.", "The youngest does the dishes.", "Bedtime is midnight. No arguing.", "Bubble tea for the whole court, on whoever lost the game."]}
+  },
+  "decreeHolders": [
+    {"who": "bao", "pose": "royal_scroll"},
+    {"who": "mochi", "pose": "off_scroll_bow"},
+    {"who": "linh", "pose": "off_scroll_bow"},
+    {"who": "capy", "pose": "off_scroll_bow"}
+  ],
+  "roles": [
+    {"id": "emperor", "vi": "Hoàng thượng", "en": "The Emperor", "who": "bao", "pose": "royal_throne", "props": []},
+    {"id": "queen_mother", "vi": "Thái hậu", "en": "The Queen Mother", "who": "capy", "pose": "qm_throne_tea", "props": []},
+    {"id": "empress", "vi": "Hoàng hậu", "en": "The Empress", "who": "linh", "pose": "cool", "props": ["phoenix_crown"]},
+    {"id": "consort", "vi": "Phi tần", "en": "Royal consort", "who": "mochi", "pose": "shy", "props": ["qing_headdress"]},
+    {"id": "scholar", "vi": "Quan văn", "en": "Court scholar", "who": "bao", "pose": "off_scroll_bow", "props": []},
+    {"id": "general", "vi": "Quan võ", "en": "General", "who": "bao", "pose": "cool", "props": ["warrior_helmet"]},
+    {"id": "eunuch", "vi": "Thái giám", "en": "Palace steward", "who": "mochi", "pose": "off_present", "props": ["horsetail_whisk"]},
+    {"id": "maid", "vi": "Cung nữ", "en": "Palace maid", "who": "linh", "pose": "hi", "props": ["maid_buns"]},
+    {"id": "physician", "vi": "Thái y", "en": "Royal physician", "who": "capy", "pose": "point", "props": ["physician_cap", "medicine_box"]},
+    {"id": "cook", "vi": "Ngự trù phòng", "en": "Royal kitchen", "who": "bao", "pose": "hungry", "props": ["chef_hat", "steamed_buns"]}
+  ]
+}

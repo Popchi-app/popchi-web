@@ -5,6 +5,7 @@ import { renderSticker, renderFrames, tooLong, MAX_CHARS, FONT } from './render.
 import { encodeGif } from './gif.js';
 import { isTet } from './season.js';
 import { Meaning } from './meaning.js';
+import { initPlay, openPlay, playLang } from './play.js';
 
 if (window.top !== window.self) window.top.location = window.self.location; // no framing
 
@@ -93,6 +94,19 @@ const T = {
     androidPacks: 'Adding packs to WhatsApp and Telegram works in the Android app.', stickers: '{n} stickers',
     badLink: 'That link doesn’t hold a Popchi pack.', pickAtLeast: 'Pick at least 3 poses.', myPack: 'My pack',
     sharePackText: 'My Popchi sticker pack “{name}”', deleteAsk: 'Delete {name}? Friends who saved it keep their copy.',
+    playTitle: 'Chat games', playText: 'Make a picture for the group chat: a made-up message with your sticker reply, a royal decree, or your family’s palace court.',
+    modeInbox: 'Inbox', modeDecree: 'Royal decree', modeCourt: 'Palace court', backCreate: '‹ Create',
+    inboxHelp: 'A message comes in. Pick the funniest sticker reply.', inboxFrom: 'From', inboxNew: '🎲 Another one',
+    inboxMsg: 'The message', inboxReply: 'Your reply', inboxReplyWords: 'Words in the bubble (optional)',
+    inboxCardOnly: 'Send only the message, for a game',
+    inboxGame: 'To play: one person sends a message card to the group. Everyone answers with a sticker, and the reply with the most reactions wins.',
+    decreeHelp: 'Type an order and it becomes a royal scroll.', decreeLabel: 'The order', decreeExample: '💡 Give me an idea',
+    decreeWho: 'Who brings it', noOne: 'No one',
+    courtHelp: 'Give the family palace roles. Only roles with a name go on the picture.',
+    courtAsk: 'Ask first: let each person pick their own role, or say no to one.', courtTitleLabel: 'Title',
+    courtDefault: 'Our royal court', courtName: 'Name', courtEmpty: 'Type a name next to a role to see the picture.',
+    courtFooter: 'Stickers for the whole court: popchi.app',
+    playPrivacy: 'Names and messages here stay on this page. Nothing is saved or sent until you send the picture.',
   },
   vi: {
     plans: 'Nâng cấp',
@@ -236,6 +250,33 @@ const T = {
     myPack: 'Hàng của tui',
     sharePackText: 'Bộ sticker Popchi “{name}” của tui',
     deleteAsk: 'Chắc chắn xoá {name}? Ai đã lưu trước đó thì vẫn còn bản copy trên máy họ nghen.',
+    playTitle: 'Trò vui cho nhóm chat',
+    playText: 'Làm một tấm hình để thả vào nhóm: tin nhắn bá đạo kèm sticker trả lời, thánh chỉ, hoặc triều đình nhà mình.',
+    modeInbox: 'Hộp thư',
+    modeDecree: 'Thánh chỉ',
+    modeCourt: 'Triều đình',
+    backCreate: '‹ Tạo',
+    inboxHelp: 'Có tin nhắn tới. Chọn sticker trả lời mặn nhất.',
+    inboxFrom: 'Từ ai',
+    inboxNew: '🎲 Đổi tin khác',
+    inboxMsg: 'Tin nhắn',
+    inboxReply: 'Bạn trả lời',
+    inboxReplyWords: 'Chữ trong bong bóng (không bắt buộc)',
+    inboxCardOnly: 'Chỉ gửi tin nhắn, để cả nhóm cùng chơi',
+    inboxGame: 'Cách chơi: một người thả tin nhắn vào nhóm. Cả nhóm trả lời bằng sticker, ai được thả tim nhiều nhất thì thắng.',
+    decreeHelp: 'Gõ một mệnh lệnh, Popchi biến nó thành cuộn thánh chỉ.',
+    decreeLabel: 'Mệnh lệnh',
+    decreeExample: '💡 Gợi ý cho tui',
+    decreeWho: 'Ai mang thánh chỉ tới',
+    noOne: 'Không ai',
+    courtHelp: 'Phong chức cho cả nhà. Chỉ vai nào có tên mới lên hình.',
+    courtAsk: 'Hỏi trước nha: để mỗi người tự chọn vai, hoặc từ chối vai mình không thích.',
+    courtTitleLabel: 'Tiêu đề',
+    courtDefault: 'Triều đình nhà mình',
+    courtName: 'Tên',
+    courtEmpty: 'Gõ tên bên cạnh một vai để xem hình.',
+    courtFooter: 'Sticker cho cả triều đình: popchi.app',
+    playPrivacy: 'Tên và tin nhắn ở đây chỉ nằm trên trang này. Không lưu, không gửi đi đâu, trừ khi bạn bấm gửi hình.',
   },
 };
 let lang = store.get('lang', (navigator.language || '').toLowerCase().startsWith('vi') ? 'vi' : 'en');
@@ -655,6 +696,25 @@ async function onSend() {
   saveBlob(await currentBlob());
   afterSend();
   toast(t('shareFail'));
+}
+
+/** Shares a picture made elsewhere (chat games); saves it when sharing isn't possible. True if shared. */
+async function shareFile(blob, name) {
+  const file = new File([blob], name, { type: blob.type || 'image/png' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try { await navigator.share({ files: [file] }); return true; } catch (e) { if (e && e.name === 'AbortError') return true; }
+  }
+  saveNamed(blob, name);
+  return false;
+}
+function saveNamed(blob, name) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
 }
 
 async function onCopy() {
@@ -1227,6 +1287,7 @@ async function main() {
     renderSettings();
     $('more').textContent = state.gridOpen ? t('fewer') : t('more');
     $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
+    playLang();
     refresh();
   });
   $('maker-save').addEventListener('click', saveMaker);
@@ -1269,6 +1330,11 @@ async function main() {
     if (state.gridOpen) renderGrid();
   });
 
+  for (const b of document.querySelectorAll('[data-play]')) b.addEventListener('click', () => { showTab('play'); openPlay(b.dataset.play); });
+  initPlay({
+    lib: () => state.lib, draw, t, lang: () => lang, keepClean: () => state.keepClean,
+    learned: learnedFn, share: shareFile, save: saveNamed,
+  }).catch(() => { for (const b of document.querySelectorAll('[data-play]')) b.disabled = true; });
   renderWho();
   renderReportsLink();
   onType();

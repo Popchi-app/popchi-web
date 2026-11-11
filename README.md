@@ -5,6 +5,8 @@ Everything runs in the browser. No accounts, no trackers, no requests to other s
 
 - `js/engine.js`, `js/render.js`, `js/splitter.js`, `js/meaning.js`: ports of the Android keyboard's
   matching, sticker drawing, word splitter and meaning models, so both choose the same stickers.
+- `js/play.js`, `js/cards.js`: Create → Chat games (inbox cards, royal decree, palace court), ports of the
+  app's PlayActivity.java and Cards.java. Lines and roles live in `assets/play.json`, the same file as the app's.
 - `assets/`: characters, props, the font and the two cut-down meaning models.
 - `vendor/ort/`: ONNX Runtime Web 1.29.0 (MIT), served from this site.
 - `sw.js`: keeps the site's own files for offline use. **When art or models change, bump `VERSION`**
