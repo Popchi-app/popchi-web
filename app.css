@@ -200,6 +200,7 @@ dialog::backdrop { background: rgba(30, 20, 40, 0.45); }
   padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px;
 }
 .props-grid img { width: 100%; height: 70%; object-fit: contain; }
+.fx-grid canvas { width: 100%; height: auto; aspect-ratio: 1; }
 .props-grid button[aria-pressed="true"] { border-color: var(--gold); }
 
 /* welcome cards */

@@ -51,6 +51,7 @@
       <label class="chip toggle"><input type="checkbox" id="nowords"><span data-i18n="noWords">No words</span></label>
       <label class="chip toggle"><input type="checkbox" id="moving"><span data-i18n="moving">Moving</span></label>
       <button class="chip" id="props-btn" type="button">🎩 <b id="wearing-name">Auto</b></button>
+      <button class="chip" id="fx-btn" type="button">💥 <b id="fx-name">Auto</b></button>
     </div>
     <p class="toast" id="toast" role="status" aria-live="polite"></p>
   </section>
@@ -259,6 +260,13 @@
   <p class="muted" data-i18n="propsHelp">Auto picks a prop from your words ("hoàng thượng" gets a crown). Pick one to wear it on every sticker.</p>
   <div class="props-grid" id="props-grid"></div>
   <button class="secondary" id="props-close" type="button" data-i18n="done">Done</button>
+</dialog>
+
+<dialog id="fx-dialog" class="sheet">
+  <h2 data-i18n="fxTitle">Effects</h2>
+  <p class="muted" data-i18n="fxHelp">Auto adds drama that fits the mood.</p>
+  <div class="props-grid fx-grid" id="fx-grid"></div>
+  <button class="secondary" id="fx-close" type="button" data-i18n="done">Done</button>
 </dialog>
 
 <dialog id="plans-dialog" class="sheet">

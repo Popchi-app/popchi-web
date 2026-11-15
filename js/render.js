@@ -1,6 +1,7 @@
 // Draws one sticker on a canvas: the pose (with an optional prop on its head) and a speech
 // bubble holding the text. A port of the keyboard app's StickerRenderer.java.
 import { placeProp, placeSide } from './engine.js';
+import { drawBehind, drawFront, isPunch } from './fx.js';
 
 export const MAX_CHARS = 60;
 const INK = '#2A2024', WHITE = '#FFFFFF', MAX_LINES = 3;
@@ -40,6 +41,9 @@ export function fit(text) {
   if (sp >= MAX_CHARS * 0.6) c = c.slice(0, sp);
   return c.replace(/[\s,.;:]+$/, '') + '…';
 }
+
+/** The words shout (end in "!!" or are in capitals). */
+export const isShout = (text) => !!text && styleFor(text, '') === 'SHOUT';
 
 function styleFor(text, kind) {
   const t = text.trim();
@@ -149,7 +153,7 @@ function shapePieces(style, b, shapeW, shapeH, rad, ey, s, tx, tipX, tipY, shape
  * Side props stand beside the character on its ground line (behind it where they overlap);
  * the head prop goes on top. Same as StickerRenderer.art() in the app.
  */
-export function renderSticker({ art, pose, head, prop, text, size, keepClean, motion }) {
+export function renderSticker({ art, pose, head, prop, text, size, keepClean, motion, fx, phase }) {
   let img = art, headX = pose.headX, headTop = pose.headTop;
   const parts = prop ? (prop.pieces || [prop]) : [];
   if (parts.length && head) {
@@ -199,7 +203,7 @@ export function renderSticker({ art, pose, head, prop, text, size, keepClean, mo
     headTop = headTopPx / comp.height;
     img = comp;
   }
-  return draw(img, headX, headTop, pose.kind, text, size, keepClean, motion);
+  return draw(img, headX, headTop, pose.kind, text, size, keepClean, motion, fx || [], phase || 0);
 }
 
 /**
@@ -282,9 +286,25 @@ export function motionAt(m, t) {
  */
 export function renderFrames(opts, count) {
   const mo = motionFor(opts.text, opts.pose.kind);
+  const big = opts.fx && opts.fx.length > 0, punch = big && isPunch(opts.pose.kind);
   const out = [];
-  for (let i = 0; i < count; i++) out.push(renderSticker({ ...opts, motion: motionAt(mo, i / count) }));
+  for (let i = 0; i < count; i++) {
+    const t = i / count;
+    out.push(renderSticker({ ...opts, phase: t, motion: big ? bigger(motionAt(mo, t), t, punch) : motionAt(mo, t) }));
+  }
   return out;
+}
+
+/** With effects on, moving stickers move half again as much; shocks start with a zoom punch. */
+export function bigger(m, t, punch) {
+  const k = 1.5;
+  let [dx, dy, sx, sy, deg] = m;
+  dx *= k; dy *= k; sx = 1 + (sx - 1) * k; sy = 1 + (sy - 1) * k; deg *= k;
+  if (punch) {
+    const p = t < 0.3 ? Math.sin(Math.PI * t / 0.3) : 0; // pops in, settles
+    sx += 0.16 * p; sy += 0.16 * p;
+  }
+  return [dx, dy, sx, sy, deg];
 }
 
 /** Where the art is drawn: moved and squashed from its bottom centre for moving stickers. */
@@ -293,6 +313,16 @@ function moved(d, mo, s) {
   const w = d.width * mo[2], h = d.height * mo[3];
   const cx = d.left + d.width / 2 + mo[0] * s, bottom = d.top + d.height + mo[1] * s;
   return { left: cx - w / 2, top: bottom - h, width: w, height: h, deg: mo[4] || 0 };
+}
+
+/** The art with its effects: burst, fire and speed lines behind it; the rest in front. */
+function withFx(c, art, still, r, s, fx, phase, kind, headX, headTop) {
+  if (!fx.length) { drawArt(c, art, r); return; }
+  // effects stay with the still spot, so they don't bounce with the character
+  const d = { left: still.left, top: still.top, width: still.width, height: still.height };
+  drawBehind(c, fx, d, s, phase, MOOD[kind]);
+  drawArt(c, art, r);
+  drawFront(c, fx, d, s, phase, headX, headTop);
 }
 
 /** Draws the art, turned around its bottom centre when the motion leans it. */
@@ -306,7 +336,7 @@ function drawArt(c, art, r) {
   c.restore();
 }
 
-function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
+function draw(art, headX, headTop, kind, rawText, size, keepClean, motion, fx, phase) {
   const s = size, m = s * 0.03;
   const out = document.createElement('canvas');
   out.width = size;
@@ -315,7 +345,8 @@ function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
   c.imageSmoothingQuality = 'high';
   const raw = (rawText || '').trim();
   if (!raw) {
-    drawArt(c, art, moved(fitBox(art, m, m, s - m, s - m), motion, s));
+    const d0 = fitBox(art, m, m, s - m, s - m);
+    withFx(c, art, d0, moved(d0, motion, s), s, fx, phase, kind, headX, headTop);
     return out;
   }
   const style = styleFor(raw, kind);
@@ -343,7 +374,7 @@ function draw(art, headX, headTop, kind, rawText, size, keepClean, motion) {
   const shapeW = bw * (1 + 2 * ex), shapeH = bh * (1 + 2 * ey);
 
   const dst = fitBox(art, m, edge + shapeH + tail, s - m, s - m);
-  drawArt(c, art, moved(dst, motion, s));
+  withFx(c, art, dst, moved(dst, motion, s), s, fx, phase, kind, headX, headTop);
 
   const hx = dst.left + headX * dst.width;
   const hy = dst.top + headTop * dst.height;

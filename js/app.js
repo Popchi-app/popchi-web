@@ -1,7 +1,8 @@
 // Popchi on the web: type a message, the crew reacts, send the sticker to any chat.
 // Nothing typed leaves the page: no network calls besides loading the app's own files.
 import { Library, normalize, ALL_ID, PACK_PREFIX } from './engine.js';
-import { renderSticker, renderFrames, tooLong, MAX_CHARS, FONT } from './render.js';
+import { renderSticker, renderFrames, tooLong, MAX_CHARS, FONT, isShout } from './render.js';
+import { EFFECTS, effectsFor } from './fx.js';
 import { encodeGif } from './gif.js';
 import { isTet } from './season.js';
 import { Meaning } from './meaning.js';
@@ -34,6 +35,10 @@ const T = {
     more: 'See every pose', fewer: 'Show fewer', privacy: 'Everything happens on your phone. Popchi never sends what you type anywhere.',
     credits: 'Credits and licences', propsTitle: 'Props',
     propsHelp: 'Auto picks a prop from your words ("hoàng thượng" gets a crown). Pick one to wear it on every sticker.',
+    fxTitle: 'Effects', fxOff: 'Off',
+    fxHelp: 'Auto adds drama that fits the mood: a burst for shocks, fire for rage, hearts for love. Pick one to put it on every sticker.',
+    fx_burst: 'Burst', fx_lightning: 'Lightning', fx_fire: 'Fire', fx_sparkle: 'Sparkles', fx_hearts: 'Hearts',
+    fx_gloom: 'Gloom', fx_speed: 'Zoom lines', fx_sweat: 'Sweat',
     done: 'Done', plansTitle: 'Free and Pro', free1: 'Bao, Mochi, Linh and Capy, with all their poses',
     free2: 'Stickers that react to what you type', free3: 'English and Vietnamese', free4: 'Shout and thought bubbles, mood colors, props',
     pro1: 'Make your own chibi from a selfie or a description', pro2: 'A new pose pack every month', pro3: 'Everything in Free',
@@ -138,6 +143,10 @@ const T = {
     credits: 'Bản quyền & Giấy phép',
     propsTitle: 'Phụ kiện',
     propsHelp: 'Tự động phối đồ theo chữ ("hoàng thượng" đội vương miện). Hoặc chọn một món để đeo hoài luôn.',
+    fxTitle: 'Hiệu ứng', fxOff: 'Tắt',
+    fxHelp: 'Auto tự thêm drama hợp mood: sốc thì nổ bùm, giận thì bốc lửa, yêu thì thả tim. Chọn một cái để dùng cho mọi sticker.',
+    fx_burst: 'Nổ bùm', fx_lightning: 'Sét đánh', fx_fire: 'Bốc lửa', fx_sparkle: 'Lấp lánh', fx_hearts: 'Thả tim',
+    fx_gloom: 'U ám', fx_speed: 'Phóng vèo', fx_sweat: 'Toát mồ hôi',
     done: 'Xong',
     plansTitle: 'Bản Free và Pro',
     free1: 'Bao, Mochi, Linh, Capy full dáng',
@@ -439,7 +448,7 @@ const state = {
   images: new Map(), propImages: new Map(),
   text: '', list: [], selected: 0, gen: 0, gridOpen: false,
   wearing: null, keepClean: store.get('keepClean', true), noWords: false,
-  selectedBlob: null, stillBlob: null, toastTimer: 0, moving: store.get('moving', false), animTimer: 0,
+  selectedBlob: null, stillBlob: null, toastTimer: 0, moving: store.get('moving', false), animTimer: 0, fx: store.get('fx', 'auto'),
 };
 
 function loadImage(src) {
@@ -464,10 +473,16 @@ async function loadProp(p) {
   return { pieces: await Promise.all(parts.map(async (d) => ({ data: d, img: await propImage(d) }))) };
 }
 
-async function draw(item, size, text) {
+/** The effects for a sticker: the person's pick, or Auto from the pose's mood. */
+function fxFor(item, text, choice) {
+  return effectsFor(item.pose.kind, choice || state.fx, isShout(text));
+}
+
+async function draw(item, size, text, fxChoice) {
   const art = await poseImage(item.pose);
   const prop = await loadProp(item.prop);
-  return renderSticker({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean });
+  return renderSticker({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean,
+    fx: fxFor(item, text, fxChoice) });
 }
 
 // ------------------------------------------------------------------ learning (counts only)
@@ -689,7 +704,8 @@ async function showBig(gen, item) {
 async function drawFrames(item, size, text) {
   const art = await poseImage(item.pose);
   const prop = await loadProp(item.prop);
-  return renderFrames({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean }, GIF_FRAMES);
+  return renderFrames({ art, pose: item.pose, head: state.heads[item.pose.file], prop, text, size, keepClean: state.keepClean,
+    fx: fxFor(item, text) }, GIF_FRAMES);
 }
 
 // ------------------------------------------------------------------ sending
@@ -918,6 +934,42 @@ function renderProps() {
   };
   add(t('auto'), 'auto', null);
   for (const p of state.lib.props) add(propName(p.id), p.id, A + 'props/' + p.id + '.webp');
+}
+
+// ------------------------------------------------------------------ effects sheet
+const fxName = (id) => (id === 'auto' ? t('auto') : id === 'off' ? t('fxOff') : t('fx_' + id));
+
+async function renderFx() {
+  const g = $('fx-grid');
+  g.textContent = '';
+  const item = state.selectedItem;
+  for (const id of ['auto', 'off', ...EFFECTS]) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(state.fx === id));
+    const s = document.createElement('span');
+    s.textContent = fxName(id);
+    b.appendChild(s);
+    b.addEventListener('click', () => {
+      state.fx = id;
+      store.set('fx', id);
+      $('fx-name').textContent = fxName(id);
+      for (const o of g.children) o.setAttribute('aria-pressed', String(o === b));
+      refresh();
+    });
+    g.appendChild(b);
+  }
+  // a small preview of each effect on the sticker picked now
+  if (!item) return;
+  const text = words();
+  const tiles = [...g.children];
+  for (let i = 0; i < tiles.length; i++) {
+    if (!$('fx-dialog').open) return;
+    try {
+      const id = ['auto', 'off', ...EFFECTS][i];
+      tiles[i].insertBefore(await draw(item, 160, text, id), tiles[i].firstChild);
+    } catch { /* skip */ }
+  }
 }
 
 // ------------------------------------------------------------------ plans
@@ -1467,6 +1519,7 @@ async function main() {
   $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
   $('clean').checked = state.keepClean;
   $('moving').checked = state.moving;
+  $('fx-name').textContent = fxName(state.fx);
 
   try { await document.fonts.load(`40px ${FONT}`); } catch { /* falls back to system font */ }
 
@@ -1507,6 +1560,8 @@ async function main() {
   $('nowords').addEventListener('change', (e) => { state.noWords = e.target.checked; refresh(); });
   $('clean').addEventListener('change', (e) => { state.keepClean = e.target.checked; store.set('keepClean', state.keepClean); refresh(); });
   $('props-btn').addEventListener('click', () => { renderProps(); $('props-dialog').showModal(); });
+  $('fx-btn').addEventListener('click', () => { $('fx-dialog').showModal(); renderFx(); });
+  $('fx-close').addEventListener('click', () => $('fx-dialog').close());
   $('moving').addEventListener('change', (e) => {
     state.moving = e.target.checked;
     store.set('moving', state.moving);
@@ -1531,6 +1586,7 @@ async function main() {
     renderWho();
     renderSettings();
     $('wearing-name').textContent = state.wearing ? propName(state.wearing.id) : t('auto');
+    $('fx-name').textContent = fxName(state.fx);
     playLang();
     refresh();
   });
