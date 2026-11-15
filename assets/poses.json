@@ -24,7 +24,8 @@
    "hế lô",
    "tạm biệt",
    "bai bai",
-   "chào buổi sáng"
+   "chào buổi sáng",
+   "bye bye"
   ],
   "thumbs_up": [
    "ok",
@@ -75,7 +76,8 @@
    "vâng",
    "chốt",
    "đồng ý",
-   "ừa"
+   "ừa",
+   "đỉnh chóp"
   ],
   "laugh": [
    "haha",
@@ -119,7 +121,8 @@
    "hài",
    "buồn cười",
    "khà khà",
-   "cười ẻ"
+   "cười ẻ",
+   "vô tri"
   ],
   "thanks": [
    "thanks",
@@ -139,7 +142,8 @@
    "tks",
    "đa tạ",
    "cảm ơn nhiều",
-   "biết ơn"
+   "biết ơn",
+   "cảm ơn nha"
   ],
   "facepalm": [
    "ugh",
@@ -203,7 +207,10 @@
    "chán quá",
    "buồn chán",
    "nhạt",
-   "rảnh"
+   "rảnh",
+   "j zậy",
+   "rối não",
+   "chán vãi"
   ],
   "love": [
    "love",
@@ -237,7 +244,8 @@
    "yêu lắm",
    "thương quá",
    "mê",
-   "nhớ quá"
+   "nhớ quá",
+   "muốn yêu"
   ],
   "confused": [
    "huh",
@@ -267,7 +275,9 @@
    "không hiểu",
    "hả gì",
    "mù tịt",
-   "chả hiểu"
+   "chả hiểu",
+   "j zậy",
+   "rối não"
   ],
   "sleep": [
    "sleep",
@@ -332,7 +342,10 @@
    "điêu",
    "thật không",
    "xạo ke",
-   "nói phét"
+   "nói phét",
+   "thao túng tâm lý",
+   "ghen tị ghê",
+   "nghi ngờ nhân sinh"
   ],
   "cool": [
    "cool",
@@ -371,7 +384,9 @@
    "đẳng cấp",
    "tự hào",
    "cháy",
-   "đỉnh chóp"
+   "đỉnh chóp",
+   "ra dẻ",
+   "xịn xò"
   ],
   "mind_blown": [
    "mind blown",
@@ -399,7 +414,8 @@
    "ủa",
    "trời đất",
    "ối dồi ôi",
-   "hả"
+   "hả",
+   "u là trời"
   ],
   "fine_crying": [
    "its fine",
@@ -434,7 +450,9 @@
    "kẹt tiền",
    "túng",
    "nghèo quá",
-   "mạt rệp"
+   "mạt rệp",
+   "hết tiền rồi mấy má ơi",
+   "xót ví"
   ],
   "soul_leaving": [
    "exhausted",
@@ -490,7 +508,11 @@
    "sốt",
    "cảm",
    "đau đầu",
-   "đau bụng"
+   "đau bụng",
+   "hết tiền rồi mấy má ơi",
+   "bệnh rồi",
+   "xót ví",
+   "hết cứu"
   ],
   "popcorn": [
    "drama",
@@ -507,7 +529,8 @@
    "spill",
    "tám",
    "kể nghe",
-   "phốt"
+   "phốt",
+   "hóng phốt"
   ],
   "slow_clap": [
    "bravo",
@@ -528,7 +551,8 @@
    "tuyệt",
    "xuất sắc",
    "tuyệt vời",
-   "làm tốt lắm"
+   "làm tốt lắm",
+   "đỉnh chóp"
   ],
   "gasp": [
    "omg",
@@ -558,7 +582,8 @@
    "ủa",
    "trời đất",
    "ối dồi ôi",
-   "hả"
+   "hả",
+   "u là trời"
   ],
   "melting": [
    "hot",
@@ -595,7 +620,8 @@
    "nóng",
    "nóng quá",
    "nực",
-   "oi bức"
+   "oi bức",
+   "lóng mún chớt"
   ],
   "typing": [
    "busy",
@@ -614,7 +640,8 @@
    "bận quá",
    "làm việc",
    "tăng ca",
-   "ngập việc"
+   "ngập việc",
+   "chạy deadline"
   ],
   "buried": [
    "so much work",
@@ -646,7 +673,8 @@
    "thi",
    "ôn thi",
    "bài tập",
-   "cày đề"
+   "cày đề",
+   "chạy deadline"
   ],
   "coffee": [
    "coffee",
@@ -659,7 +687,8 @@
    "espresso",
    "cà phê",
    "cf",
-   "bạc xỉu"
+   "bạc xỉu",
+   "đi cf ko"
   ],
   "loading": [
    "loading",
@@ -684,7 +713,8 @@
    "phân vân",
    "lăn tăn",
    "cân nhắc",
-   "chọn cái nào"
+   "chọn cái nào",
+   "đang suy nghĩ"
   ],
   "two_buttons": [
    "decide",
@@ -708,7 +738,8 @@
    "phân vân",
    "lăn tăn",
    "cân nhắc",
-   "chọn cái nào"
+   "chọn cái nào",
+   "đang suy nghĩ"
   ],
   "studying": [
    "studying",
@@ -758,7 +789,9 @@
    "phát tài",
    "nhận lương",
    "tiền về",
-   "giàu to"
+   "giàu to",
+   "giàu quá",
+   "trúng mánh"
   ],
   "pancake": [
    "done",
@@ -797,7 +830,8 @@
    "chán quá",
    "buồn chán",
    "nhạt",
-   "rảnh"
+   "rảnh",
+   "chán vãi"
   ],
   "running_late": [
    "late",
@@ -826,7 +860,8 @@
    "tới liền",
    "đang tới",
    "gấp",
-   "nhanh lên"
+   "nhanh lên",
+   "trễ giờ rồi"
   ],
   "mic_drop": [
    "boom",
@@ -902,7 +937,11 @@
    "trượt",
    "thi rớt",
    "tạch",
-   "rớt môn"
+   "rớt môn",
+   "xu cà na",
+   "fa lâu năm",
+   "bệnh rồi",
+   "tạch rồi"
   ],
   "angry": [
    "angry",
@@ -977,7 +1016,8 @@
    "xin lỗi",
    "lỗi tại tôi",
    "tha lỗi",
-   "thứ lỗi"
+   "thứ lỗi",
+   "xin lỗi nha"
   ],
   "peek": [
    "psst",
@@ -1004,7 +1044,8 @@
    "hế lô",
    "tạm biệt",
    "bai bai",
-   "chào buổi sáng"
+   "chào buổi sáng",
+   "bye bye"
   ],
   "party": [
    "yay",
@@ -1088,7 +1129,8 @@
    "đói meo",
    "thèm ăn",
    "đói quá",
-   "thèm"
+   "thèm",
+   "đói bụng quá"
   ],
   "hug": [
    "hug",
@@ -1120,7 +1162,8 @@
    "chết",
    "ngất",
    "xỉu ngang",
-   "chết mất"
+   "chết mất",
+   "hết cứu"
   ],
   "point": [
    "you",
@@ -1197,7 +1240,8 @@
    "tới liền",
    "đang tới",
    "gấp",
-   "nhanh lên"
+   "nhanh lên",
+   "trễ giờ rồi"
   ],
   "rain_cry": [
    "rain",
@@ -1243,7 +1287,10 @@
    "storm",
    "mưa",
    "mưa quá",
-   "bão"
+   "bão",
+   "xu cà na",
+   "fa lâu năm",
+   "mưa to quá"
   ],
   "glow_up": [
    "glow up",
@@ -1260,7 +1307,10 @@
    "đẹp",
    "xinh quá",
    "đẹp trai",
-   "xinh gái"
+   "xinh gái",
+   "keo lỳ",
+   "xinh xỉu",
+   "đẹp rụng rời"
   ],
   "rose_wink": [
    "flirt",
@@ -1336,7 +1386,8 @@
    "yêu lắm",
    "thương quá",
    "mê",
-   "nhớ quá"
+   "nhớ quá",
+   "muốn yêu"
   ],
   "teary_eyes": [
    "touched",
@@ -1365,7 +1416,8 @@
    "nóng",
    "nóng quá",
    "nực",
-   "oi bức"
+   "oi bức",
+   "lóng mún chớt"
   ],
   "noodle_bath": [
    "noodles",
@@ -1404,7 +1456,9 @@
    "🧋",
    "trà sữa",
    "trà sữa trân châu",
-   "tà tưa"
+   "tà tưa",
+   "thèm trà sữa",
+   "thèm boba"
   ],
   "drool_chicken": [
    "chicken",
@@ -1436,7 +1490,9 @@
    "bánh mì",
    "gà rán",
    "bún",
-   "mì"
+   "mì",
+   "đói bụng quá",
+   "ngon bá cháy"
   ],
   "food_coma": [
    "full",
@@ -1474,7 +1530,8 @@
    "bánh mì",
    "gà rán",
    "bún",
-   "mì"
+   "mì",
+   "ngon bá cháy"
   ],
   "pizza": [
    "pizza",
@@ -1497,7 +1554,8 @@
    "tập gym",
    "tập",
    "cơ bắp",
-   "đi tập"
+   "đi tập",
+   "đang gym"
   ],
   "treadmill_cry": [
    "cardio",
@@ -1540,7 +1598,11 @@
    "xinh",
    "xinh quá",
    "đẹp trai",
-   "xinh gái"
+   "xinh gái",
+   "keo lỳ",
+   "xinh xỉu",
+   "đang gym",
+   "đẹp rụng rời"
   ],
   "yoga_tangle": [
    "yoga",
@@ -1717,7 +1779,8 @@
    "lạnh",
    "lạnh quá",
    "rét",
-   "buốt"
+   "buốt",
+   "lạnh buốt"
   ],
   "xm_gift": [
    "gift",
@@ -1742,7 +1805,8 @@
    "lạnh",
    "lạnh quá",
    "rét",
-   "buốt"
+   "buốt",
+   "lạnh buốt"
   ],
   "xm_snowman": [
    "snow",
@@ -1890,7 +1954,9 @@
    "phát tài",
    "nhận lương",
    "tiền về",
-   "giàu to"
+   "giàu to",
+   "giàu quá",
+   "trúng mánh"
   ],
   "tet_feast": [
    "full",
@@ -1954,7 +2020,8 @@
    "hoảng",
    "hết hồn",
    "sợ hãi",
-   "ghê quá"
+   "ghê quá",
+   "sợ ngang"
   ],
   "hw_candy": [
    "trick or treat",
@@ -2009,7 +2076,8 @@
    "caffeine",
    "cà phê",
    "cf",
-   "bạc xỉu"
+   "bạc xỉu",
+   "đi cf ko"
   ],
   "tra_sua": [
    "tra sua",
@@ -2019,7 +2087,9 @@
    "🧋",
    "trà sữa",
    "trà sữa trân châu",
-   "tà tưa"
+   "tà tưa",
+   "thèm trà sữa",
+   "thèm boba"
   ],
   "scooter": [
    "omw",
@@ -2056,7 +2126,10 @@
    "thư giãn",
    "nghỉ",
    "xả hơi",
-   "cuối tuần"
+   "cuối tuần",
+   "đi chữa lành",
+   "đi nhậu không",
+   "chill phết"
   ],
   "karaoke": [
    "karaoke",
@@ -2083,7 +2156,8 @@
    "xỉn",
    "dô",
    "bia",
-   "say xỉn"
+   "say xỉn",
+   "đi nhậu không"
   ],
   "hammock": [
    "relax",
@@ -2100,7 +2174,9 @@
    "thư giãn",
    "nghỉ",
    "xả hơi",
-   "cuối tuần"
+   "cuối tuần",
+   "đi chữa lành",
+   "chill phết"
   ],
   "oi_doi_oi": [
    "oi doi oi",
@@ -2149,7 +2225,8 @@
    "thôi",
    "khỏi",
    "đừng",
-   "còn lâu"
+   "còn lâu",
+   "chê"
   ],
   "u_la_troi": [
    "u la troi",
@@ -2177,7 +2254,8 @@
    "trượt",
    "thi rớt",
    "tạch",
-   "rớt môn"
+   "rớt môn",
+   "tạch rồi"
   ],
   "qua_da": [
    "qua da",
@@ -2209,7 +2287,9 @@
    "đẳng cấp",
    "tự hào",
    "cháy",
-   "đỉnh chóp"
+   "đỉnh chóp",
+   "ra dẻ",
+   "xịn xò"
   ],
   "censored_finger": [
    "fu",
@@ -2248,7 +2328,8 @@
    "thôi",
    "khỏi",
    "đừng",
-   "còn lâu"
+   "còn lâu",
+   "chê"
   ],
   "eyebrow_wiggle": [
    "wink wink",
@@ -2286,7 +2367,8 @@
    "hài",
    "buồn cười",
    "khà khà",
-   "cười ẻ"
+   "cười ẻ",
+   "vô tri"
   ],
   "innocent_toot": [
    "fart",
@@ -2371,7 +2453,8 @@
    "vâng",
    "chốt",
    "đồng ý",
-   "ừa"
+   "ừa",
+   "okela"
   ],
   "royal_point": [
    "loi ra",
@@ -2471,7 +2554,12 @@
    "stress",
    "toang",
    "nguy rồi",
-   "chết rồi"
+   "chết rồi",
+   "ét o ét",
+   "bất ổn",
+   "gòi xong",
+   "cứu",
+   "nhức nhối"
   ],
   "off_stern": [
    "nghiem tuc",
@@ -2499,7 +2587,8 @@
    "tks",
    "đa tạ",
    "cảm ơn nhiều",
-   "biết ơn"
+   "biết ơn",
+   "cảm ơn nha"
   ],
   "off_hem_beg": [
    "xin tha mang",
@@ -2530,7 +2619,8 @@
    "hoảng",
    "hết hồn",
    "sợ hãi",
-   "ghê quá"
+   "ghê quá",
+   "sợ ngang"
   ],
   "off_tremble_stand": [
    "run so",
@@ -2549,7 +2639,12 @@
    "stress",
    "toang",
    "nguy rồi",
-   "chết rồi"
+   "chết rồi",
+   "ét o ét",
+   "bất ổn",
+   "gòi xong",
+   "cứu",
+   "nhức nhối"
   ],
   "off_faint": [
    "xiu",
@@ -2579,7 +2674,8 @@
    "hóng",
    "tám",
    "kể nghe",
-   "phốt"
+   "phốt",
+   "hóng phốt"
   ],
   "off_present": [
    "tâu",
@@ -2685,7 +2781,10 @@
    "điêu",
    "thật không",
    "xạo ke",
-   "nói phét"
+   "nói phét",
+   "thao túng tâm lý",
+   "ghen tị ghê",
+   "nghi ngờ nhân sinh"
   ],
   "qm_throne_tea": [
    "ai gia",
@@ -2732,7 +2831,8 @@
    "xin lỗi",
    "lỗi tại tôi",
    "tha lỗi",
-   "thứ lỗi"
+   "thứ lỗi",
+   "xin lỗi nha"
   ],
   "sale_offer": [
    "kinh dang",
