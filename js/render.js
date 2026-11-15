@@ -2,7 +2,7 @@
 // bubble holding the text. A port of the keyboard app's StickerRenderer.java.
 import { placeProp, placeSide } from './engine.js';
 
-export const MAX_CHARS = 40;
+export const MAX_CHARS = 60;
 const INK = '#2A2024', WHITE = '#FFFFFF', MAX_LINES = 3;
 export const FONT = 'Baloo2Popchi';
 
