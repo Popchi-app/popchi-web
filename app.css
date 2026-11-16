@@ -173,6 +173,7 @@ textarea:focus { border-color: var(--plum); outline: none; }
 .foot p { margin: 4px 0; }
 .foot a { color: var(--plum); }
 .smart { font-weight: 600; }
+.smart.tappable { cursor: pointer; text-decoration: underline; }
 
 /* sheets */
 dialog.sheet {

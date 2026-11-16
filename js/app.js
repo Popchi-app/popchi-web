@@ -27,6 +27,15 @@ const store = {
   set(k, v) { try { localStorage.setItem('popchi.' + k, JSON.stringify(v)); } catch { /* private mode */ } },
 };
 
+// Test mode shows the plans and the "Pretend I'm Pro" switch. Open popchi.app/?test=1 once to turn it
+// on for this browser, ?test=0 to turn it off. Visitors never see any of it.
+const TEST = (() => {
+  const q = new URLSearchParams(location.search).get('test');
+  if (q === '1') store.set('testMode', true);
+  if (q === '0') { store.set('testMode', false); store.set('pro', false); }
+  return store.get('testMode', false);
+})();
+
 // ------------------------------------------------------------------ words for the interface
 const T = {
   en: {
@@ -65,6 +74,7 @@ const T = {
     smartLoading: 'Smart matching is loading ({p}%, a one-time 35 MB download). Word matching works already.',
     smartOn: 'Smart matching is on, right here on your phone.',
     smartOff: 'Smart matching couldn’t start on this browser. Word matching still works.',
+    smartSaveData: 'Your phone is set to save data, so smart matching (a one-time 35 MB download) is off. Tap here to turn it on.',
     onPro: "You're on Pro (test mode).", onFree: "You're on Free.",
     w1t: 'You type. They act.', w1p: 'Your words, their drama, one speech bubble.',
     w2t: 'Send it anywhere', w2p: 'Messenger, Zalo, Telegram, iMessage. Hit Send, pick the chat.',
@@ -78,6 +88,7 @@ const T = {
     createTitle: 'Create', makeOwn: 'Make your own character',
     makeOwnText: 'Turn a selfie or a few choices into a full set of stickers that look like you, with a Tết set and outfits for your occasions.',
     makeOwnWhere: 'In the Android app now (Pro, test mode). Coming to the web.', getAndroid: 'Get the Android app',
+    makeOwnSoon: 'Coming in 2027, in the app and on the web.',
     seePlans: 'See plans', settingsTitle: 'Settings', language: 'Language', stickersSection: 'Stickers',
     cleanLong: 'Keep it clean: hide swear words in bubbles', movingLong: 'Moving stickers (GIF)',
     packsRow: 'Packs you make and share', planSection: 'Plan', planRow: 'See plans. No real payments yet.',
@@ -189,6 +200,7 @@ const T = {
     smartLoading: 'Đang tải AI hiểu ngữ nghĩa ({p}%, tải 1 lần duy nhất 35 MB). Trong lúc chờ vẫn xài bình thường nha.',
     smartOn: 'AI hiểu ngữ nghĩa đang chạy mượt trên máy bạn.',
     smartOff: 'Trình duyệt này hông chạy được AI hiểu ngữ nghĩa. Nhận diện từ khoá vẫn hoạt động bình thường.',
+    smartSaveData: 'Máy bạn đang bật tiết kiệm dữ liệu nên AI hiểu ngữ nghĩa (tải 1 lần 35 MB) đang tắt. Chạm vào đây để bật.',
     onPro: 'Bạn đang xài Pro (bản test).',
     onFree: 'Bạn đang xài bản Free.',
     w1t: 'Bạn gõ, cả đám diễn',
@@ -214,6 +226,7 @@ const T = {
     makeOwn: 'Nặn chibi của riêng bạn',
     makeOwnText: 'Up cái selfie là có ngay bộ sticker y xì đúc bạn, lên đồ cho mọi dịp lễ Tết luôn.',
     makeOwnWhere: 'Đã lên sóng app Android (Pro, bản test). Web thì ráng đợi xíu nha.',
+    makeOwnSoon: 'Sắp ra mắt năm 2027, trên cả app lẫn web.',
     getAndroid: 'Tải app Android',
     seePlans: 'Xem các gói',
     settingsTitle: 'Cài đặt',
@@ -1324,9 +1337,19 @@ function checkSharedLink() {
 // ------------------------------------------------------------------ smart matching
 let meaningStarted = false;
 /** Loads the model the first time the person types, so a quick visit doesn't download 35 MB. */
-function wantMeaning() {
+function wantMeaning(force) {
   if (meaningStarted) return;
+  const conn = navigator.connection;
+  if (!force && conn && conn.saveData) {
+    // the phone asked to save data: say so, and load only when the person taps the line
+    const smart = $('smart');
+    smart.textContent = t('smartSaveData');
+    smart.classList.add('tappable');
+    smart.onclick = () => { smart.classList.remove('tappable'); smart.onclick = null; wantMeaning(true); };
+    return;
+  }
   meaningStarted = true;
+  startMeaning().catch(() => { $('smart').textContent = t('smartOff'); });
 }
 async function startMeaning() {
   const ort = await import('../vendor/ort/ort.wasm.min.mjs');
@@ -1512,7 +1535,7 @@ async function main() {
   state.themes = themes.themes;
   state.heads = heads;
   for (const tags of Object.values(data.tags)) for (const tg of tags) for (const w of normalize(tg).split(' ')) if (w.length > 1) state.tagWords.add(w);
-  state.lib = new Library(data, propsData, heads, store.get('pro', false));
+  state.lib = new Library(data, propsData, heads, TEST && store.get('pro', false));
   state.lib.setPacks(myPacks());
   await loadMine();
   state.lib.select(store.get('character', ALL_ID));
@@ -1575,6 +1598,15 @@ async function main() {
   for (const b of document.querySelectorAll('[data-tab]')) b.addEventListener('click', () => showTab(b.dataset.tab));
   $('create-plans').addEventListener('click', openPlans);
   $('settings-plans').addEventListener('click', openPlans);
+  if (!TEST) {
+    // before launch: no plans, no prices, no "pretend I'm Pro"
+    $('create-plans').hidden = true;
+    const plans = $('settings-plans').closest('.card-list');
+    plans.previousElementSibling.hidden = true; // the "Plan" heading
+    plans.hidden = true;
+    for (const el of document.querySelectorAll('[data-i18n="makeOwnWhere"]')) el.dataset.i18n = 'makeOwnSoon';
+    applyLang();
+  }
   $('plans-dialog').addEventListener('close', () => { if (!$('tab-settings').hidden) renderSettings(); });
   $('moving-default').addEventListener('change', (e) => {
     state.moving = e.target.checked;
@@ -1637,7 +1669,7 @@ async function main() {
   onType();
   if (location.hash.startsWith('#pack=')) checkSharedLink();
   else if (!store.get('welcomed', false)) openHelp();
-  startMeaning().catch(() => { $('smart').textContent = t('smartOff'); });
+  if (($('msg').value || '').trim()) wantMeaning(); // the browser restored typed words
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
